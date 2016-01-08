@@ -52,18 +52,31 @@
         </member>
         <member name="M:API.Endpoints.Users.UsersController.GetUser(System.String)">
             <summary>
-            Get User By Id
+            Get a user by his GUID
             </summary>
-            <param name="id">User Identifier</param>
-            <returns>Detailed Information from the user</returns>
+            <param name="id">User GUID</param>
+            <returns>Detailed Information from the User</returns>
         </member>
-        <member name="M:API.Endpoints.Users.UsersController.GetUserById(System.Guid,API.Endpoints.Users.Models.NewUser)">
+        <member name="M:API.Endpoints.Users.UsersController.GetUserById(System.Guid)">
             <summary>
-            Follow User
+            Follow a user by his GUID
+            </summary>
+            <param name="id">User GUID</param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Endpoints.Users.UsersController.GetUserFollowing(System.Guid)">
+            <summary>
+            Get all the Followings from this user
+            </summary>
+            <param name="id">User GUID</param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Endpoints.Users.UsersController.GetUserFollers(System.Guid)">
+            <summary>
+            
             </summary>
             <param name="id">User Identifier</param>
-            <param name="newuser">New User</param>
-            <returns></returns>
+            <returns>Followers</returns>
         </member>
         <member name="T:API.Errors">
             <summary>
