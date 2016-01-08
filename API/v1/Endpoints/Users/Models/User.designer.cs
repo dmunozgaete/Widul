@@ -9,7 +9,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace API.Endpoints.HelloWorld.Models
+namespace API.Endpoints.Users.Models
 {
 	using System.Data.Linq;
 	using System.Data.Linq.Mapping;
@@ -22,7 +22,7 @@ namespace API.Endpoints.HelloWorld.Models
 	using System;
 	
 	
-	public partial class HelloWorldDataContext : System.Data.Linq.DataContext
+	public partial class UserDataContext : System.Data.Linq.DataContext
 	{
 		
 		private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
@@ -31,79 +31,97 @@ namespace API.Endpoints.HelloWorld.Models
     partial void OnCreated();
     #endregion
 		
-		public HelloWorldDataContext(string connection) : 
+		public UserDataContext(string connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public HelloWorldDataContext(System.Data.IDbConnection connection) : 
+		public UserDataContext(System.Data.IDbConnection connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public HelloWorldDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public UserDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public HelloWorldDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public UserDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<HelloWorld> HelloWorlds
+		public System.Data.Linq.Table<NewUser> NewUsers
 		{
 			get
 			{
-				return this.GetTable<HelloWorld>();
+				return this.GetTable<NewUser>();
 			}
 		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="")]
-	public partial class HelloWorld
+	public partial class NewUser
 	{
 		
-		private string _name;
+		private string _nane;
 		
-		private string _country;
+		private string _lastname;
 		
-		public HelloWorld()
+		private int _age;
+		
+		public NewUser()
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", CanBeNull=false)]
-		public string name
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nane", CanBeNull=false)]
+		public string nane
 		{
 			get
 			{
-				return this._name;
+				return this._nane;
 			}
 			set
 			{
-				if ((this._name != value))
+				if ((this._nane != value))
 				{
-					this._name = value;
+					this._nane = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_country", CanBeNull=false)]
-		public string country
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lastname", CanBeNull=false)]
+		public string lastname
 		{
 			get
 			{
-				return this._country;
+				return this._lastname;
 			}
 			set
 			{
-				if ((this._country != value))
+				if ((this._lastname != value))
 				{
-					this._country = value;
+					this._lastname = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_age")]
+		public int age
+		{
+			get
+			{
+				return this._age;
+			}
+			set
+			{
+				if ((this._age != value))
+				{
+					this._age = value;
 				}
 			}
 		}

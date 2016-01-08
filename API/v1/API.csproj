@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>API</RootNamespace>
     <AssemblyName>API</AssemblyName>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -41,6 +41,10 @@
       <HintPath>..\..\Gale\bin\Debug\Gale.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\MotoApp\API\v1\bin\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="RazorTemplates.Core, Version=1.2.0.0, Culture=neutral, PublicKeyToken=f2e65d6ca1d2b4cd, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\RazorTemplates.1.2.0\lib\RazorTemplates.Core.dll</HintPath>
@@ -74,9 +78,6 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System.Net.Http.Formatting">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
@@ -105,22 +106,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Endpoints\HelloWorld\HelloWorldController.cs" />
-    <Compile Include="Endpoints\HelloWorld\Models\HelloWorld.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HelloWorld.dbml</DependentUpon>
-    </Compile>
     <Compile Include="Endpoints\SimpleAuthentication\Models\SimpleAuthentication.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SimpleAuthentication.dbml</DependentUpon>
     </Compile>
     <Compile Include="Endpoints\SimpleAuthentication\Services\Authenticate.cs" />
-    <Compile Include="Endpoints\HelloWorld\Services\Get.cs" />
-    <Compile Include="Endpoints\HelloWorld\Services\Post.cs" />
-    <Compile Include="Endpoints\HelloWorld\Services\Put.cs" />
     <Compile Include="Endpoints\SimpleAuthentication\SimpleAuthenticationController.cs" />
+    <Compile Include="Endpoints\Users\Models\User.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>User.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Endpoints\Users\UsersController.cs" />
     <Compile Include="Errors.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -133,14 +131,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <Content Include="Endpoints\HelloWorld\Models\HelloWorld.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>HelloWorld.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="Endpoints\SimpleAuthentication\Models\SimpleAuthentication.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>SimpleAuthentication.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Endpoints\Users\Models\User.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>User.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
     <None Include="Properties\PublishProfiles\QAS_Valentys.pubxml" />
@@ -158,6 +156,9 @@
   <ItemGroup>
     <None Include="Endpoints\SimpleAuthentication\Models\SimpleAuthentication.dbml.layout">
       <DependentUpon>SimpleAuthentication.dbml</DependentUpon>
+    </None>
+    <None Include="Endpoints\Users\Models\User.dbml.layout">
+      <DependentUpon>User.dbml</DependentUpon>
     </None>
     <EmbeddedResource Include="Errors.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -184,7 +185,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>0</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:4975/</IISUrl>
+          <IISUrl>http://localhost/API</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
@@ -201,9 +202,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <ItemGroup>
-    <None Include="Endpoints\HelloWorld\Models\HelloWorld.dbml.layout">
-      <DependentUpon>HelloWorld.dbml</DependentUpon>
-    </None>
-  </ItemGroup>
 </Project>
