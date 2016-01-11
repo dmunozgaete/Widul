@@ -15,6 +15,73 @@
             </summary>
             <param name="config"></param>
         </member>
+        <member name="M:API.Endpoints.Events.EventsController.JoinEvent(System.String)">
+            <summary>
+            Join to a Event by its GUID
+            </summary>
+            <param name="id">Event GUID</param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Endpoints.Events.EventsController.LeftEvent(System.String)">
+            <summary>
+            Left a Event by its GUID
+            </summary>
+            <param name="id">Event GUID</param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Endpoints.Events.EventsController.GetEventsByTag(System.String)">
+            <summary>
+            Search all Events by a specific tag
+            </summary>
+            <param name="tag">Tag</param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Endpoints.Events.EventsController.GetEventsBySearch(System.String)">
+            <summary>
+            Search events by query
+            </summary>
+            <param name="query"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Endpoints.Events.EventsController.GetAllEvents">
+            <summary>
+            Get all Events
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:API.Endpoints.Events.EventsController.GetRecommendedEvents">
+            <summary>
+            Get Recommended Events
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:API.Endpoints.Events.EventsController.GetEvent(System.String)">
+            <summary>
+            Get Event information by its GUID
+            </summary>
+            <param name="id">Event GUID</param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Endpoints.Events.EventsController.CreateEvent">
+            <summary>
+            Create a new Event
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:API.Endpoints.Events.EventsController.EditEvent(System.String)">
+            <summary>
+            Edit Event by its GUID
+            </summary>
+            <param name="id">Event GUID</param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Endpoints.Events.EventsController.DeleteEvent(System.String)">
+            <summary>
+            Delete Event by its GUID
+            </summary>
+            <param name="id">Event GUID</param>
+            <returns></returns>
+        </member>
         <member name="T:API.Endpoints.SimpleAuthentication.Services.Authenticate">
             <summary>
             Simple Authentication Service
@@ -52,31 +119,82 @@
         </member>
         <member name="M:API.Endpoints.Users.UsersController.GetUser(System.String)">
             <summary>
-            Get a user by his GUID
-            </summary>
-            <param name="id">User GUID</param>
-            <returns>Detailed Information from the User</returns>
-        </member>
-        <member name="M:API.Endpoints.Users.UsersController.GetUserById(System.Guid)">
-            <summary>
-            Follow a user by his GUID
+            Get user information by its GUID
             </summary>
             <param name="id">User GUID</param>
             <returns></returns>
         </member>
+        <member name="M:API.Endpoints.Users.UsersController.CreateUser">
+            <summary>
+            Create a User
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:API.Endpoints.Users.UsersController.EditUser(System.String)">
+            <summary>
+            Edit a User by its GUID
+            </summary>
+            <param name="id">User GUID</param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Endpoints.Users.UsersController.DeleteUser(System.String)">
+            <summary>
+            Delete a user by its GUID
+            </summary>
+            <param name="id">User GUID</param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Endpoints.Users.UsersController.FollowUserById(System.Guid)">
+            <summary>
+            Follow a user by its GUID
+            </summary>
+            <param name="id">User GUID</param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Endpoints.Users.UsersController.UnfollowUserById(System.Guid)">
+            <summary>
+            Unfollow a user by its GUID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="M:API.Endpoints.Users.UsersController.GetUserFollowing(System.Guid)">
             <summary>
-            Get all the Followings from this user
+            Get all the following users from this user
             </summary>
             <param name="id">User GUID</param>
             <returns></returns>
         </member>
         <member name="M:API.Endpoints.Users.UsersController.GetUserFollers(System.Guid)">
             <summary>
-            
+            Get all the followers from this user
             </summary>
             <param name="id">User Identifier</param>
-            <returns>Followers</returns>
+            <returns></returns>
+        </member>
+        <member name="M:API.Endpoints.Users.UsersController.GetActualUser">
+            <summary>
+            Get the current user
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:API.Endpoints.Users.UsersController.GetActualUserFollowing">
+            <summary>
+            Get the following users from current user
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:API.Endpoints.Users.UsersController.GetActualUserFollowers">
+            <summary>
+            Get the followers from current user
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:API.Endpoints.Users.UsersController.GetCurrentUserNotifications">
+            <summary>
+            Get notifications from current user
+            </summary>
+            <returns></returns>
         </member>
         <member name="T:API.Errors">
             <summary>

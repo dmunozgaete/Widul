@@ -14,28 +14,66 @@ namespace API.Endpoints.Users
     public class UsersController : Gale.REST.RestController
     {
         /// <summary>
-        /// Get user information by his GUID
+        /// Get user information by its GUID
         /// </summary>
         /// <param name="id">User GUID</param>
-        /// <returns>User information</returns>
+        /// <returns></returns>
         
         [HttpGet]
         [HierarchicalRoute("/{id:Guid}")]
         public String GetUser(String id)
         {
-            return "USER INFORMATION";
+            return "GET USER";
         }
 
         /// <summary>
-        /// Follow a user by his GUID
+        /// Create a User
+        /// </summary>
+        /// <returns></returns>
+
+        [HttpPost]
+        [HierarchicalRoute("/")]
+        public String CreateUser()
+        {
+            return "CREATE USER";
+        }
+
+        /// <summary>
+        /// Edit a User by its GUID
         /// </summary>
         /// <param name="id">User GUID</param>
-        /// <returns>Response</returns>
-        
+        /// <returns></returns>
+
+        [HttpPut]
+        [HierarchicalRoute("/{id:Guid}")]
+        public String EditUser(String id)
+        {
+            return "EDIT USER";
+        }
+
+        /// <summary>
+        /// Delete a user by its GUID
+        /// </summary>
+        /// <param name="id">User GUID</param>
+        /// <returns></returns>
+
+        [HttpDelete]
+        [HierarchicalRoute("/{id:Guid}")]
+        public String DeleteUser(String id)
+        {
+            return "DELETE USER";
+        }
+
+        /// <summary>
+        /// Follow a user by its GUID
+        /// </summary>
+        /// <param name="id">User GUID</param>
+        /// <returns></returns>
+
         [HttpPost]
         [HierarchicalRoute("/{id:Guid}/Follow")]
         [Gale.Security.Oauth.Jwt.Authorize]
-        public String GetUserById(Guid id)
+        public String FollowUserById(Guid id)
         {
 
             var me = this.User.PrimarySid();
@@ -43,6 +81,25 @@ namespace API.Endpoints.Users
             var userToFollow = id;
 
             return "USER:" + userToFollow + "SUCCESSFULLY FOLLOWED BY USER:" + me;
+        }
+
+        /// <summary>
+        /// Unfollow a user by its GUID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+
+        [HttpPut]
+        [HierarchicalRoute("/{id:Guid}/Unfollow")]
+        [Gale.Security.Oauth.Jwt.Authorize]
+        public String UnfollowUserById(Guid id)
+        {
+
+            var me = this.User.PrimarySid();
+
+            var userToUnfollow = id;
+
+            return "USER:" + userToUnfollow + "SUCCESSFULLY UNFOLLOWED BY USER:" + me;
         }
 
         /// <summary>
@@ -62,7 +119,7 @@ namespace API.Endpoints.Users
         /// Get all the followers from this user
         /// </summary>
         /// <param name="id">User Identifier</param>
-        /// <returns>Followers</returns>
+        /// <returns></returns>
         
         [HttpGet]
         [HierarchicalRoute("/{id:Guid}/Followers")]
@@ -72,7 +129,7 @@ namespace API.Endpoints.Users
         }
 
         /// <summary>
-        /// Get current user
+        /// Get the current user
         /// </summary>
         /// <returns></returns>
         
@@ -88,7 +145,7 @@ namespace API.Endpoints.Users
         }
 
         /// <summary>
-        /// Get following users from current user
+        /// Get the following users from current user
         /// </summary>
         /// <returns></returns>
         [HttpGet]
@@ -103,7 +160,7 @@ namespace API.Endpoints.Users
         }
 
         /// <summary>
-        /// Get followers from current user
+        /// Get the followers from current user
         /// </summary>
         /// <returns></returns>
         [HttpGet]
@@ -120,7 +177,7 @@ namespace API.Endpoints.Users
         /// <summary>
         /// Get notifications from current user
         /// </summary>
-        /// <returns>Current user notifications</returns>
+        /// <returns></returns>
         [HttpGet]
         [HierarchicalRoute("/Me/Notifications")]
         [Gale.Security.Oauth.Jwt.Authorize]

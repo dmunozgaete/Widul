@@ -16,6 +16,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -106,6 +107,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Endpoints\Events\EventsController.cs" />
     <Compile Include="Endpoints\SimpleAuthentication\Models\SimpleAuthentication.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
