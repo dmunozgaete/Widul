@@ -89,8 +89,8 @@ namespace API.Endpoints.Users
         /// <param name="id"></param>
         /// <returns></returns>
 
-        [HttpPut]
-        [HierarchicalRoute("/{id:Guid}/Unfollow")]
+        [HttpDelete]
+        [HierarchicalRoute("/{id:Guid}/Follow")]
         [Gale.Security.Oauth.Jwt.Authorize]
         public String UnfollowUserById(Guid id)
         {

@@ -30,8 +30,8 @@ namespace API.Endpoints.Events
         /// <returns></returns>
 
 
-        [HttpPut]
-        [HierarchicalRoute("/{id:Guid}/Left")]
+        [HttpDelete]
+        [HierarchicalRoute("/{id:Guid}/Join")]
         [Gale.Security.Oauth.Jwt.Authorize]
         public String LeftEvent(String id)
         {
