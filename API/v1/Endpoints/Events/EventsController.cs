@@ -11,7 +11,6 @@ namespace API.Endpoints.Events
     /// </summary>
     public class EventsController : Gale.REST.RestController
     {
-      
         #region EVENT
 
         /// <summary>
@@ -152,6 +151,29 @@ namespace API.Endpoints.Events
             return new Gale.REST.Http.HttpQueryableActionResult<Models.TB_EventType>(this.Request);
         }
 
+
+        #endregion
+
+
+        #region COMMENTS 
+        /// <summary>
+        /// Get Event Types
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [HierarchicalRoute("/Comments")]
+        public IHttpActionResult GetEventComments()
+        {
+            return new Gale.REST.Http.HttpQueryableActionResult<Models.TB_EventComment>(this.Request);
+        }
+
+
+        [HttpPost]
+        [HierarchicalRoute("/{id:Guid}/Comments")]
+        public IHttpActionResult CreateComment(Guid id, Models.NewComment comment)
+        {
+            throw new NotImplementedException();
+        }
 
         #endregion
     }

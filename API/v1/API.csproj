@@ -108,6 +108,11 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Endpoints\Events\EventsController.cs" />
+    <Compile Include="Endpoints\Events\Models\Comments.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Comments.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Endpoints\Events\Models\EventTypes.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -154,6 +159,11 @@
       <LastGenOutput>EventTypes.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Endpoints\Events\Models\Comments.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Comments.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Properties\PublishProfiles\QAS_Valentys.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -175,6 +185,9 @@
     </None>
     <None Include="Endpoints\Events\Models\EventTypes.dbml.layout">
       <DependentUpon>EventTypes.dbml</DependentUpon>
+    </None>
+    <None Include="Endpoints\Events\Models\Comments.dbml.layout">
+      <DependentUpon>Comments.dbml</DependentUpon>
     </None>
     <EmbeddedResource Include="Errors.resx">
       <Generator>ResXFileCodeGenerator</Generator>

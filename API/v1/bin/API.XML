@@ -93,6 +93,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:API.Endpoints.Events.EventsController.GetEventComments">
+            <summary>
+            Get Event Types
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:API.Endpoints.Events.Services.EventTypes.Get">
             <summary>
             Get Events Types
