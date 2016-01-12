@@ -15,6 +15,11 @@
             </summary>
             <param name="config"></param>
         </member>
+        <member name="T:API.Endpoints.Events.EventsController">
+            <summary>
+            Event Controller
+            </summary>
+        </member>
         <member name="M:API.Endpoints.Events.EventsController.JoinEvent(System.String)">
             <summary>
             Join to a Event by its GUID
@@ -81,6 +86,17 @@
             </summary>
             <param name="id">Event GUID</param>
             <returns></returns>
+        </member>
+        <member name="M:API.Endpoints.Events.EventsController.GetEventTypes">
+            <summary>
+            Get Event Types
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:API.Endpoints.Events.Services.EventTypes.Get">
+            <summary>
+            Get Events Types
+            </summary>
         </member>
         <member name="T:API.Endpoints.SimpleAuthentication.Services.Authenticate">
             <summary>

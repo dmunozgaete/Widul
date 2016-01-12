@@ -6,15 +6,19 @@ using System.Web.Http;
 
 namespace API.Endpoints.Events
 {
+    /// <summary>
+    /// Event Controller
+    /// </summary>
     public class EventsController : Gale.REST.RestController
     {
+      
+        #region EVENT
 
         /// <summary>
         /// Join to a Event by its GUID
         /// </summary>
         /// <param name="id">Event GUID</param>
         /// <returns></returns>
-
         [HttpPost]
         [HierarchicalRoute("/{id:Guid}/Join")]
         [Gale.Security.Oauth.Jwt.Authorize]
@@ -28,8 +32,6 @@ namespace API.Endpoints.Events
         /// </summary>
         /// <param name="id">Event GUID</param>
         /// <returns></returns>
-
-
         [HttpDelete]
         [HierarchicalRoute("/{id:Guid}/Join")]
         [Gale.Security.Oauth.Jwt.Authorize]
@@ -43,7 +45,6 @@ namespace API.Endpoints.Events
         /// </summary>
         /// <param name="tag">Tag</param>
         /// <returns></returns>
-
         [HttpGet]
         [HierarchicalRoute("/Tag/{tag}")]
         public String GetEventsByTag(String tag)
@@ -56,7 +57,6 @@ namespace API.Endpoints.Events
         /// </summary>
         /// <param name="query"></param>
         /// <returns></returns>
-
         [HttpGet]
         [HierarchicalRoute("/Search/{query}")]
         public String GetEventsBySearch(String query)
@@ -68,7 +68,6 @@ namespace API.Endpoints.Events
         /// Get all Events
         /// </summary>
         /// <returns></returns>
-
         [HttpGet]
         [HierarchicalRoute("/All")]
         public String GetAllEvents()
@@ -80,7 +79,6 @@ namespace API.Endpoints.Events
         /// Get Recommended Events
         /// </summary>
         /// <returns></returns>
-
         [HttpGet]
         [HierarchicalRoute("/Recommended")]
         public String GetRecommendedEvents()
@@ -104,7 +102,6 @@ namespace API.Endpoints.Events
         /// Create a new Event
         /// </summary>
         /// <returns></returns>
-
         [HttpPost]
         [HierarchicalRoute("/")]
         [Gale.Security.Oauth.Jwt.Authorize]
@@ -118,7 +115,6 @@ namespace API.Endpoints.Events
         /// </summary>
         /// <param name="id">Event GUID</param>
         /// <returns></returns>
-
         [HttpPut]
         [HierarchicalRoute("/{id:Guid}")]
         [Gale.Security.Oauth.Jwt.Authorize]
@@ -132,7 +128,6 @@ namespace API.Endpoints.Events
         /// </summary>
         /// <param name="id">Event GUID</param>
         /// <returns></returns>
-
         [HttpDelete]
         [HierarchicalRoute("/{id:Guid}")]
         [Gale.Security.Oauth.Jwt.Authorize]
@@ -142,5 +137,22 @@ namespace API.Endpoints.Events
         }
 
 
+        #endregion
+
+        #region EVENT TYPES 
+
+        /// <summary>
+        /// Get Event Types
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [HierarchicalRoute("/Types")]
+        public IHttpActionResult GetEventTypes()
+        {
+            return new Gale.REST.Http.HttpQueryableActionResult<Models.TB_EventType>(this.Request);
+        }
+
+
+        #endregion
     }
 }
