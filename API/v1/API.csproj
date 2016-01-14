@@ -113,12 +113,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Comments.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Endpoints\Events\Models\Events.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Events.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Endpoints\Events\Models\EventTypes.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EventTypes.dbml</DependentUpon>
     </Compile>
-    <Compile Include="Endpoints\Events\Services\EventTypes\Get.cs" />
+    <Compile Include="Endpoints\Events\Services\Create.cs" />
+    <Compile Include="Endpoints\Events\Services\Get.cs" />
     <Compile Include="Endpoints\SimpleAuthentication\Models\SimpleAuthentication.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -164,6 +170,11 @@
       <LastGenOutput>Comments.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Endpoints\Events\Models\Events.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Events.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Properties\PublishProfiles\QAS_Valentys.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -188,6 +199,9 @@
     </None>
     <None Include="Endpoints\Events\Models\Comments.dbml.layout">
       <DependentUpon>Comments.dbml</DependentUpon>
+    </None>
+    <None Include="Endpoints\Events\Models\Events.dbml.layout">
+      <DependentUpon>Events.dbml</DependentUpon>
     </None>
     <EmbeddedResource Include="Errors.resx">
       <Generator>ResXFileCodeGenerator</Generator>

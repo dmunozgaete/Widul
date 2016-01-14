@@ -14,6 +14,66 @@ namespace API.Endpoints.Events
         #region EVENT
 
         /// <summary>
+        /// Get all Events
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public IHttpActionResult Get()
+        {
+            return new Gale.REST.Http.HttpQueryableActionResult<Models.VW_Event>(this.Request);
+        }
+
+        /// <summary>
+        /// Get Event Details
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public IHttpActionResult Get(Guid id)
+        {
+            return new Services.Get(id.ToString());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="newEvent"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public IHttpActionResult Post(Models.NewEvent newEvent){
+
+            return new Services.Create(newEvent);
+        }
+        #endregion
+
+        #region --> COMMENTS
+      
+        [HttpPost]
+        [HierarchicalRoute("/{id:Guid}/Comments")]
+        public IHttpActionResult CreateComment(Guid id, Models.NewComment comment)
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
+
+        #region --> SEARCH
+
+        /// <summary>
+        /// Search all Events by queries
+        /// </summary>
+        /// <param name="query">Query</param>
+        /// <returns></returns>
+        [HttpGet]
+        [HierarchicalRoute("/Search/{query}")]
+        public String SearchEvent(String query)
+        {
+            return "EVENTS BY TAG";
+        }
+
+        #endregion
+
+        #region --> JOIN
+        /// <summary>
         /// Join to a Event by its GUID
         /// </summary>
         /// <param name="id">Event GUID</param>
@@ -37,142 +97,6 @@ namespace API.Endpoints.Events
         public String LeftEvent(String id)
         {
             return "LEFT";
-        }
-
-        /// <summary>
-        /// Search all Events by a specific tag
-        /// </summary>
-        /// <param name="tag">Tag</param>
-        /// <returns></returns>
-        [HttpGet]
-        [HierarchicalRoute("/Tag/{tag}")]
-        public String GetEventsByTag(String tag)
-        {
-            return "EVENTS BY TAG";
-        }
-
-        /// <summary>
-        /// Search events by query
-        /// </summary>
-        /// <param name="query"></param>
-        /// <returns></returns>
-        [HttpGet]
-        [HierarchicalRoute("/Search/{query}")]
-        public String GetEventsBySearch(String query)
-        {
-            return "EVENTS BY SEARCH";
-        }
-
-        /// <summary>
-        /// Get all Events
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet]
-        [HierarchicalRoute("/All")]
-        public String GetAllEvents()
-        {
-            return "ALL EVENTS";
-        }
-
-        /// <summary>
-        /// Get Recommended Events
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet]
-        [HierarchicalRoute("/Recommended")]
-        public String GetRecommendedEvents()
-        {
-            return "RECOMMENDED EVENTS";
-        }
-
-        /// <summary>
-        /// Get Event information by its GUID
-        /// </summary>
-        /// <param name="id">Event GUID</param>
-        /// <returns></returns>
-        [HttpGet]
-        [HierarchicalRoute("/{id:Guid}")]
-        public String GetEvent(String id)
-        {
-            return "SINGLE EVENT INFORMATION";
-        }
-
-        /// <summary>
-        /// Create a new Event
-        /// </summary>
-        /// <returns></returns>
-        [HttpPost]
-        [HierarchicalRoute("/")]
-        [Gale.Security.Oauth.Jwt.Authorize]
-        public String CreateEvent()
-        {
-            return "EVENT CREATED";
-        }
-
-        /// <summary>
-        /// Edit Event by its GUID
-        /// </summary>
-        /// <param name="id">Event GUID</param>
-        /// <returns></returns>
-        [HttpPut]
-        [HierarchicalRoute("/{id:Guid}")]
-        [Gale.Security.Oauth.Jwt.Authorize]
-        public String EditEvent(String id)
-        {
-            return "EVENT UPDATED";
-        }
-
-        /// <summary>
-        /// Delete Event by its GUID
-        /// </summary>
-        /// <param name="id">Event GUID</param>
-        /// <returns></returns>
-        [HttpDelete]
-        [HierarchicalRoute("/{id:Guid}")]
-        [Gale.Security.Oauth.Jwt.Authorize]
-        public String DeleteEvent(String id)
-        {
-            return "EVENT DELETED";
-        }
-
-
-        #endregion
-
-        #region EVENT TYPES 
-
-        /// <summary>
-        /// Get Event Types
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet]
-        [HierarchicalRoute("/Types")]
-        public IHttpActionResult GetEventTypes()
-        {
-            return new Gale.REST.Http.HttpQueryableActionResult<Models.TB_EventType>(this.Request);
-        }
-
-
-        #endregion
-
-
-        #region COMMENTS 
-        /// <summary>
-        /// Get Event Types
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet]
-        [HierarchicalRoute("/Comments")]
-        public IHttpActionResult GetEventComments()
-        {
-            return new Gale.REST.Http.HttpQueryableActionResult<Models.TB_EventComment>(this.Request);
-        }
-
-
-        [HttpPost]
-        [HierarchicalRoute("/{id:Guid}/Comments")]
-        public IHttpActionResult CreateComment(Guid id, Models.NewComment comment)
-        {
-            throw new NotImplementedException();
         }
 
         #endregion

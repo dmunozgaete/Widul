@@ -20,6 +20,32 @@
             Event Controller
             </summary>
         </member>
+        <member name="M:API.Endpoints.Events.EventsController.Get">
+            <summary>
+            Get all Events
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:API.Endpoints.Events.EventsController.Get(System.Guid)">
+            <summary>
+            Get Event Details
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:API.Endpoints.Events.EventsController.Post(API.Endpoints.Events.Models.NewEvent)">
+            <summary>
+            
+            </summary>
+            <param name="newEvent"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Endpoints.Events.EventsController.SearchEvent(System.String)">
+            <summary>
+            Search all Events by queries
+            </summary>
+            <param name="query">Query</param>
+            <returns></returns>
+        </member>
         <member name="M:API.Endpoints.Events.EventsController.JoinEvent(System.String)">
             <summary>
             Join to a Event by its GUID
@@ -34,74 +60,27 @@
             <param name="id">Event GUID</param>
             <returns></returns>
         </member>
-        <member name="M:API.Endpoints.Events.EventsController.GetEventsByTag(System.String)">
+        <member name="T:API.Endpoints.Events.Services.Create">
             <summary>
-            Search all Events by a specific tag
+            
             </summary>
-            <param name="tag">Tag</param>
+        </member>
+        <member name="M:API.Endpoints.Events.Services.Create.#ctor(API.Endpoints.Events.Models.NewEvent)">
+            <summary>
+            
+            </summary>
+            <param name="newEvent"></param>
+        </member>
+        <member name="M:API.Endpoints.Events.Services.Create.ExecuteAsync(System.Threading.CancellationToken)">
+            <summary>
+            
+            </summary>
+            <param name="cancellationToken"></param>
             <returns></returns>
         </member>
-        <member name="M:API.Endpoints.Events.EventsController.GetEventsBySearch(System.String)">
+        <member name="T:API.Endpoints.Events.Services.Get">
             <summary>
-            Search events by query
-            </summary>
-            <param name="query"></param>
-            <returns></returns>
-        </member>
-        <member name="M:API.Endpoints.Events.EventsController.GetAllEvents">
-            <summary>
-            Get all Events
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:API.Endpoints.Events.EventsController.GetRecommendedEvents">
-            <summary>
-            Get Recommended Events
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:API.Endpoints.Events.EventsController.GetEvent(System.String)">
-            <summary>
-            Get Event information by its GUID
-            </summary>
-            <param name="id">Event GUID</param>
-            <returns></returns>
-        </member>
-        <member name="M:API.Endpoints.Events.EventsController.CreateEvent">
-            <summary>
-            Create a new Event
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:API.Endpoints.Events.EventsController.EditEvent(System.String)">
-            <summary>
-            Edit Event by its GUID
-            </summary>
-            <param name="id">Event GUID</param>
-            <returns></returns>
-        </member>
-        <member name="M:API.Endpoints.Events.EventsController.DeleteEvent(System.String)">
-            <summary>
-            Delete Event by its GUID
-            </summary>
-            <param name="id">Event GUID</param>
-            <returns></returns>
-        </member>
-        <member name="M:API.Endpoints.Events.EventsController.GetEventTypes">
-            <summary>
-            Get Event Types
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:API.Endpoints.Events.EventsController.GetEventComments">
-            <summary>
-            Get Event Types
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:API.Endpoints.Events.Services.EventTypes.Get">
-            <summary>
-            Get Events Types
+            Get Event Details
             </summary>
         </member>
         <member name="T:API.Endpoints.SimpleAuthentication.Services.Authenticate">
