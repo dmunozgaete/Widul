@@ -1,0 +1,46 @@
+<md-dialog aria-label="Agendamiento" ng-cloak>
+    <form name="form">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Selección de Compañia</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon md-svg-icon="content:clear" aria-label="Cancelar"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content" style="min-width:350px; min-height:400px; height:400px">
+                <!-- CONTENT -->
+                <span>
+                    Seleccione la compañia a la cual se asociará el usuario 
+                    <br />
+                    <br />
+                </span>
+                <gale-table show-header="false">
+                    <gale-column width="initial">
+                        <gale-item>
+                            <template>
+                                <div class="thumb">
+                                    <img ng-src="{{item.photo | file}}" />
+                                </div>
+                            </template>
+                        </gale-item>
+                    </gale-column>
+                    <gale-column property="name" title="Nombre"></gale-column>
+                    <gale-empty-data>
+                        {{ 'GLOBAL.EMPTY_DATA' | localize}}
+                    </gale-empty-data>
+                </gale-table>
+            </div>
+        </md-dialog-content>
+        <div class="md-actions" layout="row">
+            <span flex style="opacity: 0.7; font-size: 0.8em;">
+                <strong>*</strong>&nbsp;Requerido para Homologación
+            </span>
+            <md-button type="button" ng-click="cancel()">
+                Cancelar
+            </md-button>
+        </div>
+    </form>
+</md-dialog>

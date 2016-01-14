@@ -1,0 +1,13 @@
+<div class="thumb">
+    <!-- -->
+    <div class="loading" ng-if="uploadData" layout="column" layout-align="center center">
+        <pie-chart data='uploadData.progress' options='uploadData.options'>
+        </pie-chart>
+        <md-icon md-svg-src="file:file_upload"></md-icon>
+    </div>
+    <!-- -->
+    <img ng-src="{{fileUrl}}" />
+</div>
+<div ng-if="!ngDisabled" class="md-primary md-button md-default-theme" ng-file-change="upload($files)" type="file" ng-file-select>
+    {{ 'GLOBAL.CHANGEPICTURE_LABEL' | localize}}
+</div>

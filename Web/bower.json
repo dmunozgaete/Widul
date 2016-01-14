@@ -1,0 +1,26 @@
+{
+  "name": "Widul",
+  "description": "Aprende lo que quieras, enseña lo que sabes",
+  "version": "1.0.0",
+  "license": "Apache 2.0",
+  "private": true,
+  "dependencies": {
+    "angular-moment": "~0.10.1",
+    "angular-gale": "dmunozgaete/angular-gale#master",
+    "angular-gale-material": "~1.0.0-rc.1",
+    "angular-ui-utils": "~3.0.0",
+    "angular-material": "~0.11.4",
+    "ng-file-upload": "~3.2.4",
+    "angular-pouchdb": "~4.1.0"
+  },
+  "resolutions": {
+    "angular": "1.4.8",
+    "angular-moment": "0.10.1",
+    "angular-gale": "master",
+    "angular-animate": "^1.3.0 || >1.4.0-beta.0"
+  },
+  "main": [
+    ""
+  ],
+  "devDependencies": {}
+}

@@ -1,0 +1,30 @@
+{
+	"login.username.label": "Ingrese el nombre de usuario"
+	,"login.password.label": "Contraseña"
+	,"login.forgotpassword": "¿ha olvidado su contraseña?"
+	,"login.state.valid.button": "autenticar"
+	,"login.state.validating.button": "validando..."
+
+	,"ERR.API.UNAVAILABLE": "Servicio no Disponible"
+
+	,"GLOBAL.NAVIGATION_BACK" : "Volver"
+	,"GLOBAL.CANCEL_LABEL" : "Cancelar"
+	,"GLOBAL.DELETE_LABEL" : "Eliminar"
+	,"GLOBAL.CREATE_LABEL" : "Crear"
+	,"GLOBAL.UPDATE_LABEL" : "Actualizar"
+	,"GLOBAL.EMPTY_DATA" : "No existen registros para esta vista"
+	,"GLOBAL.CHANGEPICTURE_LABEL" : "Cambiar Imagen"
+	,"GLOBAL.PROCESSING_INFORMATION": "Procesando Información..."
+
+	,"GLOBAL.CONFIRM_DIALOG_DELETE_TITLE": "Eliminar"
+	,"GLOBAL.CONFIRM_DIALOG_DELETE_OK_LABEL": "Confirmar Acción"
+	,"GLOBAL.CONFIRM_DIALOG_DELETE_CANCEL_LABEL": "Cancelar"
+
+	,"GLOBAL.CONFIRM_DIALOG_CANCEL_TITLE": "Deshacer Cambios"
+	,"GLOBAL.CONFIRM_DIALOG_CANCEL_OK_LABEL": "Sí, Deshacer Cambios"
+	,"GLOBAL.CONFIRM_DIALOG_CANCEL_CANCEL_LABEL": "Cancelar"
+	,"GLOBAL.CONFIRM_DIALOG_CANCEL_CONTENT_LABEL": "Los cambios realizados no seran guardados </br></br> ¿Está Seguro de Continuar?"
+	
+
+
+}

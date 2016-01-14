@@ -1,0 +1,18 @@
+<flex-loading title="Iniciando Sistema" ng-if="!unauthorized" legend="Cargando configuración...">
+</flex-loading>
+
+<md-content ng-if="unauthorized" class="view-document application company-selection">
+    <empty-data layout-padding>
+        <md-icon md-svg-src="av:not_interested"></md-icon>
+        <span>
+        No tienes asociado ningun perfil actualmente
+        <br />
+        <br />
+        <br />
+        <i>
+        	(<strong>Pro Tip</strong>: Solicita la asociación de tu cuenta a las funcionalidades disponibles por el sistema
+        	a tu administrador.)
+        </i>
+        </span>
+    </empty-data>
+</md-content>

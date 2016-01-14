@@ -1,0 +1,21 @@
+md-content.view-account div.rol-item {
+  outline: none;
+  padding: 0.7em;
+  border-bottom: 1px solid #E4E4E4;
+  padding-left: 0px;
+  padding-right: 0px; }
+  md-content.view-account div.rol-item > div {
+    display: flex;
+    align-items: center;
+    padding-left: 0.5em; }
+    md-content.view-account div.rol-item > div:last-child {
+      font-style: italic;
+      opacity: 0.7; }
+  md-content.view-account div.rol-item md-switch {
+    margin: 0px; }
+  md-content.view-account div.rol-item:last-child {
+    border-bottom: none; }
+md-content.view-account.edit .recover {
+  margin-right: 4em; }
+
+/*# sourceMappingURL=edit.css.map */

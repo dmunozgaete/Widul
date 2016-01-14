@@ -1,0 +1,49 @@
+<!-- LINEAR PROGRESS -->
+<md-progress-linear ng-if="data == null" md-mode="indeterminate" class="md-primary">
+</md-progress-linear>
+<!-- PAGE TITLE-->
+<page-title class="no-primary-fab">
+    Confirmación de Usuario
+</page-title>
+<md-content form-content class="view-account edit">
+    <!-- CONTENT -->
+    <form name="form" ng-if="data">
+        <div layout="row">
+            <div flex="25" layout-align="start center" layout="column">
+                <upload-file ng-model="data.photo">
+                </upload-file>
+            </div>
+            <div flex="75" layout-padding>
+                <!-- -->
+                <md-input-container>
+                    <label>Nombre Completo</label>
+                    <input ng-model="data.fullname" maxlength="80" required>
+                </md-input-container>
+                <!-- -->
+                <md-input-container>
+                    <label>E-mail</label>
+                    <input ng-model="data.email" disabled required>
+                </md-input-container>
+                <!-- -->
+                <md-input-container flex="40">
+                    <label>Contraseña</label>
+                    <input type="password" md-maxlength="30" ng-model="data.password" required>
+                </md-input-container>
+                <!-- -->
+                <!-- -->
+                <md-input-container flex="40">
+                    <label>Confirmar Contraseña</label>
+                    <input type="password" md-maxlength="30" ng-model="data.confirmpassword" required>
+                </md-input-container>
+                <!-- -->
+            </div>
+        </div>
+        <!-- BUTTON PAD -->
+        <button-pad>
+            <md-button ng-disabled="form.$invalid  || (data.password !== data.confirmpassword)" aria-label="al" ng-click="save(data)" class="md-raised md-primary">
+                CONFIRMAR USUARIO
+            </md-button>
+        </button-pad>
+    </form>
+</md-content>
+<gale-loading default-message="{{ 'GLOBAL.PROCESSING_INFORMATION' | localize }}" />

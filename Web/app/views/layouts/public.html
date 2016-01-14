@@ -1,0 +1,18 @@
+<div layout="column" layout-fill class="one-page-layout">
+    <!-- MAIN TOOLBAR -->
+    <md-toolbar class="md-whiteframe-z1">
+        <div class="md-toolbar-tools">
+            <h2>
+                <span>{{config.application.name}}</span>
+            </h2>
+            <span flex></span>
+            <md-button class="md-icon-button" aria-label="More" ng-click="toogleMenu('layout-nav-right')">
+                <md-icon md-svg-icon="social:person"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    
+    <!-- CONTENT -->
+    <md-content ui-view name="content" flex>
+    </md-content>
+</div>
