@@ -49,9 +49,10 @@ namespace API.Endpoints.Events
       
         [HttpPost]
         [HierarchicalRoute("/{id:Guid}/Comments")]
-        public IHttpActionResult CreateComment(Guid id, Models.NewComment comment)
+        [Gale.Security.Oauth.Jwt.Authorize]
+        public IHttpActionResult CreateComment(String id, Models.NewComment comment)
         {
-            throw new NotImplementedException();
+            return new Services.Comments.Create(id, this.User.PrimarySid().ToString(), comment);
         }
 
         #endregion
@@ -81,9 +82,9 @@ namespace API.Endpoints.Events
         [HttpPost]
         [HierarchicalRoute("/{id:Guid}/Join")]
         [Gale.Security.Oauth.Jwt.Authorize]
-        public String JoinEvent(String id)
+        public IHttpActionResult JoinEvent(String id)
         {
-            return "JOINED";
+            return new Services.Join(id, this.User.PrimarySid().ToString());
         }
 
         /// <summary>
@@ -94,9 +95,9 @@ namespace API.Endpoints.Events
         [HttpDelete]
         [HierarchicalRoute("/{id:Guid}/Join")]
         [Gale.Security.Oauth.Jwt.Authorize]
-        public String LeftEvent(String id)
+        public IHttpActionResult LeftEvent(String id)
         {
-            return "LEFT";
+            return new Services.Left(id, this.User.PrimarySid().ToString());
         }
 
         #endregion

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Widul" Class="CommentsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=.\MSSQLSERVER_2012;Initial Catalog=Widul;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="WidulConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-OT2L7ND;Initial Catalog=Widul;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="WidulConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.TB_EventComment" Member="TB_EventComments">
     <Type Name="TB_EventComment">
       <Column Name="COM_Comment" Member="comment" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
@@ -9,7 +9,7 @@
   </Table>
   <Table Name="" Member="NewComments">
     <Type Name="NewComment">
-      <Column Member="comment" Type="System.String" CanBeNull="false" />
+      <Column Name="comment" Type="System.String" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

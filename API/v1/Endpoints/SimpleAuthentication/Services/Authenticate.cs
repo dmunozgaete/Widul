@@ -24,7 +24,7 @@ namespace API.Endpoints.SimpleAuthentication.Services
             List<System.Security.Claims.Claim> claims = new List<System.Security.Claims.Claim>();
 
             claims.Add(new System.Security.Claims.Claim(System.Security.Claims.ClaimTypes.Email,this.Model.email));
-            claims.Add(new System.Security.Claims.Claim(System.Security.Claims.ClaimTypes.PrimarySid, System.Guid.NewGuid().ToString()));
+            claims.Add(new System.Security.Claims.Claim(System.Security.Claims.ClaimTypes.PrimarySid, "530d5df5-25cd-4343-9351-1bacfefb7896"));
             claims.Add(new System.Security.Claims.Claim(System.Security.Claims.ClaimTypes.Name, this.Model.email));
             claims.Add(new System.Security.Claims.Claim("customvalue", "CUSTOM_VALUE"));
 

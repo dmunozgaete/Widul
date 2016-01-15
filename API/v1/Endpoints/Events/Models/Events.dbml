@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Widul" Class="EventsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=.\MSSQLSERVER_2012;Initial Catalog=Widul;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="WidulConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-OT2L7ND;Initial Catalog=Widul;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="WidulConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.VW_Events" Member="VW_Events">
     <Type Name="VW_Event">
       <Column Name="EVN_Date" Member="date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
@@ -15,6 +15,7 @@
       <Column Name="USR_Token" Member="user_token" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
       <Column Name="KNW_Name" Member="knowledge_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="KNW_Token" Member="knowledge_token" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="USR_Photo" Member="user_photo" Type="System.String" DbType="VarChar(1000) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.TB_Event" Member="EventDetails">
@@ -26,10 +27,10 @@
       <Column Name="EVN_UpdatedAt" Member="updateAt" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="EVN_CreatedAt" Member="createdAt" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="EVN_Token" Member="token" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
-      <Column Member="creator" Type="Creator" CanBeNull="false" />
-      <Column Member="knowledge" Type="Knowledge" CanBeNull="false" />
-      <Column Member="tags" Type="List&lt;EventTag&gt;" CanBeNull="false" />
-      <Column Member="comments" Type="List&lt;EventComment&gt;" CanBeNull="false" />
+      <Column Name="creator" Type="Creator" CanBeNull="false" />
+      <Column Name="knowledge" Type="Knowledge" CanBeNull="false" />
+      <Column Name="tags" Type="List&lt;EventTag&gt;" CanBeNull="false" />
+      <Column Name="comments" Type="List&lt;EventComment&gt;" CanBeNull="false" />
       <Column Name="EVT_Name" Member="type_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
@@ -59,6 +60,7 @@
       <Column Name="USR_UpdateAt" Member="updateAt" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="USR_CreatedAt" Member="createdAt" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="USR_Token" Member="token" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="USR_Photo" Member="photo" Type="System.String" DbType="VarChar(1000) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.TB_Event" Member="NewEvents">
@@ -70,7 +72,7 @@
       <Column Name="KNW_Token" Member="knowledge" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
       <Column Name="EVT_Token" Member="type" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
       <Column Name="USR_Token" Member="creator" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
-      <Column Member="tags" Type="List&lt;String&gt;" CanBeNull="false" />
+      <Column Name="tags" Type="List&lt;String&gt;" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

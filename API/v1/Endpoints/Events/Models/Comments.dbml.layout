@@ -2,16 +2,16 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Comments">
   <DataContextMoniker Name="/CommentsDataContext" />
   <nestedChildShapes>
-    <classShape Id="a3c51aff-9387-4d1f-9878-e9c7a3bcc62d" absoluteBounds="5.625, 1.125, 2, 1.3862939453125">
+    <classShape Id="a3c51aff-9387-4d1f-9878-e9c7a3bcc62d" absoluteBounds="2.125, 2.375, 2, 1.3862939453125">
       <DataClassMoniker Name="/CommentsDataContext/TB_EventComment" />
       <nestedChildShapes>
-        <elementListCompartment Id="cd769c58-40e3-46ec-9164-5414572db549" absoluteBounds="5.64, 1.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="cd769c58-40e3-46ec-9164-5414572db549" absoluteBounds="2.1399999999999997, 2.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="8ba22fd4-4d68-4d08-a8cd-adcfb7ac12b1" absoluteBounds="2, 1, 2, 1.0016910807291666">
+    <classShape Id="8ba22fd4-4d68-4d08-a8cd-adcfb7ac12b1" absoluteBounds="2.125, 1, 2, 1.0016910807291666">
       <DataClassMoniker Name="/CommentsDataContext/NewComment" />
       <nestedChildShapes>
-        <elementListCompartment Id="c311b1de-8ea7-4fd9-a4df-7e25178f0499" absoluteBounds="2.015, 1.46, 1.9700000000000002, 0.44169108072916663" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="c311b1de-8ea7-4fd9-a4df-7e25178f0499" absoluteBounds="2.14, 1.46, 1.9700000000000002, 0.44169108072916663" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

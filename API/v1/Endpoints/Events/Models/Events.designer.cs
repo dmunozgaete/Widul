@@ -154,6 +154,8 @@ namespace API.Endpoints.Events.Models
 		
 		private System.Guid _knowledge_token;
 		
+		private string _user_photo;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -184,6 +186,8 @@ namespace API.Endpoints.Events.Models
     partial void Onknowledge_nameChanged();
     partial void Onknowledge_tokenChanging(System.Guid value);
     partial void Onknowledge_tokenChanged();
+    partial void Onuser_photoChanging(string value);
+    partial void Onuser_photoChanged();
     #endregion
 		
 		public VW_Event()
@@ -447,6 +451,26 @@ namespace API.Endpoints.Events.Models
 					this._knowledge_token = value;
 					this.SendPropertyChanged("knowledge_token");
 					this.Onknowledge_tokenChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="USR_Photo", Storage="_user_photo", DbType="VarChar(1000) NOT NULL", CanBeNull=false)]
+		public string user_photo
+		{
+			get
+			{
+				return this._user_photo;
+			}
+			set
+			{
+				if ((this._user_photo != value))
+				{
+					this.Onuser_photoChanging(value);
+					this.SendPropertyChanging();
+					this._user_photo = value;
+					this.SendPropertyChanged("user_photo");
+					this.Onuser_photoChanged();
 				}
 			}
 		}
@@ -864,6 +888,8 @@ namespace API.Endpoints.Events.Models
 		
 		private System.Guid _token;
 		
+		private string _photo;
+		
 		public Creator()
 		{
 		}
@@ -944,6 +970,22 @@ namespace API.Endpoints.Events.Models
 				if ((this._token != value))
 				{
 					this._token = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="USR_Photo", Storage="_photo", DbType="VarChar(1000) NOT NULL", CanBeNull=false)]
+		public string photo
+		{
+			get
+			{
+				return this._photo;
+			}
+			set
+			{
+				if ((this._photo != value))
+				{
+					this._photo = value;
 				}
 			}
 		}
