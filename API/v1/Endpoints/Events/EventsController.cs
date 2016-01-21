@@ -18,6 +18,7 @@ namespace API.Endpoints.Events
         /// </summary>
         /// <returns></returns>
         [HttpGet]
+        [Swashbuckle.Swagger.Annotations.QueryableEndpoint(typeof(Models.VW_Event))]
         public IHttpActionResult Get()
         {
             return new Gale.REST.Http.HttpQueryableActionResult<Models.VW_Event>(this.Request);
@@ -34,9 +35,9 @@ namespace API.Endpoints.Events
         }
 
         /// <summary>
-        /// 
+        /// Create a Event
         /// </summary>
-        /// <param name="newEvent"></param>
+        /// <param name="newEvent">Model</param>
         /// <returns></returns>
         [HttpPost]
         public IHttpActionResult Post(Models.NewEvent newEvent){
@@ -45,8 +46,24 @@ namespace API.Endpoints.Events
         }
         #endregion
 
+        #region --> TAGS 
+
+        /// <summary>
+        /// Get all Events
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [HierarchicalRoute("Tags")]
+        [Swashbuckle.Swagger.Annotations.QueryableEndpoint(typeof(Models.VW_Tag))]
+        public IHttpActionResult Tags()
+        {
+            return new Gale.REST.Http.HttpQueryableActionResult<Models.VW_Tag>(this.Request);
+        }
+
+        #endregion
+
         #region --> COMMENTS
-      
+
         [HttpPost]
         [HierarchicalRoute("/{id:Guid}/Comments")]
         [Gale.Security.Oauth.Jwt.Authorize]
@@ -62,13 +79,13 @@ namespace API.Endpoints.Events
         /// <summary>
         /// Search all Events by queries
         /// </summary>
-        /// <param name="query">Query</param>
+        /// <param name="q">Query</param>
         /// <returns></returns>
         [HttpGet]
-        [HierarchicalRoute("/Search/{query}")]
-        public String SearchEvent(String query)
+        [HierarchicalRoute("/Search")]
+        public IHttpActionResult SearchEvent(String q)
         {
-            return "EVENTS BY TAG";
+            return new Services.Search(q);
         }
 
         #endregion

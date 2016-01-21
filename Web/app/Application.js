@@ -36,7 +36,7 @@
     {
         //Security Provider
         $IdentityProvider
-            .enable() //Enable
+            //.enable() //Enable
             .setIssuerEndpoint("Security/Authorize")
             .setLogInRoute("security/identity/login")
             .setWhiteListResolver(function(toState, current)
@@ -85,7 +85,7 @@
     {
         $mdThemingProvider.theme('default')
             .primaryPalette('indigo')
-            .accentPalette('deep-orange')
+            .accentPalette('pink')
             .warnPalette('red');
     })
     .config(function($stateProvider, $urlRouterProvider)

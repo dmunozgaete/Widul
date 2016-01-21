@@ -1,3 +1,115 @@
-<!-- LINEAR PROGRESS -->
-<md-progress-linear ng-if="data == null" md-mode="indeterminate" class="md-primary">
-</md-progress-linear>
+<gale-page class="home" layout-fill>
+    <!-- MAIN TOOLBAR -->
+    <md-toolbar class="md-whiteframe-z1">
+        <div class="md-toolbar-tools">
+            <h2>
+                <span>{{config.application.name}}</span>
+            </h2>
+            <span flex></span>
+            <md-button class="md-icon-button" aria-label="More" ng-click="toogleMenu('layout-nav-right')">
+                <md-icon md-svg-icon="social:person"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+    <!-- LANDSCAPE -->
+    <div class="landscape">
+        <md-progress-linear ng-if="!model.image.loaded" md-mode="indeterminate" class="md-primary">
+        </md-progress-linear>
+
+        <!-- SEARCH BOX -->
+        <div class="search-container">
+
+            <md-whiteframe class="md-whiteframe-1dp" layout="row" ng-class="{'active': model.image.loaded}">
+                <md-chips flex md-separator-keys="model.tags.electricChars" ng-model="model.tags.items" md-on-remove="find(model.tags.items);" md-on-add="find(model.tags.items);" md-separator-keys="" md-autocomplete-snap md-transform-chip="setOrRegister($chip)" md-require-match="false">
+                    <md-autocomplete placeholder="¿Que quieres aprender?" md-min-length="2" md-selected-item="model.selectedItem" md-search-text="model.searchText" md-items="item in queryTags(model.searchText)" md-item-text="item.name">
+                        <span md-highlight-text="model.searchText">{{item.name}}</span>
+                    </md-autocomplete>
+                    <md-chip-template>
+                        <span>
+                            <strong>{{$chip.name}}</strong>
+                        </span>
+                    </md-chip-template>
+                </md-chips>
+                <md-button class="md-raised md-accent">
+                    Buscar
+                </md-button>
+            </md-whiteframe>
+        </div>
+        <!-- MAIN PICTURE (ROTATE ALGORIHTM) -->
+        <preload-image ng-class="{'ng-animate-start': model.image.loaded}" hide-loader="true" on-complete="onImageLoaded" loading-legend="{{model.image.loadingLegend}}" cssgram-filter="Earlybird" ng-src="'views/home/css/images/' + model.image.url">
+        </preload-image>
+    </div>
+    <!-- LOADING EVENTS BOX-->
+    <div ng-if="model.results.loading" class="loading">
+        <md-progress-linear md-mode="indeterminate" class="md-primary">
+        </md-progress-linear>
+
+        <div>
+            Buscando Coincidencias...
+        </div>
+    </div>
+    <!-- RESULTS -->
+    <div ng-if="model.results.items.length > 0" class="results">
+
+        <!-- SEPARATOR -->
+        <event-divider>
+            Conocimientos que puedes adquirir hoy
+        </event-divider>
+
+        <!-- EVENT ITEM -->
+        <event ng-repeat="item in model.results.items">
+            <div class="header">
+                <!-- SOCIAL ICON -->
+                <div class="marker">
+                    <md-tooltip md-direction="top">
+                        Reputación del Conocimiento
+                    </md-tooltip>
+                    <md-icon md-svg-icon="action:thumb_up"></md-icon>
+                    <div>35</div>
+                </div>
+                <!-- CREATOR -->
+                <center class="creator">
+                    <div class="marker">
+                        <div class="halo">
+                            <div>
+                                <img ng-src="{{item.user.photo}}" />
+                            </div>
+                        </div>
+                    </div>
+                </center>
+                <!-- SOCIAL ICON -->
+                <div class="marker left">
+                    <md-tooltip md-direction="top">
+                        Participantes
+                    </md-tooltip>
+                    <md-icon md-svg-icon="social:person_add"></md-icon>
+                    <div>20</div>
+                </div>
+            </div>
+
+            <!-- EVENT NAME -->
+            <div class="name">
+                {{item.name}}
+            </div>
+            <!-- KNOWLEDGE NAME -->
+            <div class="knowledge">
+                #{{item.knowledge.name}}
+            </div>
+            <!-- BOX -->
+            <div class="box">
+                <!-- DESCRIPTION -->
+                <div class="description">
+                    {{item.description}}
+                </div>
+                <!-- TAGS -->
+                <div class="tags">
+                    <span ng-repeat="tag in item.tags">#{{tag}}</span>
+                </div>
+            </div>
+
+        </event>
+
+    </div>
+
+</gale-page>

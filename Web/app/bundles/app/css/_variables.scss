@@ -1,6 +1,11 @@
 /* 
     SASS Mixins
 */
+$background_color: #FFF;
+$primary_color: #3F51B5;
+$accent_color: #E91E63;
+$text_color: #FFF;
+
 
 @mixin text-shadow($hAxis:2px, $vAxis:2px, $blur:0px, $color:#000) {
     text-shadow: $hAxis $vAxis $blur $color;

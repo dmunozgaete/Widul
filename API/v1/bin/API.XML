@@ -34,16 +34,22 @@
         </member>
         <member name="M:API.Endpoints.Events.EventsController.Post(API.Endpoints.Events.Models.NewEvent)">
             <summary>
-            
+            Create a Event
             </summary>
-            <param name="newEvent"></param>
+            <param name="newEvent">Model</param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Endpoints.Events.EventsController.Tags">
+            <summary>
+            Get all Events
+            </summary>
             <returns></returns>
         </member>
         <member name="M:API.Endpoints.Events.EventsController.SearchEvent(System.String)">
             <summary>
             Search all Events by queries
             </summary>
-            <param name="query">Query</param>
+            <param name="q">Query</param>
             <returns></returns>
         </member>
         <member name="M:API.Endpoints.Events.EventsController.JoinEvent(System.String)">
@@ -82,6 +88,24 @@
             <summary>
             Get Event Details
             </summary>
+        </member>
+        <member name="T:API.Endpoints.Events.Services.Search">
+            <summary>
+            Search Event's by queries
+            </summary>
+        </member>
+        <member name="M:API.Endpoints.Events.Services.Search.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="query"></param>
+        </member>
+        <member name="M:API.Endpoints.Events.Services.Search.ExecuteAsync(System.Threading.CancellationToken)">
+            <summary>
+            Async Process
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
         </member>
         <member name="T:API.Endpoints.SimpleAuthentication.Services.Authenticate">
             <summary>

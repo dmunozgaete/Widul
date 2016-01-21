@@ -1,0 +1,193 @@
+@import "../../../bundles/app/css/_variables";
+@import "../../../bundles/app/css/_flexbox";
+gale-page.home {
+    div.landscape {
+        height: 45%;
+        background-color: #F3F3F3;
+        preload-image {
+            > figure {
+                height: auto;
+            }
+            /* ANIMATION START STATE */
+            opacity: 0;
+            /* FADE-IN ANIMATION */
+            &.ng-animate-start {
+                transition: all linear 2s;
+            }
+            &.ng-animate-start {
+                opacity: 1;
+            }
+        }
+        > md-progress-linear {
+            position: absolute;
+        }
+        > div.search-container {
+            position: absolute;
+            height: 45%;
+            width: 100%;
+            z-index: 99999999;
+            @include flexbox();
+            @include flex-direction(column);
+            @include align-items(center);
+            @include justify-content(center);
+            @include box-shadow(3px);
+            > md-whiteframe {
+                padding-left: 8px;
+                opacity: 0.95;
+                border-radius: 37px;
+                overflow: hidden;
+                background: #fff;
+                width: 75%;
+                > button {
+                    border-radius: 0px;
+                    border-top-left-radius: 25px;
+                    border-bottom-left-radius: 25px;
+                    min-width: 8em;
+                    margin: 0px;
+                }
+                &.active {
+                    opacity: 1;
+                }
+                md-chip {
+                    background-color: $primary_color;
+                    color: $text_color;
+                    md-icon {
+                        color: $text_color;
+                    }
+                }
+            }
+        }
+    }
+    > div.loading {
+        > md-progress-linear {
+            position: absolute;
+        }
+        > div {
+            padding-top: 3em;
+            text-align: center;
+            opacity: 0.5;
+            font-size: 0.8em;
+        }
+    }
+    > div.results {
+        margin-top: 1em;
+        > event-divider {
+            display: block;
+            font-size: 1.5em;
+            line-height: 1.7em;
+            color: #FF4081;
+            border-bottom: 1px solid #ECECEC;
+            margin: 0px 16px;
+        }
+        > event {
+            color: $text_color;
+            @include flexbox();
+            @include flex-direction(column);
+            @include align-items(center);
+            @include justify-content(center);
+            @include box-shadow(2px);
+            display: inline-flex;
+            border-radius: 4px;
+            margin: 12px;
+            width: 230px;
+            margin-top: 3em;
+            background-color: $primary_color;
+            > div.header {
+                @include flexbox();
+                @include justify-content(center);
+                width: 100%;
+                > div.marker {
+                    @include flexbox();
+                    @include flex-direction(row);
+                    @include align-items(center);
+                    @include justify-content(center);
+                    @include flex-basis(30%);
+
+                    text-align: center;
+                    font-size: 0.9em;
+                    padding-top: 8px;
+                    > md-icon {
+                        margin: 4px;
+                        color: #fff;
+                        width: 16px;
+                        height: 16px;
+                    }
+                    &:first-child {}
+                    &:last-child {}
+                }
+                > center.creator {
+                    margin-top: -2.3em;
+                    @include flex-basis(40%);
+                    div.marker {
+                        width: 5em;
+                        height: 5em;
+                        > div.halo {
+                            @include box-shadow(2px);
+                            background-color: #FFF;
+                            border-radius: 50%;
+                            border: 1px solid #FFF;
+                            width: 100%;
+                            height: 100%;
+                            padding: 3%;
+                            > div {
+                                border-radius: 50%;
+                                overflow: hidden;
+                                height: 100%;
+                                width: 100%;
+                                background: $primary_color;
+                                > img {
+                                    width: 100%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            > div.name {
+                padding: 1em 8px 0em 8px;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                text-align: center;
+                white-space: nowrap;
+                width: 95%;
+            }
+            > div.knowledge {
+                text-align: center;
+                padding: 6px 8px;
+                font-weight: bold;
+                cursor: pointer;
+                text-transform: capitalize;
+            }
+            > div.box {
+                font-size: 13px;
+                color: $primary_color;
+                background-color: $background-color;
+                padding: 8px;
+                overflow: hidden;
+                border-radius: 4px;
+                border-top-left-radius: 0px;
+                border-top-right-radius: 0px;
+                > div.description {
+                    height: 60px;
+                    color: #000;
+                    text-align: justify;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 4;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                }
+                > div.tags {
+                    padding-top: 0.5em;
+                    line-height: 1.5em;
+                    > span {
+                        text-decoration: underline;
+                        padding-left: 4px;
+                        padding-right: 4px;
+                        cursor: pointer;
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+    }
+}

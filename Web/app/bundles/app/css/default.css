@@ -1,5 +1,8 @@
 /* 
     SASS Mixins
 */
+html,
+body {
+  background-color: #FFF; }
 
 /*# sourceMappingURL=default.css.map */

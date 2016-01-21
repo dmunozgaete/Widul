@@ -75,4 +75,11 @@
       <Column Name="tags" Type="List&lt;String&gt;" CanBeNull="false" />
     </Type>
   </Table>
+  <Table Name="" Member="Pagination">
+    <Type Name="Pagination">
+      <Column Name="Limit" Member="limit" Type="System.Int32" CanBeNull="false" />
+      <Column Name="Offset" Member="offset" Type="System.Int32" CanBeNull="false" />
+      <Column Name="Total" Member="total" Type="System.Int32" CanBeNull="false" />
+    </Type>
+  </Table>
 </Database>

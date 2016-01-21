@@ -37,9 +37,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Gale, Version=2.2.5.0, Culture=neutral, PublicKeyToken=1a9845e4bf678c19, processorArchitecture=MSIL">
+    <Reference Include="Gale, Version=2.2.5.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Gale\bin\Debug\Gale.dll</HintPath>
+      <HintPath>..\..\..\..\..\Arquitectura\Gale\Gale\bin\Debug\Gale.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -123,11 +123,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EventTypes.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Endpoints\Events\Models\Tags.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Tags.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Endpoints\Events\Services\Comments\Create.cs" />
     <Compile Include="Endpoints\Events\Services\Create.cs" />
     <Compile Include="Endpoints\Events\Services\Get.cs" />
     <Compile Include="Endpoints\Events\Services\Join.cs" />
     <Compile Include="Endpoints\Events\Services\Left.cs" />
+    <Compile Include="Endpoints\Events\Services\Search.cs" />
+    <Compile Include="Endpoints\Knowledge\KnowledgeController.cs" />
     <Compile Include="Endpoints\SimpleAuthentication\Models\SimpleAuthentication.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -178,6 +185,11 @@
       <LastGenOutput>Events.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Endpoints\Events\Models\Tags.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Tags.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Properties\PublishProfiles\QAS_Valentys.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -206,12 +218,14 @@
     <None Include="Endpoints\Events\Models\Events.dbml.layout">
       <DependentUpon>Events.dbml</DependentUpon>
     </None>
+    <None Include="Endpoints\Events\Models\Tags.dbml.layout">
+      <DependentUpon>Tags.dbml</DependentUpon>
+    </None>
     <EmbeddedResource Include="Errors.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Errors.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -228,16 +242,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>5048</DevelopmentServerPort>
-          <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/Widul/API</IISUrl>
-          <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
-          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>
