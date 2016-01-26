@@ -64,6 +64,39 @@ namespace API.Endpoints.Events
 
         #region --> COMMENTS
 
+        /// <summary>
+        /// Get all comments from specific event
+        /// </summary>
+        /// <param name="id">Event guid</param>
+        /// <returns></returns>
+        [HttpGet]
+        [HierarchicalRoute("/{id:Guid}/Comments")]
+        public IHttpActionResult GetComments(String id)
+        {
+            //---------------------------------------------------------------------------
+            // Setting Static Values (Create a Base Gale Query Language Configuration)
+            var config = new Gale.REST.Queryable.OData.Builders.GQLConfiguration();
+
+            // Adding some Filter's ;)
+            config.filters.Add(new Gale.REST.Queryable.OData.Builders.GQLConfiguration.Filter()
+            {
+                field = "event_token",
+                operatorAlias = "eq",
+                value = id
+            });
+            //---------------------------------------------------------------------------
+
+            // Setup in the Queryable Endpoint
+            return new Gale.REST.Http.HttpQueryableActionResult<Models.VW_EventComment>(this.Request, config);
+        }
+
+        /// <summary>
+        /// Create a comment
+        /// </summary>
+        /// <param name="id">Event guid</param>
+        /// <param name="comment">comment</param>
+        /// <returns></returns>
+
         [HttpPost]
         [HierarchicalRoute("/{id:Guid}/Comments")]
         [Gale.Security.Oauth.Jwt.Authorize]

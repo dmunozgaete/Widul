@@ -45,6 +45,21 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:API.Endpoints.Events.EventsController.GetComments(System.String)">
+            <summary>
+            Get all comments from specific event
+            </summary>
+            <param name="id">Event guid</param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Endpoints.Events.EventsController.CreateComment(System.String,API.Endpoints.Events.Models.NewComment)">
+            <summary>
+            Create a comment
+            </summary>
+            <param name="id">Event guid</param>
+            <param name="comment">comment</param>
+            <returns></returns>
+        </member>
         <member name="M:API.Endpoints.Events.EventsController.SearchEvent(System.String)">
             <summary>
             Search all Events by queries

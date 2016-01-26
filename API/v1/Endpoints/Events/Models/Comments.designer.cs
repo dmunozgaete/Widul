@@ -30,9 +30,9 @@ namespace API.Endpoints.Events.Models
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertTB_EventComment(TB_EventComment instance);
-    partial void UpdateTB_EventComment(TB_EventComment instance);
-    partial void DeleteTB_EventComment(TB_EventComment instance);
+    partial void InsertVW_EventComment(VW_EventComment instance);
+    partial void UpdateVW_EventComment(VW_EventComment instance);
+    partial void DeleteVW_EventComment(VW_EventComment instance);
     #endregion
 		
 		public CommentsDataContext() : 
@@ -65,14 +65,6 @@ namespace API.Endpoints.Events.Models
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<TB_EventComment> TB_EventComments
-		{
-			get
-			{
-				return this.GetTable<TB_EventComment>();
-			}
-		}
-		
 		public System.Data.Linq.Table<NewComment> NewComments
 		{
 			get
@@ -80,114 +72,12 @@ namespace API.Endpoints.Events.Models
 				return this.GetTable<NewComment>();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TB_EventComment")]
-	public partial class TB_EventComment : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _comment;
-		
-		private System.DateTime _createdAt;
-		
-		private System.Guid _token;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OncommentChanging(string value);
-    partial void OncommentChanged();
-    partial void OncreatedAtChanging(System.DateTime value);
-    partial void OncreatedAtChanged();
-    partial void OntokenChanging(System.Guid value);
-    partial void OntokenChanged();
-    #endregion
-		
-		public TB_EventComment()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="COM_Comment", Storage="_comment", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
-		public string comment
+		public System.Data.Linq.Table<VW_EventComment> VW_EventComments
 		{
 			get
 			{
-				return this._comment;
-			}
-			set
-			{
-				if ((this._comment != value))
-				{
-					this.OncommentChanging(value);
-					this.SendPropertyChanging();
-					this._comment = value;
-					this.SendPropertyChanged("comment");
-					this.OncommentChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="COM_createdAt", Storage="_createdAt", DbType="DateTime NOT NULL")]
-		public System.DateTime createdAt
-		{
-			get
-			{
-				return this._createdAt;
-			}
-			set
-			{
-				if ((this._createdAt != value))
-				{
-					this.OncreatedAtChanging(value);
-					this.SendPropertyChanging();
-					this._createdAt = value;
-					this.SendPropertyChanged("createdAt");
-					this.OncreatedAtChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="COM_Token", Storage="_token", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
-		public System.Guid token
-		{
-			get
-			{
-				return this._token;
-			}
-			set
-			{
-				if ((this._token != value))
-				{
-					this.OntokenChanging(value);
-					this.SendPropertyChanging();
-					this._token = value;
-					this.SendPropertyChanged("token");
-					this.OntokenChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+				return this.GetTable<VW_EventComment>();
 			}
 		}
 	}
@@ -215,6 +105,188 @@ namespace API.Endpoints.Events.Models
 				{
 					this._comment = value;
 				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VW_EventComments")]
+	public partial class VW_EventComment : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Guid _event_token;
+		
+		private string _user_fullname;
+		
+		private System.Guid _user_token;
+		
+		private string _user_photo;
+		
+		private string _createdAt;
+		
+		private string _comment;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onevent_tokenChanging(System.Guid value);
+    partial void Onevent_tokenChanged();
+    partial void Onuser_fullnameChanging(string value);
+    partial void Onuser_fullnameChanged();
+    partial void Onuser_tokenChanging(System.Guid value);
+    partial void Onuser_tokenChanged();
+    partial void Onuser_photoChanging(string value);
+    partial void Onuser_photoChanged();
+    partial void OncreatedAtChanging(string value);
+    partial void OncreatedAtChanged();
+    partial void OncommentChanging(string value);
+    partial void OncommentChanged();
+    #endregion
+		
+		public VW_EventComment()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="EVN_Token", Storage="_event_token", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
+		public System.Guid event_token
+		{
+			get
+			{
+				return this._event_token;
+			}
+			set
+			{
+				if ((this._event_token != value))
+				{
+					this.Onevent_tokenChanging(value);
+					this.SendPropertyChanging();
+					this._event_token = value;
+					this.SendPropertyChanged("event_token");
+					this.Onevent_tokenChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="USR_FullName", Storage="_user_fullname", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
+		public string user_fullname
+		{
+			get
+			{
+				return this._user_fullname;
+			}
+			set
+			{
+				if ((this._user_fullname != value))
+				{
+					this.Onuser_fullnameChanging(value);
+					this.SendPropertyChanging();
+					this._user_fullname = value;
+					this.SendPropertyChanged("user_fullname");
+					this.Onuser_fullnameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="USR_Token", Storage="_user_token", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid user_token
+		{
+			get
+			{
+				return this._user_token;
+			}
+			set
+			{
+				if ((this._user_token != value))
+				{
+					this.Onuser_tokenChanging(value);
+					this.SendPropertyChanging();
+					this._user_token = value;
+					this.SendPropertyChanged("user_token");
+					this.Onuser_tokenChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="USR_Photo", Storage="_user_photo", DbType="VarChar(1000) NOT NULL", CanBeNull=false)]
+		public string user_photo
+		{
+			get
+			{
+				return this._user_photo;
+			}
+			set
+			{
+				if ((this._user_photo != value))
+				{
+					this.Onuser_photoChanging(value);
+					this.SendPropertyChanging();
+					this._user_photo = value;
+					this.SendPropertyChanged("user_photo");
+					this.Onuser_photoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="COM_createdAt", Storage="_createdAt", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
+		public string createdAt
+		{
+			get
+			{
+				return this._createdAt;
+			}
+			set
+			{
+				if ((this._createdAt != value))
+				{
+					this.OncreatedAtChanging(value);
+					this.SendPropertyChanging();
+					this._createdAt = value;
+					this.SendPropertyChanged("createdAt");
+					this.OncreatedAtChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="COM_Comment", Storage="_comment", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
+		public string comment
+		{
+			get
+			{
+				return this._comment;
+			}
+			set
+			{
+				if ((this._comment != value))
+				{
+					this.OncommentChanging(value);
+					this.SendPropertyChanging();
+					this._comment = value;
+					this.SendPropertyChanged("comment");
+					this.OncommentChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}

@@ -30,7 +30,6 @@
       <Column Name="creator" Type="Creator" CanBeNull="false" />
       <Column Name="knowledge" Type="Knowledge" CanBeNull="false" />
       <Column Name="tags" Type="List&lt;EventTag&gt;" CanBeNull="false" />
-      <Column Name="comments" Type="List&lt;EventComment&gt;" CanBeNull="false" />
       <Column Name="EVT_Name" Member="type_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>

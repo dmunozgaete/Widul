@@ -27,14 +27,17 @@ namespace API.Endpoints.Events.Services
                 Models.Creator creator = repo.GetModel<Models.Creator>(1).FirstOrDefault();
                 Models.Knowledge knowledge = repo.GetModel<Models.Knowledge>(2).FirstOrDefault();
 
-                List<Models.EventComment> comments = repo.GetModel<Models.EventComment>(3);
-                List<Models.EventTag> tags = repo.GetModel<Models.EventTag>(4);
+                //List<Models.EventComment> comments = repo.GetModel<Models.EventComment>(3);
+
+                List<Models.EventTag> tags = repo.GetModel<Models.EventTag>(3);
                 
 
                 // -- Setting Values ;)!
                 eventDetail.creator = creator;
                 eventDetail.knowledge = knowledge;
-                eventDetail.comments = comments;
+
+                //eventDetail.comments = comments;
+
                 eventDetail.tags = tags;
                     
                 return Task.FromResult(new HttpResponseMessage()
