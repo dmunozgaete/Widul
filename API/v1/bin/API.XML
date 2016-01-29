@@ -9,11 +9,84 @@
             WEB API Global Configuration
             </summary>
         </member>
+        <member name="F:API.WebApiConfig.RootRoles">
+            <summary>
+            Root Roles
+            </summary>
+        </member>
         <member name="M:API.WebApiConfig.Register(System.Web.Http.HttpConfiguration)">
             <summary>
             Register Config Variables
             </summary>
             <param name="config"></param>
+        </member>
+        <member name="T:API.Endpoints.Accounts.AccountsController">
+            <summary>
+            Account API
+            </summary>
+        </member>
+        <member name="M:API.Endpoints.Accounts.AccountsController.Get">
+            <summary>
+            Retrieve Account's
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:API.Endpoints.Accounts.AccountsController.Get(System.String)">
+            <summary>
+            Retrieve Target Account Information
+            </summary>
+            <param name="id">Account Token</param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Endpoints.Accounts.AccountsController.Current">
+            <summary>
+            Retrieve Current Account Information
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:API.Endpoints.Accounts.Services.Get">
+            <summary>
+            Retrieve a Target User
+            </summary>
+        </member>
+        <member name="M:API.Endpoints.Accounts.Services.Get.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="token"></param>
+        </member>
+        <member name="M:API.Endpoints.Accounts.Services.Get.ExecuteAsync(System.Threading.CancellationToken)">
+            <summary>
+            Async Process
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:API.Endpoints.Accounts.Templates.Mail.Mail">
+            <summary>
+              Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
+            </summary>
+        </member>
+        <member name="P:API.Endpoints.Accounts.Templates.Mail.Mail.ResourceManager">
+            <summary>
+              Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+            </summary>
+        </member>
+        <member name="P:API.Endpoints.Accounts.Templates.Mail.Mail.Culture">
+            <summary>
+              Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
+              búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
+            </summary>
+        </member>
+        <member name="P:API.Endpoints.Accounts.Templates.Mail.Mail.Recover_Subject">
+            <summary>
+              Busca una cadena traducida similar a Recuperación de Contraseña.
+            </summary>
+        </member>
+        <member name="P:API.Endpoints.Accounts.Templates.Mail.Mail.Register_Subject">
+            <summary>
+              Busca una cadena traducida similar a Bienvenido a Widul!.
+            </summary>
         </member>
         <member name="T:API.Endpoints.Events.EventsController">
             <summary>
@@ -122,118 +195,140 @@
             <param name="cancellationToken"></param>
             <returns></returns>
         </member>
-        <member name="T:API.Endpoints.SimpleAuthentication.Services.Authenticate">
+        <member name="T:API.Endpoints.Files.FilesController">
             <summary>
-            Simple Authentication Service
+            File API
             </summary>
         </member>
-        <member name="M:API.Endpoints.SimpleAuthentication.Services.Authenticate.ExecuteAsync(System.Threading.CancellationToken)">
+        <member name="M:API.Endpoints.Files.FilesController.Get(System.String)">
+            <summary>
+            Retrieves a File Content
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:API.Endpoints.Files.FilesController.Post">
+            <summary>
+            Create a Temporary File  (Must be Change the flag to permanently after)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:API.Endpoints.Files.Services.Upload">
+            <summary>
+            File Upload
+            </summary>
+        </member>
+        <member name="M:API.Endpoints.Files.Services.Upload.#ctor(System.Net.Http.HttpRequestMessage,System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="request">Http Request</param>
+            <param name="userID">User ID</param>
+        </member>
+        <member name="M:API.Endpoints.Files.Services.Upload.SaveFiles(System.Collections.Generic.List{System.Net.Http.HttpContent})">
+            <summary>
+            Save Files into DB
+            </summary>
+            <param name="files"></param>
+            <returns></returns>
+        </member>
+        <member name="T:API.Endpoints.Files.Services.View">
+            <summary>
+            Authentication API
+            </summary>
+        </member>
+        <member name="M:API.Endpoints.Files.Services.View.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="token">Token del Archivo</param>
+        </member>
+        <member name="M:API.Endpoints.Files.Services.View.ExecuteAsync(System.Threading.CancellationToken)">
+            <summary>
+            Obtiene la foto del usuario
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:API.Endpoints.Security.Resources.Security">
+            <summary>
+              Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
+            </summary>
+        </member>
+        <member name="P:API.Endpoints.Security.Resources.Security.ResourceManager">
+            <summary>
+              Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+            </summary>
+        </member>
+        <member name="P:API.Endpoints.Security.Resources.Security.Culture">
+            <summary>
+              Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
+              búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
+            </summary>
+        </member>
+        <member name="P:API.Endpoints.Security.Resources.Security.USERNAME_OR_PASSWORD_INCORRECT">
+            <summary>
+              Busca una cadena traducida similar a Usuario o Clave Incorrecta.
+            </summary>
+        </member>
+        <member name="T:API.Endpoints.Security.SecurityController">
+            <summary>
+            Security Controller to grant JWT to Valid User's
+            </summary>
+        </member>
+        <member name="M:API.Endpoints.Security.SecurityController.Authorize(API.Endpoints.Security.Models.FacebookCredentials)">
+            <summary>
+            Authorize via Facebook
+            </summary>
+            <param name="credentials">facebook data</param>
+            <returns></returns>
+            <response code="200">Authorized</response>
+            <response code="500">Incorrect Access Token</response>
+        </member>
+        <member name="M:API.Endpoints.Security.SecurityController.Authorize(API.Endpoints.Security.Models.GoogleCredentials)">
+            <summary>
+            Authorize via Google
+            </summary>
+            <param name="credentials">facebook data</param>
+            <returns></returns>
+            <response code="200">Authorized</response>
+            <response code="500">Incorrect Access Token</response>
+        </member>
+        <member name="T:API.Endpoints.Security.Services.Oauth.Facebook">
+            <summary>
+            Create or Authorize a Facebook User into the Application (Always Create a User Application)
+            </summary>
+        </member>
+        <member name="M:API.Endpoints.Security.Services.Oauth.Facebook.#ctor(System.Net.Http.HttpRequestMessage,API.Endpoints.Security.Models.FacebookCredentials)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="request"></param>
+            <param name="credentials"></param>
+        </member>
+        <member name="M:API.Endpoints.Security.Services.Oauth.Facebook.ExecuteAsync(System.Threading.CancellationToken)">
             <summary>
             Async Process
             </summary>
-            <param name="cancellationToken">Cancellation Token</param>
+            <param name="cancellationToken"></param>
             <returns></returns>
         </member>
-        <member name="T:API.Endpoints.SimpleAuthentication.SimpleAuthenticationController">
+        <member name="T:API.Endpoints.Security.Services.Oauth.Google">
             <summary>
-            SImple Authentication Example
+            Create or Authorize a Google User into the Application (Always Create a User Application)
             </summary>
         </member>
-        <member name="M:API.Endpoints.SimpleAuthentication.SimpleAuthenticationController.SecretOperation">
+        <member name="M:API.Endpoints.Security.Services.Oauth.Google.#ctor(System.Net.Http.HttpRequestMessage,API.Endpoints.Security.Models.GoogleCredentials)">
             <summary>
-            Restricted Operation (Authentication Required)
+            Constructor
             </summary>
-            <returns></returns>
+            <param name="request"></param>
+            <param name="credentials"></param>
         </member>
-        <member name="M:API.Endpoints.SimpleAuthentication.SimpleAuthenticationController.Post(API.Endpoints.SimpleAuthentication.Models.Authenitcation)">
+        <member name="M:API.Endpoints.Security.Services.Oauth.Google.ExecuteAsync(System.Threading.CancellationToken)">
             <summary>
-            Get an Access Token for retrieve the "SuperSecretOperation"
+            Async Process
             </summary>
-            <param name="credentials">Any credentials</param>
-            <returns></returns>
-        </member>
-        <member name="T:API.Endpoints.Users.UsersController">
-            <summary>
-            User Controller
-            </summary>
-        </member>
-        <member name="M:API.Endpoints.Users.UsersController.GetUser(System.String)">
-            <summary>
-            Get user information by its GUID
-            </summary>
-            <param name="id">User GUID</param>
-            <returns></returns>
-        </member>
-        <member name="M:API.Endpoints.Users.UsersController.CreateUser">
-            <summary>
-            Create a User
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:API.Endpoints.Users.UsersController.EditUser(System.String)">
-            <summary>
-            Edit a User by its GUID
-            </summary>
-            <param name="id">User GUID</param>
-            <returns></returns>
-        </member>
-        <member name="M:API.Endpoints.Users.UsersController.DeleteUser(System.String)">
-            <summary>
-            Delete a user by its GUID
-            </summary>
-            <param name="id">User GUID</param>
-            <returns></returns>
-        </member>
-        <member name="M:API.Endpoints.Users.UsersController.FollowUserById(System.Guid)">
-            <summary>
-            Follow a user by its GUID
-            </summary>
-            <param name="id">User GUID</param>
-            <returns></returns>
-        </member>
-        <member name="M:API.Endpoints.Users.UsersController.UnfollowUserById(System.Guid)">
-            <summary>
-            Unfollow a user by its GUID
-            </summary>
-            <param name="id"></param>
-            <returns></returns>
-        </member>
-        <member name="M:API.Endpoints.Users.UsersController.GetUserFollowing(System.Guid)">
-            <summary>
-            Get all the following users from this user
-            </summary>
-            <param name="id">User GUID</param>
-            <returns></returns>
-        </member>
-        <member name="M:API.Endpoints.Users.UsersController.GetUserFollers(System.Guid)">
-            <summary>
-            Get all the followers from this user
-            </summary>
-            <param name="id">User Identifier</param>
-            <returns></returns>
-        </member>
-        <member name="M:API.Endpoints.Users.UsersController.GetActualUser">
-            <summary>
-            Get the current user
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:API.Endpoints.Users.UsersController.GetActualUserFollowing">
-            <summary>
-            Get the following users from current user
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:API.Endpoints.Users.UsersController.GetActualUserFollowers">
-            <summary>
-            Get the followers from current user
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:API.Endpoints.Users.UsersController.GetCurrentUserNotifications">
-            <summary>
-            Get notifications from current user
-            </summary>
+            <param name="cancellationToken"></param>
             <returns></returns>
         </member>
         <member name="T:API.Errors">

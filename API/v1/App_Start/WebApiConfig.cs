@@ -15,11 +15,16 @@ namespace API
 	/// </summary>
 	public static class WebApiConfig
 	{
-		/// <summary>
-		/// Register Config Variables
-		/// </summary>
-		/// <param name="config"></param>
-		public static void Register (HttpConfiguration config)
+        /// <summary>
+        /// Root Roles
+        /// </summary>
+        public const string RootRoles = "ROOT";
+
+        /// <summary>
+        /// Register Config Variables
+        /// </summary>
+        /// <param name="config"></param>
+        public static void Register (HttpConfiguration config)
 		{
 			//--------------------------------------------------------------------------------------------------------------------------------------------
 			// Web API routes

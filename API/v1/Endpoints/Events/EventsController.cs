@@ -18,10 +18,10 @@ namespace API.Endpoints.Events
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        [Swashbuckle.Swagger.Annotations.QueryableEndpoint(typeof(Models.VW_Event))]
+        [Swashbuckle.Swagger.Annotations.QueryableEndpoint(typeof(Models.VW_Events))]
         public IHttpActionResult Get()
         {
-            return new Gale.REST.Http.HttpQueryableActionResult<Models.VW_Event>(this.Request);
+            return new Gale.REST.Http.HttpQueryableActionResult<Models.VW_Events>(this.Request);
         }
 
         /// <summary>
@@ -54,10 +54,10 @@ namespace API.Endpoints.Events
         /// <returns></returns>
         [HttpGet]
         [HierarchicalRoute("Tags")]
-        [Swashbuckle.Swagger.Annotations.QueryableEndpoint(typeof(Models.VW_Tag))]
+        [Swashbuckle.Swagger.Annotations.QueryableEndpoint(typeof(Models.VW_EventTags))]
         public IHttpActionResult Tags()
         {
-            return new Gale.REST.Http.HttpQueryableActionResult<Models.VW_Tag>(this.Request);
+            return new Gale.REST.Http.HttpQueryableActionResult<Models.VW_EventTags>(this.Request);
         }
 
         #endregion
