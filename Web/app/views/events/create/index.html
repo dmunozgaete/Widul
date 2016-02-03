@@ -1,0 +1,136 @@
+<gale-page class="events create index" layout-fill>
+    <!-- MAIN TOOLBAR -->
+    <md-toolbar class="md-whiteframe-z1 md-tall">
+        <div class="md-toolbar-tools">
+            <h2>
+                <span>{{config.application.name}}</span>
+            </h2>
+            <span flex></span>
+            <md-button ng-if="model.image.loaded" class="md-accent text md-raised give" aria-label="More" ng-click="createEvent()">
+                <md-icon md-svg-icon="action:favorite"></md-icon>
+                Entregar mi conocmiento
+            </md-button>
+
+            <md-button class="md-icon-button" aria-label="More" ng-click="toogleMenu('layout-nav-right')">
+                <md-icon md-svg-icon="social:person"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+    <md-progress-linear md-mode="indeterminate" class="md-accent" ng-if="1==2">
+    </md-progress-linear>
+
+    <!-- AVATAR -->
+    <event-avatar>
+        <div class="marker">
+            <div class="halo">
+                <div>
+                    <img ng-src="{{model.user.photo}}" />
+                </div>
+            </div>
+        </div>
+
+        <div ng-if="!model.event.date" ng-click="showCalendar($event,model.event.date);" class="md-primary background date" layout="column" ng-if="model.data">
+
+            <div class="day" flex="initial">
+                Fecha
+            </div>
+
+            <div flex layout="column" layout-align="center center" layout-fill>
+                <div class="month">
+                    Cuando
+                </div>
+                <div class="day">
+                    ?
+                </div>
+                <div class="year">
+                    &nbsp;
+                </div>
+            </div>
+
+        </div>
+
+        <!-- DATE PICKER -->
+        <div ng-if="model.event.date" ng-click="showCalendar($event, model.event.date);" class="md-primary background date" layout="column">
+
+            <div class="day" flex="initial">
+                {{model.event.date | amDateFormat: 'YYYY'}}
+            </div>
+
+            <div flex layout="column" layout-align="center center" layout-fill>
+                <div class="month">
+                    {{model.event.date | amDateFormat: 'dddd'}}
+                </div>
+                <div class="day">
+                    {{model.event.date | amDateFormat: 'D'}}
+                </div>
+                <div class="year">
+                    {{model.event.date | amDateFormat: 'MMMM'}}
+                </div>
+            </div>
+
+        </div>
+    </event-avatar>
+
+    <!-- WHITE BOX -->
+    <div class="column">
+        <event-content class="md-whiteframe-z2">
+
+            <event-header>
+                <div>
+                    <h1 class="md-primary text">
+                        <span>Nuevo Evento</span>
+                        <span ng-if="model.event.name">> <strong>{{model.event.name}}</strong></span>
+                    </h1>
+                </div>
+            </event-header>
+
+            <event-body>
+
+                <md-content form-content>
+                    <form name="form">
+                        <!-- FORM DATA -->
+                        <div layout="row">
+                            <md-input-container class="md-block" flex>
+                                <label>Nombre del evento</label>
+                                <input required md-maxlength="50" ng-model="model.event.name">
+                            </md-input-container>
+                        </div>
+                        <div layout="row">
+                            <md-input-container class="md-block" flex>
+                                <label>Describe tu evento</label>
+                                <textarea required rows="9" md-maxlength="500" ng-model="model.event.description"></textarea>
+                            </md-input-container>
+                        </div>
+                    </form>
+                </md-content>
+            </event-body>
+
+            <event-tags>
+                <md-chips flex md-separator-keys="model.tags.electricChars" ng-model="model.tags.items" md-on-remove="find(model.tags.items);" md-on-add="find(model.tags.items);" md-separator-keys="" md-autocomplete-snap md-transform-chip="setOrRegister($chip)" md-require-match="false">
+                    <md-autocomplete md-delay="0"  placeholder="Etiquetas de interes" md-min-length="2" md-selected-item="model.selectedItem" md-search-text="model.searchText" md-items="item in queryTags(model.searchText)" md-item-text="item.name">
+                        <span md-highlight-text="model.searchText">{{item.name}}</span>
+                    </md-autocomplete>
+                    <md-chip-template>
+                        <span>
+                            <strong>{{$chip.name}}</strong>
+                        </span>
+                    </md-chip-template>
+                </md-chips>
+            </event-tags>
+
+            <event-actions>
+
+            </event-actions>
+        </event-content>
+        <event-configuration>
+            <md-switch ng-model="model.event.aprobationFlow" aria-label="Aprobation" class="md-accent">
+                Implementar el flujo de aprobación para incorparse al evento
+            </md-switch>
+            <md-switch ng-model="model.event.public" aria-label="Private" class="md-accent">
+                Establecer como evento privado
+            </md-switch>
+        </event-configuration>
+    </div>
+
+</gale-page>

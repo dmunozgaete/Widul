@@ -1,0 +1,151 @@
+<md-dialog aria-label="dd" class="events details view index">
+    <md-progress-linear md-mode="indeterminate" class="md-accent" ng-if="!model.data">
+    </md-progress-linear>
+
+    <md-dialog-content>
+
+        <!-- AVATAR -->
+        <dialog-avatar>
+            <div class="marker">
+                <div class="halo">
+                    <div>
+                        <img ng-src="{{model.event.user.photo}}" />
+                    </div>
+                </div>
+            </div>
+            <div class="name">
+                {{model.event.user.fullName}}
+            </div>
+
+            <!-- FOLLOW BUTTON -->
+            <md-button class="md-accent text follow">
+                <md-icon md-svg-icon="social:person_add"></md-icon>
+                Seguir
+            </md-button>
+
+            <!-- DATE PICKER -->
+            <div class="md-primary background date" layout="column" ng-if="model.data">
+
+                <div class="day" flex="initial">
+                    {{model.data.date | amDateFormat: 'YYYY'}}
+
+                </div>
+
+                <div flex layout="column" layout-align="center center" layout-fill>
+                    <div class="month">
+                        {{model.data.date | amDateFormat: 'dddd'}}
+                    </div>
+                    <div class="day">
+                        {{model.data.date | amDateFormat: 'D'}}
+                    </div>
+                    <div class="year">
+                        {{model.data.date | amDateFormat: 'MMMM'}}
+                    </div>
+                </div>
+
+            </div>
+        </dialog-avatar>
+
+        <!-- WHITE BOX -->
+        <dialog-content>
+            <flex-loading ng-if="!model.data">
+            </flex-loading>
+
+            <div ng-if="model.data">
+
+                <event-header layout="row">
+                    <div flex>
+                        <h1 class="md-primary text">
+                            {{model.event.name}}
+                            <span>
+                                <md-tooltip md-direction="right">
+                                    Recomendaciones actuales del conocimiento
+                                </md-tooltip>
+
+                                <md-icon class="md-primary text" md-svg-icon="action:done"></md-icon>
+                                {{model.data.knowledge.recommendations}}
+                            </span>
+                        </h1>
+                        <h2>
+                            Conocimiento:
+                            <strong>{{model.data.knowledge.name}}</strong>
+                            <span>
+                                <md-tooltip md-direction="right">
+                                    Participantes actuales
+                                </md-tooltip>
+
+                                <md-icon md-svg-icon="social:group"></md-icon>
+                                {{model.data.participants}}
+                            </span>
+                        </h2>
+                    </div>
+                    <div flex="25" layout="row" layout-align="center center">
+                        <md-button class="md-accent md-raised">
+                            <md-icon md-svg-icon="social:group"></md-icon>
+                            Participar
+                        </md-button>
+                    </div>
+                </event-header>
+                <div layout="row">
+                    <event-description flex>
+                        <!-- DESCRIPTION -->
+                        <p>
+                            {{model.data.description}}
+                        </p>
+
+                        <!-- TAGS -->
+                        <event-tags>
+                            <tag ng-repeat="tag in model.data.tags">#{{tag}}</tag>
+                        </event-tags>
+
+                    </event-description>
+
+                    <event-location flex="40">
+                        <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
+                    </event-location>
+                </div>
+                <event-comments>
+                    <comment ng-repeat="comment in model.data.comments">
+                        <avatar>
+
+                            <div class="halo">
+                                <div>
+                                    <img ng-src="{{comment.user.photo}}" />
+                                </div>
+                            </div>
+
+                        </avatar>
+                        <description>
+                            {{comment.comment}}
+                        </description>
+                        <created-at>
+                            hace un minuto
+                        </created-at>
+                    </comment>
+                </event-comments>
+                <load-comments class="md-accent text">
+                    Quiero ver todos los comentarios!
+                </load-comments>
+                <form name="form">
+                    <new-comment>
+                        <div>
+                            <md-input-container class="md-block">
+                                <label>Si tienes alguna duda... comentanos!</label>
+                                <textarea maxlength="150" ng-model="model.newcomment.comment" columns="1" md-maxlength="150" rows="3"></textarea>
+                            </md-input-container>
+                        </div>
+                        <div>
+                            <md-button ng-disabled="!model.newcomment.comment || model.newcomment.comment.length==0" class="md-raised md-primary">
+                                Comentar
+                            </md-button>
+                        </div>
+                    </new-comment>
+                </form>
+
+            </div>
+
+        </dialog-content>
+
+    </md-dialog-content>
+
+</md-dialog>

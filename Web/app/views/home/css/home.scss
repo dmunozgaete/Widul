@@ -1,6 +1,14 @@
 @import "../../../bundles/app/css/_variables";
 @import "../../../bundles/app/css/_flexbox";
 gale-page.home {
+    md-toolbar {
+        > .md-toolbar-tools {
+            button.give {
+                border-radius: 50px;
+                padding: 0px 16px;
+            }
+        }
+    }
     div.landscape {
         height: 45%;
         background-color: #F3F3F3;
@@ -25,7 +33,7 @@ gale-page.home {
             position: absolute;
             height: 45%;
             width: 100%;
-            z-index: 99999999;
+            z-index: 1;
             @include flexbox();
             @include flex-direction(column);
             @include align-items(center);
@@ -76,10 +84,11 @@ gale-page.home {
             font-size: 1.5em;
             line-height: 1.7em;
             color: #FF4081;
-            border-bottom: 1px solid #ECECEC;
             margin: 0px 16px;
         }
         > event {
+            outline: none;
+            cursor: pointer;
             color: $text_color;
             @include flexbox();
             @include flex-direction(column);
@@ -102,7 +111,6 @@ gale-page.home {
                     @include align-items(center);
                     @include justify-content(center);
                     @include flex-basis(30%);
-
                     text-align: center;
                     font-size: 0.9em;
                     padding-top: 8px;

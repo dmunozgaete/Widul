@@ -3,6 +3,67 @@ angular.module('mocks.api')
 .run(function(Mocks, $log)
 {
     //-------------------------------------------------------------
+    Mocks.whenGET("Events/Details", function(method, url, data)
+    {
+        var now = new Date();
+        var result = {
+            title: "Clase de Actuación",
+            description: "ventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ",
+            knowledge:
+            {
+                name: "Actuación",
+                recommendations: 25
+            },
+            participants: 30,
+            date: (new Date()).toISOString(),
+            user:
+            {
+                "fullname": "Sebastian Moreno",
+                "photo": "bundles/mocks/images/avatar1.png",
+                "token": "e6dc2176-6f74-4d3c-b1b4-06680d865b8f"
+            },
+            tags: [
+                "AireLibre",
+                "Cerro",
+                "Fit",
+                "VidaSana",
+                "Prueba",
+                "LasCondes"
+            ],
+            comments: [
+            {
+                createdAt: new Date(now.getTime() - (1000 * 10)).toISOString(),
+                user:
+                {
+                    "fullName": "Sebastian Moreno",
+                    "photo": "bundles/mocks/images/avatar1.png",
+                    "token": "e6dc2176-6f74-4d3c-b1b4-06680d865b8f"
+                },
+                comment: "unt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libe"
+            },
+            {
+                createdAt: new Date(now.getTime() - (1500 * 10)).toISOString(),
+                user:
+                {
+                    "fullName": "Fabian Elgueta",
+                    "photo": "bundles/mocks/images/avatar2.png",
+                    "token": "e6dc2176-6f74-4d3c-b1b4-06680d865b8f"
+                },
+                comment: "t know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some g"
+            }]
+        };
+
+
+        return [
+            200,
+            result,
+            {}
+        ];
+    });
+    //-------------------------------------------------------------
+
+
+    //-------------------------------------------------------------
     Mocks.whenGET("Events/Tags", function(method, url, data)
     {
         var result = {

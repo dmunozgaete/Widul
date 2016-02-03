@@ -6,6 +6,11 @@
                 <span>{{config.application.name}}</span>
             </h2>
             <span flex></span>
+            <md-button ng-if="model.image.loaded" class="md-accent text md-raised give" aria-label="More" ng-click="createEvent()">
+                <md-icon md-svg-icon="action:favorite"></md-icon>
+                Entregar mi conocmiento
+            </md-button>
+
             <md-button class="md-icon-button" aria-label="More" ng-click="toogleMenu('layout-nav-right')">
                 <md-icon md-svg-icon="social:person"></md-icon>
             </md-button>
@@ -58,7 +63,7 @@
         </event-divider>
 
         <!-- EVENT ITEM -->
-        <event ng-repeat="item in model.results.items">
+        <event ng-repeat="item in model.results.items" ng-click="showDetails($event, item)">
             <div class="header">
                 <!-- SOCIAL ICON -->
                 <div class="marker">

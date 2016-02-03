@@ -5,26 +5,32 @@
 
         , 'ui.utils' //UI UTILITIES LIKE MASK
 
+        //, 'uiGmapgoogle-maps' //UI Google Maps
+
         , 'angularMoment' //ANGULAR MOMENT
         , 'angularFileUpload' //ANGULAR FILE UPLOAD
         , 'pouchdb' //POUCH DB (FOR DATA STORAGE)
 
         , 'mocks' //Mocks Only for Testing
     ])
+/*
+    .config(function(uiGmapGoogleMapApiProvider)
+    {
+        
+        //Maps Configuration
+        var googleKey = 'AIzaSyANyXwrXOkNgp9RPOAuebclIHLU2FWmPAA';
+        uiGmapGoogleMapApiProvider.configure(
+        {
+           // key: googleKey,
+            libraries: 'visualization',
+            v: '3.5',
+            sensor: false
+        });
+    })
+    */
     .run(function($location)
     {
-        $location.path('/public/boot').search(
-        {
-            
-        });
-
-        /*
-            //REDIRECT TO MAIN HOME (ONLY WHEN NO HAVE PATH)
-        if ($location.path().length <= 2)
-        {
-            $location.url(application.home);
-        }
-        */
+        $location.path('/public/boot');
     })
     .config(function($ApiProvider, $uploadFileProvider, CONFIGURATION)
     {
@@ -36,7 +42,7 @@
     {
         //Security Provider
         $IdentityProvider
-            //.enable() //Enable
+        //.enable() //Enable
             .setIssuerEndpoint("Security/Authorize")
             .setLogInRoute("security/identity/login")
             .setWhiteListResolver(function(toState, current)

@@ -1,4 +1,4 @@
-angular.route('public.home/index', function(
+angular.route('public.events/create/index', function(
     $scope,
     $state,
     $log,
@@ -6,18 +6,22 @@ angular.route('public.home/index', function(
     $interval,
     $timeout,
     $q,
-    $mdConstant,
-    $mdDialog
+    $mdDialog,
+    $galeDatepickerDialog,
+    $mdConstant
 )
 {
-
-    //-----------------------------------------------
-    //Model
+    //---------------------------------------------------
+    // Model
     $scope.model = {
-        image:
+        user:
         {
-            url: "landscape-1.jpg"
+            "fullname": "Sebastian Moreno",
+            "photo": "bundles/mocks/images/avatar2.png",
+            "token": "e6dc2176-6f74-4d3c-b1b4-06680d865b8f"
         },
+        event:
+        {},
         results:
         {
             items: []
@@ -32,7 +36,16 @@ angular.route('public.home/index', function(
         }
     };
 
-    //-----------------------------------------------
+    $scope.map = {
+        center:
+        {
+            latitude: 45,
+            longitude: -73
+        },
+        zoom: 8
+    };
+
+    //---------------------------------------------------
     // Function's
     $scope.queryTags = function(query)
     {
@@ -89,44 +102,36 @@ angular.route('public.home/index', function(
             });
     };
 
-    //-----------------------------------------------
+    //---------------------------------------------------
     // Action's
-    $scope.onImageLoaded = function(h, w)
+    $scope.cancel = function()
     {
-        $scope.model.image.loaded = true;
-
-        //Find the neareast or the most accurated results =)!
-        $scope.find([
-        {}]);
+        $mdDialog.cancel();
     };
 
-
-    $scope.showDetails = function(ev,item)
+    $scope.showCalendar = function(ev, date)
     {
-        $mdDialog.show(
-            {
-                controller: 'EventDetailsDialogController',
-                templateUrl: 'views/events/view/dialogs/eventDetails.tpl.html',
-                clickOutsideToClose: false,
-                escapeToClose: true,
-                focusOnOpen: true,
-                fullscreen: true,
-                locals:
-                {
-                    event: item
-                }
-            })
-            .then(function(data)
-            {
-                //Update Data
-            });
+        $galeDatepickerDialog.show(ev,
+        {
+            selected: (date || new Date())
+        }).then(function(selectedDate)
+        {
+            $scope.model.event.date = selectedDate;
+        });
     };
 
-    $scope.createEvent = function(ev,item)
+    $scope.showKnowledges = function()
     {
-       $state.go("public.events/create");
+        return [
+        {
+            name: "Conocmiento 1",
+        },
+        {
+            name: "Conocmiento 2",
+        },
+        {
+            name: "Conocmiento 3",
+        }]
     };
-
-
 
 });
