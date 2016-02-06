@@ -149,6 +149,13 @@
     </Compile>
     <Compile Include="Endpoints\Files\Services\Upload.cs" />
     <Compile Include="Endpoints\Files\Services\View.cs" />
+    <Compile Include="Endpoints\Knowledge\KnowledgeController.cs" />
+    <Compile Include="Endpoints\Knowledge\Models\Knowledge.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Knowledge.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Endpoints\Knowledge\Services\Create.cs" />
     <Compile Include="Endpoints\Places\Models\Places.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -227,6 +234,11 @@
       <LastGenOutput>Places.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Endpoints\Knowledge\Models\Knowledge.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Knowledge.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Properties\PublishProfiles\QAS_Valentys.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -267,6 +279,9 @@
     </EmbeddedResource>
     <None Include="Endpoints\Places\Models\Places.dbml.layout">
       <DependentUpon>Places.dbml</DependentUpon>
+    </None>
+    <None Include="Endpoints\Knowledge\Models\Knowledge.dbml.layout">
+      <DependentUpon>Knowledge.dbml</DependentUpon>
     </None>
     <EmbeddedResource Include="Endpoints\Security\Resources\Security.resx">
       <Generator>ResXFileCodeGenerator</Generator>

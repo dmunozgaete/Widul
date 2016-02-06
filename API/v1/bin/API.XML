@@ -249,6 +249,25 @@
             <param name="cancellationToken"></param>
             <returns></returns>
         </member>
+        <member name="T:API.Endpoints.Knowledge.Services.Create">
+            <summary>
+            Create a New Place
+            </summary>
+        </member>
+        <member name="M:API.Endpoints.Knowledge.Services.Create.#ctor(System.String,API.Endpoints.Knowledge.Models.newKnowledge)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="creator"></param>
+            <param name="knowledge"></param>
+        </member>
+        <member name="M:API.Endpoints.Knowledge.Services.Create.ExecuteAsync(System.Threading.CancellationToken)">
+            <summary>
+            Async Process
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
         <member name="T:API.Endpoints.Places.PlacesController">
             <summary>
             Places Controller
