@@ -1,0 +1,10 @@
+/* 
+    SASS Mixins
+*/
+md-dialog.loading-dialog {
+  height: 150px;
+  width: 450px; }
+  md-dialog.loading-dialog > div {
+    padding: 16px; }
+
+/*# sourceMappingURL=loading-dialog.css.map */

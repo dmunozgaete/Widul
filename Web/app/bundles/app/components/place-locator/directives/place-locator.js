@@ -18,7 +18,6 @@ angular.module('app.components')
         require: ['ngModel'],
         scope:
         {
-            itemText: '@', // Text Value Display
             ngModel: '=' // Ng-Model
         },
         transclude: true,

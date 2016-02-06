@@ -118,10 +118,10 @@ namespace API.Endpoints.Places.Models
     partial void OnnameChanged();
     partial void OnaddressChanging(string value);
     partial void OnaddressChanged();
-    partial void OnlatitudeChanging(double value);
-    partial void OnlatitudeChanged();
-    partial void OnlongitudeChanging(double value);
-    partial void OnlongitudeChanged();
+    partial void OnlatChanging(double value);
+    partial void OnlatChanged();
+    partial void OnlngChanging(double value);
+    partial void OnlngChanged();
     partial void OncapacityChanging(int value);
     partial void OncapacityChanged();
     partial void OncreatedAtChanging(System.DateTime value);
@@ -184,7 +184,7 @@ namespace API.Endpoints.Places.Models
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="PLAC_Latitude", Storage="_latitude", DbType="Float NOT NULL")]
-		public double latitude
+		public double lat
 		{
 			get
 			{
@@ -194,17 +194,17 @@ namespace API.Endpoints.Places.Models
 			{
 				if ((this._latitude != value))
 				{
-					this.OnlatitudeChanging(value);
+					this.OnlatChanging(value);
 					this.SendPropertyChanging();
 					this._latitude = value;
-					this.SendPropertyChanged("latitude");
-					this.OnlatitudeChanged();
+					this.SendPropertyChanged("lat");
+					this.OnlatChanged();
 				}
 			}
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="PLAC_Longitude", Storage="_longitude", DbType="Float NOT NULL")]
-		public double longitude
+		public double lng
 		{
 			get
 			{
@@ -214,11 +214,11 @@ namespace API.Endpoints.Places.Models
 			{
 				if ((this._longitude != value))
 				{
-					this.OnlongitudeChanging(value);
+					this.OnlngChanging(value);
 					this.SendPropertyChanging();
 					this._longitude = value;
-					this.SendPropertyChanged("longitude");
-					this.OnlongitudeChanged();
+					this.SendPropertyChanged("lng");
+					this.OnlngChanged();
 				}
 			}
 		}
@@ -437,7 +437,7 @@ namespace API.Endpoints.Places.Models
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="PLAC_Latitude", Storage="_latitude", DbType="Float NOT NULL")]
-		public double latitude
+		public double lat
 		{
 			get
 			{
@@ -453,7 +453,7 @@ namespace API.Endpoints.Places.Models
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="PLAC_Longitude", Storage="_longitude", DbType="Float NOT NULL")]
-		public double longitude
+		public double lng
 		{
 			get
 			{

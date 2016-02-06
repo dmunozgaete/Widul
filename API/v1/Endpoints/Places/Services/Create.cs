@@ -49,8 +49,8 @@ namespace API.Endpoints.Places.Services
                 svc.Parameters.Add("PLAC_Tip", this.Model.tip);
                 
                 svc.Parameters.Add("PLAC_Capacity", this.Model.capacity);
-                svc.Parameters.Add("PLAC_Latitude", this.Model.latitude);
-                svc.Parameters.Add("PLAC_Longitude", this.Model.longitude);
+                svc.Parameters.Add("PLAC_Latitude", this.Model.lat);
+                svc.Parameters.Add("PLAC_Longitude", this.Model.lng);
 
                 this.ExecuteAction(svc);
 

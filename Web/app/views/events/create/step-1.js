@@ -9,6 +9,7 @@ angular.route('public.events/create/step-1', function(
     $mdDialog,
     $galeDatepickerDialog,
     $mdConstant,
+    $loadingDialog,
     $window
 )
 {
@@ -117,7 +118,9 @@ angular.route('public.events/create/step-1', function(
     // Action's
     $scope.cancel = function()
     {
-        $mdDialog.cancel();
+        $loadingDialog.show({
+            title: "Creando Evento..."
+        });
     };
 
     $scope.tooggleSettings = function()

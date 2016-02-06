@@ -1,6 +1,6 @@
 // SERVICE
 angular.module('app.components')
-    .provider('$placeLocatorDialog', function()
+    .provider('$loadingDialog', function()
     {
         var $ref = this;
 
@@ -9,17 +9,17 @@ angular.module('app.components')
             var self = {};
 
             //ADD NEW FACTORY
-            self.show = function(ev, config)
+            self.show = function(config)
             {
                 var deferred = $q.defer();
                 $mdDialog.show(
                     {
-                        controller: 'PlaceLocatorDialogController',
-                        templateUrl: 'bundles/app/components/place-locator/place-locator-dialog.tpl.html',
-                        targetEvent: ev,
+                        controller: 'LoadingDialogController',
+                        templateUrl: 'bundles/app/components/loading-dialog/loading-dialog.tpl.html',
+                        targetEvent: config.targetEvent,
                         clickOutsideToClose: false,
                         escapeToClose: false,
-                        focusOnOpen: true,
+                        focusOnOpen: false,
                         locals:
                         {
                             config: config

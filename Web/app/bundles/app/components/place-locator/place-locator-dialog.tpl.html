@@ -21,7 +21,7 @@
                 <div layout="row">
                     <md-autocomplete md-selected-item-change="places.onSelect(place)" md-search-text-change="places.onClear(searchText)" md-autofocus="true" flex md-input-minlength="2" md-input-maxlength="50" md-no-cache="true" md-selected-item="place" md-search-text="searchText" md-items="item in places.find(searchText)" md-item-text="item.name" md-floating-label="Nombre del Lugar">
                         <md-item-template>
-                            <span md-highlight-text="searchText">{{item.name}} - {{item.address.line}}</span>
+                            <span md-highlight-text="searchText">{{item.name}} - {{item.address}}</span>
                         </md-item-template>
                     </md-autocomplete>
                 </div>
