@@ -6,13 +6,13 @@ angular.route('public.home/index', function(
     $interval,
     $timeout,
     $q,
-    $mdConstant
+    $mdConstant,
+    $mdDialog
 )
 {
 
-    console.log($mdConstant)
-        //-----------------------------------------------
-        //Model
+    //-----------------------------------------------
+    //Model
     $scope.model = {
         image:
         {
@@ -95,10 +95,36 @@ angular.route('public.home/index', function(
     {
         $scope.model.image.loaded = true;
 
+        //Find the neareast or the most accurated results =)!
         $scope.find([
-        {
-            name: "t"
-        }]);
+        {}]);
+    };
+
+
+    $scope.showDetails = function(ev,item)
+    {
+        $mdDialog.show(
+            {
+                controller: 'EventDetailsDialogController',
+                templateUrl: 'views/events/view/dialogs/eventDetails.tpl.html',
+                clickOutsideToClose: false,
+                escapeToClose: true,
+                focusOnOpen: true,
+                fullscreen: true,
+                locals:
+                {
+                    event: item
+                }
+            })
+            .then(function(data)
+            {
+                //Update Data
+            });
+    };
+
+    $scope.createEvent = function(ev,item)
+    {
+       $state.go("public.events/create/step-1");
     };
 
 

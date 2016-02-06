@@ -1,6 +1,9 @@
 /* 
     SASS Mixins
 */
+gale-page.home md-toolbar > .md-toolbar-tools button.give {
+  border-radius: 50px;
+  padding: 0px 16px; }
 gale-page.home div.landscape {
   height: 45%;
   background-color: #F3F3F3; }
@@ -20,7 +23,7 @@ gale-page.home div.landscape {
     position: absolute;
     height: 45%;
     width: 100%;
-    z-index: 99999999;
+    z-index: 1;
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-flex;
@@ -77,9 +80,10 @@ gale-page.home > div.results {
     font-size: 1.5em;
     line-height: 1.7em;
     color: #FF4081;
-    border-bottom: 1px solid #ECECEC;
     margin: 0px 16px; }
   gale-page.home > div.results > event {
+    outline: none;
+    cursor: pointer;
     color: #FFF;
     display: -webkit-box;
     display: -webkit-flex;

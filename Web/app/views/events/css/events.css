@@ -1,0 +1,554 @@
+/* 
+    SASS Mixins
+*/
+/*------------------------- 
+VIEW:   Events Module
+ROUTE:  /app/events/*
+-------------------------*/
+.events {
+  /*------------------------- 
+  VIEW:   View Section
+  ROUTE:  /app/events/view/*
+  -------------------------*/ }
+  .events.view {
+    /*------------------------- 
+    VIEW:   Index Page
+    ROUTE:  /app/events/view/index
+    -------------------------*/ }
+    .events.view.details {
+      height: 100%;
+      width: 100%;
+      max-height: 100%;
+      max-width: 100%;
+      position: absolute;
+      top: 0%;
+      left: 0%;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none; }
+      .events.view.details dialog-content {
+        position: absolute;
+        top: 3%;
+        background-color: #FFF;
+        box-shadow: 0px 7px 8px -4px rgba(0, 0, 0, 0.2), 0px 13px 19px 2px rgba(0, 0, 0, 0.14), 0px 5px 24px 4px rgba(0, 0, 0, 0.12);
+        left: 23%;
+        right: 3%;
+        height: 85%;
+        border-radius: 4px;
+        display: block; }
+        .events.view.details dialog-content > flex-loading {
+          min-height: 300px; }
+        .events.view.details dialog-content event-header {
+          border-bottom: 1px solid #EAEAEA; }
+          .events.view.details dialog-content event-header h1 {
+            margin: 16px 0px 0px 16px;
+            font-size: 1.8em;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap; }
+            .events.view.details dialog-content event-header h1 > span {
+              font-weight: normal;
+              font-size: 0.8em; }
+              .events.view.details dialog-content event-header h1 > span > md-icon {
+                margin-top: -2px;
+                padding-left: 8px;
+                margin-right: -6px; }
+          .events.view.details dialog-content event-header h2 {
+            margin: 0px 0px 16px 18px;
+            font-size: 1.2em;
+            font-weight: normal; }
+            .events.view.details dialog-content event-header h2 > span {
+              font-weight: normal;
+              font-size: 0.8em; }
+              .events.view.details dialog-content event-header h2 > span > md-icon {
+                margin-top: -2px;
+                padding-left: 8px;
+                margin-right: -2px; }
+          .events.view.details dialog-content event-header button {
+            border-radius: 50px;
+            padding: 0px 24px; }
+        .events.view.details dialog-content event-description {
+          font-size: 0.9em;
+          padding: 16px;
+          text-align: justify;
+          display: block; }
+          .events.view.details dialog-content event-description > p {
+            opacity: 0.8;
+            margin: 0px; }
+        .events.view.details dialog-content event-location {
+          display: block;
+          padding: 16px 16px 16px 0px; }
+          .events.view.details dialog-content event-location .angular-google-map-container {
+            min-height: 12em; }
+        .events.view.details dialog-content event-tags {
+          display: block;
+          padding-top: 16px; }
+          .events.view.details dialog-content event-tags > tag {
+            text-decoration: underline;
+            padding-left: 4px;
+            padding-right: 4px;
+            cursor: pointer;
+            display: inline-block;
+            color: #3F51B5; }
+        .events.view.details dialog-content event-comments {
+          display: block; }
+          .events.view.details dialog-content event-comments > comment {
+            border-top: 1px solid #EAEAEA;
+            display: block;
+            height: 70px;
+            width: 100%; }
+            .events.view.details dialog-content event-comments > comment:first-child {
+              padding-top: 8px; }
+            .events.view.details dialog-content event-comments > comment:last-child {
+              padding-bottom: 8px; }
+            .events.view.details dialog-content event-comments > comment > avatar {
+              position: absolute;
+              display: block;
+              width: 50px;
+              height: 50px;
+              margin-top: 8px;
+              margin-left: 16px; }
+              .events.view.details dialog-content event-comments > comment > avatar > div.halo {
+                background-color: #FFF;
+                border-radius: 50%;
+                border: 1px solid #FFF;
+                width: 100%;
+                height: 100%;
+                padding: 3%; }
+                .events.view.details dialog-content event-comments > comment > avatar > div.halo > div {
+                  border-radius: 50%;
+                  overflow: hidden;
+                  height: 100%;
+                  width: 100%;
+                  background: #3F51B5; }
+                  .events.view.details dialog-content event-comments > comment > avatar > div.halo > div > img {
+                    width: 100%; }
+            .events.view.details dialog-content event-comments > comment > description {
+              position: absolute;
+              display: block;
+              margin-left: 86px;
+              text-align: justify;
+              margin-right: 16px;
+              margin-top: 16px;
+              font-size: 0.85em;
+              max-height: 2.4em;
+              overflow: hidden; }
+              .events.view.details dialog-content event-comments > comment > description:after {
+                content: "";
+                text-align: right;
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                width: 15%;
+                height: 1.2em;
+                background: linear-gradient(to right, rgba(255, 255, 255, 0), white 50%); }
+            .events.view.details dialog-content event-comments > comment > created-at {
+              display: block;
+              position: absolute;
+              right: 16px;
+              margin-top: 50px;
+              opacity: 0.5;
+              font-size: 0.8em; }
+        .events.view.details dialog-content load-comments {
+          display: block;
+          text-align: left;
+          font-size: 0.75em;
+          cursor: pointer;
+          padding: 8px 16px;
+          opacity: 0.5; }
+          .events.view.details dialog-content load-comments:hover {
+            opacity: 1; }
+        .events.view.details dialog-content new-comment {
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: -moz-flex;
+          display: -ms-flexbox;
+          display: flex;
+          border-bottom-left-radius: 4px;
+          border-bottom-right-radius: 4px;
+          background: #F3F3F3; }
+          .events.view.details dialog-content new-comment > div:first-child {
+            -webkit-flex-basis: 80%;
+            -moz-flex-basis: 80%;
+            -ms-flex-preferred-size: 80%;
+            flex-basis: 80%;
+            padding: 8px 16px; }
+          .events.view.details dialog-content new-comment > div:last-child {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-flex-basis: 20%;
+            -moz-flex-basis: 20%;
+            -ms-flex-preferred-size: 20%;
+            flex-basis: 20%;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            -moz-align-items: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            -moz-justify-content: center;
+            justify-content: center; }
+            .events.view.details dialog-content new-comment > div:last-child > button {
+              border-radius: 50px;
+              padding: 0px 16px; }
+      .events.view.details dialog-avatar {
+        display: block;
+        position: absolute;
+        top: 5%;
+        left: 1%;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-direction: normal;
+        -webkit-box-orient: vertical;
+        -webkit-flex-direction: column;
+        -moz-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        -moz-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        -moz-align-items: center;
+        align-items: center;
+        width: 21%;
+        -webkit-flex-basis: 40%;
+        -moz-flex-basis: 40%;
+        -ms-flex-preferred-size: 40%;
+        flex-basis: 40%; }
+        .events.view.details dialog-avatar div.marker {
+          width: 7em;
+          height: 7em; }
+          .events.view.details dialog-avatar div.marker > div.halo {
+            box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.14), 0 2px 2px -2px rgba(0, 0, 0, 0.12);
+            background-color: #FFF;
+            border-radius: 50%;
+            border: 1px solid #FFF;
+            width: 100%;
+            height: 100%;
+            padding: 3%; }
+            .events.view.details dialog-avatar div.marker > div.halo > div {
+              border-radius: 50%;
+              overflow: hidden;
+              height: 100%;
+              width: 100%;
+              background: #3F51B5; }
+              .events.view.details dialog-avatar div.marker > div.halo > div > img {
+                width: 100%; }
+        .events.view.details dialog-avatar button.follow {
+          padding: 0px 25px;
+          border-radius: 50px;
+          background: none;
+          border: 2px solid #fff;
+          background-color: #FFF; }
+        .events.view.details dialog-avatar div.name {
+          text-align: center;
+          color: #fff;
+          font-size: 1.4em;
+          padding: 12px 8px 16px 8px;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+          width: 100%; }
+        .events.view.details dialog-avatar div.date {
+          width: 85%;
+          margin-top: 24px;
+          -webkit-touch-callout: none;
+          -webkit-user-select: none;
+          -khtml-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+          border-radius: 4px; }
+          .events.view.details dialog-avatar div.date > div {
+            padding: 16px 0px;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            -moz-align-items: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            -moz-justify-content: center;
+            justify-content: center; }
+            .events.view.details dialog-avatar div.date > div.day {
+              height: 35px;
+              color: #fff;
+              font-size: 1.3em;
+              background-color: rgba(0, 0, 0, 0.2);
+              text-transform: capitalize; }
+            .events.view.details dialog-avatar div.date > div > div {
+              display: -webkit-box;
+              display: -webkit-flex;
+              display: -moz-flex;
+              display: -ms-flexbox;
+              display: flex;
+              -webkit-box-align: center;
+              -ms-flex-align: center;
+              -webkit-align-items: center;
+              -moz-align-items: center;
+              align-items: center;
+              -webkit-box-pack: center;
+              -ms-flex-pack: center;
+              -webkit-justify-content: center;
+              -moz-justify-content: center;
+              justify-content: center;
+              -webkit-box-direction: normal;
+              -webkit-box-orient: vertical;
+              -webkit-flex-direction: column;
+              -moz-flex-direction: column;
+              -ms-flex-direction: column;
+              flex-direction: column;
+              color: #FFF;
+              text-transform: uppercase; }
+              .events.view.details dialog-avatar div.date > div > div.month {
+                font-size: 1.3em; }
+              .events.view.details dialog-avatar div.date > div > div.year {
+                font-size: 1.3em; }
+              .events.view.details dialog-avatar div.date > div > div.day {
+                font-size: 5em; }
+  .events.create {
+    /*------------------------- 
+    VIEW:   Create Event Page
+    ROUTE:  /app/events/create/step-1
+    -------------------------*/
+    /*------------------------- 
+    VIEW:   Resume Event Page
+    ROUTE:  /app/events/create/step-2
+    -------------------------*/ }
+    .events.create.step-1 {
+      height: 100%;
+      width: 100%;
+      max-height: 100%;
+      max-width: 100%;
+      position: absolute;
+      top: 0%;
+      left: 0%;
+      border-radius: 0;
+      box-shadow: none; }
+      .events.create.step-1 div.column {
+        position: absolute;
+        top: 64px;
+        z-index: 2;
+        left: 23%;
+        right: 3%;
+        display: block; }
+        .events.create.step-1 div.column > event-content {
+          background-color: #FFF;
+          border-radius: 4px;
+          display: block; }
+          .events.create.step-1 div.column > event-content.show-settings {
+            margin-bottom: 40px; }
+          .events.create.step-1 div.column > event-content > flex-loading {
+            min-height: 300px; }
+          .events.create.step-1 div.column > event-content > event-header {
+            display: block; }
+            .events.create.step-1 div.column > event-content > event-header > div {
+              border-bottom: 1px solid #F5F5F5; }
+              .events.create.step-1 div.column > event-content > event-header > div > h1 {
+                padding: 13px 0px 15px 16px;
+                margin: 0px;
+                font-size: 1.8em;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap; }
+                .events.create.step-1 div.column > event-content > event-header > div > h1 > span {
+                  font-weight: normal;
+                  font-size: 0.8em; }
+                  .events.create.step-1 div.column > event-content > event-header > div > h1 > span > md-icon {
+                    margin-top: -2px;
+                    padding-left: 8px;
+                    margin-right: -6px; }
+          .events.create.step-1 div.column > event-content > event-body {
+            display: block;
+            padding: 8px 16px; }
+            .events.create.step-1 div.column > event-content > event-body md-input-container {
+              margin-bottom: 0px; }
+              .events.create.step-1 div.column > event-content > event-body md-input-container > textarea {
+                height: 93px; }
+          .events.create.step-1 div.column > event-content > event-tags {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flexbox;
+            display: flex;
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+            margin: 0px 0px;
+            padding: 16px; }
+            .events.create.step-1 div.column > event-content > event-tags md-chip {
+              background-color: #E91E63;
+              color: #FFF; }
+              .events.create.step-1 div.column > event-content > event-tags md-chip md-icon {
+                color: #FFF; }
+          .events.create.step-1 div.column > event-content > event-advanced-settings {
+            display: block;
+            padding: 12px 16px 16px 12px;
+            margin-top: 10px;
+            border-left: 4px solid #FF4081; }
+            .events.create.step-1 div.column > event-content > event-advanced-settings > h2 {
+              margin: 8px 0px;
+              font-size: 0.9em;
+              font-weight: normal; }
+            .events.create.step-1 div.column > event-content > event-advanced-settings i {
+              font-size: 0.85em;
+              margin-left: 4px; }
+            .events.create.step-1 div.column > event-content > event-advanced-settings.ng-hide-add {
+              animation: 0.5s fadeIn ease; }
+            .events.create.step-1 div.column > event-content > event-advanced-settings.ng-hide-remove {
+              animation: 0.5s fadeOut ease; }
+          .events.create.step-1 div.column > event-content > event-actions {
+            background: #F3F3F3;
+            display: block;
+            padding: 12px 8px;
+            text-align: right; }
+            .events.create.step-1 div.column > event-content > event-actions > button.settings {
+              float: left; }
+              .events.create.step-1 div.column > event-content > event-actions > button.settings > span {
+                text-transform: none;
+                font-weight: normal; }
+      .events.create.step-1 event-avatar {
+        display: block;
+        position: absolute;
+        z-index: 2;
+        top: 84px;
+        left: 1%;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-direction: normal;
+        -webkit-box-orient: vertical;
+        -webkit-flex-direction: column;
+        -moz-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        -moz-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        -moz-align-items: center;
+        align-items: center;
+        width: 21%;
+        -webkit-flex-basis: 40%;
+        -moz-flex-basis: 40%;
+        -ms-flex-preferred-size: 40%;
+        flex-basis: 40%; }
+        .events.create.step-1 event-avatar div.marker {
+          width: 7em;
+          height: 7em; }
+          .events.create.step-1 event-avatar div.marker > div.halo {
+            box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.14), 0 2px 2px -2px rgba(0, 0, 0, 0.12);
+            background-color: #FFF;
+            border-radius: 50%;
+            border: 1px solid #FFF;
+            width: 100%;
+            height: 100%;
+            padding: 3%; }
+            .events.create.step-1 event-avatar div.marker > div.halo > div {
+              border-radius: 50%;
+              overflow: hidden;
+              height: 100%;
+              width: 100%;
+              background: #3F51B5; }
+              .events.create.step-1 event-avatar div.marker > div.halo > div > img {
+                width: 100%; }
+        .events.create.step-1 event-avatar div.name {
+          text-align: center;
+          color: #fff;
+          font-size: 1.4em;
+          padding: 12px 8px 16px 8px;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+          width: 100%; }
+        .events.create.step-1 event-avatar div.date {
+          width: 85%;
+          margin-top: 40px;
+          -webkit-touch-callout: none;
+          -webkit-user-select: none;
+          -khtml-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+          border-radius: 4px;
+          outline: none;
+          cursor: pointer; }
+          .events.create.step-1 event-avatar div.date > div {
+            padding: 16px 0px;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            -moz-align-items: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            -moz-justify-content: center;
+            justify-content: center;
+            outline: none; }
+            .events.create.step-1 event-avatar div.date > div.day {
+              height: 35px;
+              color: #fff;
+              font-size: 1.3em;
+              background-color: rgba(0, 0, 0, 0.2);
+              text-transform: capitalize; }
+            .events.create.step-1 event-avatar div.date > div > div {
+              display: -webkit-box;
+              display: -webkit-flex;
+              display: -moz-flex;
+              display: -ms-flexbox;
+              display: flex;
+              -webkit-box-align: center;
+              -ms-flex-align: center;
+              -webkit-align-items: center;
+              -moz-align-items: center;
+              align-items: center;
+              -webkit-box-pack: center;
+              -ms-flex-pack: center;
+              -webkit-justify-content: center;
+              -moz-justify-content: center;
+              justify-content: center;
+              -webkit-box-direction: normal;
+              -webkit-box-orient: vertical;
+              -webkit-flex-direction: column;
+              -moz-flex-direction: column;
+              -ms-flex-direction: column;
+              flex-direction: column;
+              color: #FFF;
+              text-transform: uppercase; }
+              .events.create.step-1 event-avatar div.date > div > div.month {
+                font-size: 1.3em; }
+              .events.create.step-1 event-avatar div.date > div > div.year {
+                font-size: 1.3em; }
+              .events.create.step-1 event-avatar div.date > div > div.day {
+                font-size: 5em; }
+
+/*# sourceMappingURL=events.css.map */

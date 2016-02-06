@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Class="UserDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Table Name="" Member="NewUsers">
-    <Type Name="NewUser">
-      <Column Member="nane" Type="System.String" CanBeNull="false" />
-      <Column Member="lastname" Type="System.String" CanBeNull="false" />
-      <Column Member="age" Type="System.Int32" CanBeNull="false" />
-    </Type>
-  </Table>
-</Database>

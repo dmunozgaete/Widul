@@ -1,0 +1,65 @@
+@import "../../../css/variables";
+@import "../../../css/flexbox";
+place-locator {
+    @include flexbox();
+    @include align-items(flex-end);
+    margin-bottom: 24px;
+    > input.md-input {
+        cursor: pointer;
+        width: 100%;
+    }
+    > md-icon {
+        right: 6px;
+        position: absolute;
+
+        &.noValue {
+            color: gray !important; 
+        }
+    }
+    &[disabled] {
+        > input.md-input {
+            cursor: default;
+        }
+    }
+}
+
+md-dialog.place-locator-dialog {
+    md-dialog-content {
+        min-width: 650px;
+        min-height: 400px;
+        > md-content {
+            padding: 16px;
+        }
+        .md-errors-spacer {
+            display: none;
+        }
+    }
+    md-dialog-actions {
+        padding: 8px 16px;
+        button {
+            padding: 0px 16px;
+        }
+    }
+}
+
+google-map {
+    height: 200px;
+    width: 100%;
+    background-color: #F3F3F3;
+    display: block;
+    overflow: hidden;
+    > map-loading {
+        display: block;
+        @include flexbox();
+        @include align-items(center);
+        @include justify-content(center);
+        > md-icon {
+            height: 5em;
+            width: 5em;
+            opacity: 0.3;
+        }
+    }
+    > map {
+        display: block;
+    }
+}

@@ -11,10 +11,13 @@
         <!-- injector:css -->
         <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
         <link rel="stylesheet" href="bower_components/angular-gale-material/dist/angular-gale-material.css">
-        <link rel="stylesheet" href="views/accounts/css/edit.css">
+        <link rel="stylesheet" href="bower_components/nvd3/src/nv.d3.css">
+        <link rel="stylesheet" href="views/events/css/events.css">
         <link rel="stylesheet" href="views/home/css/home.css">
         <link rel="stylesheet" href="views/layouts/css/layouts.css">
         <link rel="stylesheet" href="bundles/app/components/flex-loading/css/flex-loading.css">
+        <link rel="stylesheet" href="bundles/app/components/knowledge-selector/css/knowledge-selector.css">
+        <link rel="stylesheet" href="bundles/app/components/place-locator/css/place-locator.css">
         <link rel="stylesheet" href="bundles/app/components/preload-image/css/preload-image.css">
         <link rel="stylesheet" href="bundles/app/css/_flexbox.css">
         <link rel="stylesheet" href="bundles/app/css/_variables.css">
@@ -31,14 +34,6 @@
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/moment/moment.js"></script>
     <script src="bower_components/angular-moment/angular-moment.js"></script>
-    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="bower_components/lodash/lodash.js"></script>
-    <script src="bower_components/angular-gale/dist/angular-gale.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.js"></script>
-    <script src="bower_components/angular-aria/angular-aria.js"></script>
-    <script src="bower_components/angular-messages/angular-messages.js"></script>
-    <script src="bower_components/angular-material/angular-material.js"></script>
-    <script src="bower_components/angular-gale-material/dist/angular-gale-material.js"></script>
     <script src="bower_components/angular-ui-scroll/dist/ui-scroll.js"></script>
     <script src="bower_components/angular-ui-scrollpoint/dist/scrollpoint.js"></script>
     <script src="bower_components/angular-ui-event/dist/event.js"></script>
@@ -47,13 +42,31 @@
     <script src="bower_components/angular-ui-indeterminate/dist/indeterminate.js"></script>
     <script src="bower_components/angular-ui-uploader/dist/uploader.js"></script>
     <script src="bower_components/angular-ui-utils/index.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
     <script src="bower_components/ng-file-upload/angular-file-upload.js"></script>
     <script src="bower_components/pouchdb/dist/pouchdb.js"></script>
     <script src="bower_components/angular-pouchdb/angular-pouchdb.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/lodash/lodash.js"></script>
+    <script src="bower_components/angular-gale/dist/angular-gale.js"></script>
+    <script src="bower_components/angular-gale-material/dist/angular-gale-material.js"></script>
+    <script src="bower_components/d3/d3.js"></script>
+    <script src="bower_components/nvd3/nv.d3.js"></script>
+    <script src="bower_components/angularjs-nvd3-directives/dist/angularjs-nvd3-directives.js"></script>
     <script src="bundles/angular-locale/angular-locale_es-cl.js"></script>
     <script src="bundles/angular-locale/moment.es-CL.js"></script>
     <script src="bundles/app/app.js"></script>
     <script src="bundles/app/components/flex-loading/directives/flex-loading.js"></script>
+    <script src="bundles/app/components/knowledge-selector/directives/knowledge-selector.js"></script>
+    <script src="bundles/app/components/knowledge-selector/services/$knowledge-selector-dialog.js"></script>
+    <script src="bundles/app/components/knowledge-selector/services/knowledgeSelectorDialogController.js"></script>
+    <script src="bundles/app/components/place-locator/directives/google-map.js"></script>
+    <script src="bundles/app/components/place-locator/directives/place-locator.js"></script>
+    <script src="bundles/app/components/place-locator/services/$place-locator-dialog.js"></script>
+    <script src="bundles/app/components/place-locator/services/googleMapService.js"></script>
     <script src="bundles/app/components/preload-image/directives/preload-image.js"></script>
     <script src="bundles/app/components/upload/upload-file-service.js"></script>
     <script src="bundles/app/components/upload/upload-file.js"></script>
@@ -61,22 +74,19 @@
     <script src="bundles/app/js/services/ApplicationCleanse.js"></script>
     <script src="bundles/app/js/services/Synchronizer.js"></script>
     <script src="bundles/app/js/services/Wizard.js"></script>
-    <script src="bundles/app/js/services/synchronizers/NotificationSynchronizer.js"></script>
     <script src="bundles/material-icons/material-icons.js"></script>
     <script src="bundles/mocks/gale-mocks.js"></script>
     <script src="bundles/mocks/js/angular-mocks.js"></script>
     <script src="bundles/mocks/js/mocks/events.js"></script>
+    <script src="bundles/mocks/js/mocks/knowledges.js"></script>
     <script src="bundles/mocks/js/mocks/notifications.js"></script>
+    <script src="bundles/mocks/js/mocks/places.js"></script>
     <script src="bundles/mocks/js/mocks/security.js"></script>
-    <script src="views/accounts/create.js"></script>
-    <script src="views/accounts/dialogs/company-selection.js"></script>
-    <script src="views/accounts/edit.js"></script>
-    <script src="views/accounts/index.js"></script>
-    <script src="views/accounts/register/confirm.js"></script>
     <script src="views/boot/index.js"></script>
     <script src="views/error/404.js"></script>
+    <script src="views/events/create/step-1.js"></script>
+    <script src="views/events/view/dialogs/eventDetails.js"></script>
     <script src="views/home/index.js"></script>
-    <script src="views/layouts/default.js"></script>
     <script src="views/layouts/exception.js"></script>
     <script src="views/layouts/public.js"></script>
     <script src="views/security/identity/login.js"></script>

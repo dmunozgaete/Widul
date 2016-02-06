@@ -30,13 +30,13 @@ namespace API.Endpoints.Events.Models
 		
     #region Definiciones de métodos de extensibilidad
     partial void OnCreated();
-    partial void InsertVW_Tag(VW_Tag instance);
-    partial void UpdateVW_Tag(VW_Tag instance);
-    partial void DeleteVW_Tag(VW_Tag instance);
+    partial void InsertVW_EventTags(VW_EventTags instance);
+    partial void UpdateVW_EventTags(VW_EventTags instance);
+    partial void DeleteVW_EventTags(VW_EventTags instance);
     #endregion
 		
 		public TagsDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["WidulConnectionString1"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["WidulConnectionString"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -65,17 +65,17 @@ namespace API.Endpoints.Events.Models
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<VW_Tag> VW_Tag
+		public System.Data.Linq.Table<VW_EventTags> VW_EventTags
 		{
 			get
 			{
-				return this.GetTable<VW_Tag>();
+				return this.GetTable<VW_EventTags>();
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VW_Tags")]
-	public partial class VW_Tag : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VW_EventTags")]
+	public partial class VW_EventTags : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -90,12 +90,12 @@ namespace API.Endpoints.Events.Models
     partial void OnnameChanged();
     #endregion
 		
-		public VW_Tag()
+		public VW_EventTags()
 		{
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="TAG_Name", Storage="_name", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="ETAG_Name", Storage="_name", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string name
 		{
 			get

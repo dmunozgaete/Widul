@@ -35,7 +35,7 @@ namespace API.Endpoints.Events.Services
 
                 //Get tables (According to the degradation algorithm)
                 var pagination = repo.GetModel<Models.Pagination>().FirstOrDefault();
-                List<Models.VW_Event> events = repo.GetModel<Models.VW_Event>(1);
+                List<Models.VW_Events> events = repo.GetModel<Models.VW_Events>(1);
 
                 return Task.FromResult(new HttpResponseMessage()
                 {

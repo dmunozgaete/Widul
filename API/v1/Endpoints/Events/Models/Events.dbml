@@ -1,67 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Widul" Class="EventsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-OT2L7ND;Initial Catalog=Widul;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="WidulConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.VW_Events" Member="VW_Events">
-    <Type Name="VW_Event">
-      <Column Name="EVN_Date" Member="date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="EVN_CreatedAt" Member="createdAt" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="EVN_Description" Member="description" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
-      <Column Name="EVN_Location" Member="locarion" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
-      <Column Name="EVN_Name" Member="name" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="EVN_UpdatedAt" Member="updateAt" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="EVN_Token" Member="token" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="EVT_Name" Member="type_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="EVT_Token" Member="type_token" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
-      <Column Name="USR_FullName" Member="user_fullName" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="USR_Token" Member="user_token" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
-      <Column Name="KNW_Name" Member="knowledge_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="KNW_Token" Member="knowledge_token" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
-      <Column Name="USR_Photo" Member="user_photo" Type="System.String" DbType="VarChar(1000) NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TB_Event" Member="EventDetails">
-    <Type Name="EventDetail">
-      <Column Name="EVN_Name" Member="name" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="EVN_Description" Member="description" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
-      <Column Name="EVN_Date" Member="date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="EVN_Location" Member="location" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
-      <Column Name="EVN_UpdatedAt" Member="updateAt" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="EVN_CreatedAt" Member="createdAt" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="EVN_Token" Member="token" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
-      <Column Name="creator" Type="Creator" CanBeNull="false" />
-      <Column Name="knowledge" Type="Knowledge" CanBeNull="false" />
-      <Column Name="tags" Type="List&lt;EventTag&gt;" CanBeNull="false" />
-      <Column Name="EVT_Name" Member="type_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TB_EventComment" Member="EventComments">
-    <Type Name="EventComment">
-      <Column Name="COM_Comment" Member="comment" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
-      <Column Name="COM_createdAt" Member="createdAt" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="COM_Token" Member="token" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TB_EventTag" Member="EventTags">
-    <Type Name="EventTag">
-      <Column Name="TAG_Name" Member="name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="TAG_Token" Member="token" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TB_Knowledge" Member="Knowledges">
-    <Type Name="Knowledge">
-      <Column Name="KNW_Name" Member="name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="KNW_Token" Member="token" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TB_User" Member="Creators">
-    <Type Name="Creator">
-      <Column Name="USR_FullName" Member="fullName" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="USR_Email" Member="email" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="USR_UpdateAt" Member="updateAt" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="USR_CreatedAt" Member="createdAt" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="USR_Token" Member="token" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
-      <Column Name="USR_Photo" Member="photo" Type="System.String" DbType="VarChar(1000) NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
+  <Connection Mode="WebSettings" ConnectionString="Data Source=.;Initial Catalog=Widul;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="WidulConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.TB_Event" Member="NewEvents">
     <Type Name="NewEvent">
       <Column Name="EVN_Name" Member="name" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
@@ -79,6 +17,66 @@
       <Column Name="Limit" Member="limit" Type="System.Int32" CanBeNull="false" />
       <Column Name="Offset" Member="offset" Type="System.Int32" CanBeNull="false" />
       <Column Name="Total" Member="total" Type="System.Int32" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_Events" Member="VW_Events1">
+    <Type Name="VW_Events">
+      <Column Name="EVNT_Date" Member="date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EVNT_CreatedAt" Member="createdAt" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="EVNT_Description" Member="description" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="EVNT_Location" Member="location" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="EVNT_Name" Member="name" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="EVNT_UpdatedAt" Member="updatedAt" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="EVNT_Token" Member="token" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="USER_FullName" Member="user_fullname" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="ENTI_Token" Member="user_token" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="USER_Photo" Member="user_photo" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="KNOW_Name" Member="knowledge_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="KNOW_Token" Member="knowledge_token" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TB_WID_Event" Member="EventDetail">
+    <Type Name="EventDetail">
+      <Column Name="EVNT_Name" Member="name" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="EVNT_Description" Member="description" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="EVNT_Date" Member="date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EVNT_Location" Member="location" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="EVNT_UpdatedAt" Member="updatedAt" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="EVNT_CreatedAt" Member="createdAt" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="EVNT_Token" Member="token" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="creator" Type="Creator" CanBeNull="false" />
+      <Column Name="knowledge" Type="Knowledge" CanBeNull="false" />
+      <Column Name="tags" Type="List&lt;EventTag&gt;" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TB_WID_Knowledge" Member="Knowledge">
+    <Type Name="Knowledge">
+      <Column Name="KNOW_Name" Member="name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="KNOW_Token" Member="token" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TB_WID_EventTag" Member="EventTag">
+    <Type Name="EventTag">
+      <Column Name="ETAG_Name" Member="name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ETAG_Token" Member="token" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TB_WID_EventComment" Member="EventComment">
+    <Type Name="EventComment">
+      <Column Name="COMM_Comment" Member="comment" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="COMM_CreatedAt" Member="createdAt" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="COMM_Token" Member="token" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="ENTI_Token" Member="user_token" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="USER_FullName" Member="user_fullname" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TB_COR_User" Member="Creator">
+    <Type Name="Creator">
+      <Column Name="ENTI_Token" Member="token" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ENTI_CreatedAt" Member="createdAt" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="USER_Email" Member="email" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="USER_FullName" Member="name" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="FILE_Token" Member="photo" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

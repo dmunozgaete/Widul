@@ -1,0 +1,52 @@
+<md-dialog aria-label="dd" class="place-locator-dialog {{config.classToAdd}}">
+    <form name="form">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Localizador de Lugares</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon md-svg-icon="content:clear" aria-label="Cancelar"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <md-content>
+                <!-- {{model | json }}  -->
+
+                <!-- FOR NEW PLACE -->
+                <input ng-model="model.name" required style="display:none" />
+                <input ng-model="model.address" required style="display:none" />
+
+                <!-- FORM DATA -->
+                <div layout="row">
+                    <md-autocomplete md-selected-item-change="places.onSelect(place)" md-search-text-change="places.onClear(searchText)" md-autofocus="true" flex md-input-minlength="2" md-input-maxlength="50" md-no-cache="true" md-selected-item="place" md-search-text="searchText" md-items="item in places.find(searchText)" md-item-text="item.name" md-floating-label="Nombre del Lugar">
+                        <md-item-template>
+                            <span md-highlight-text="searchText">{{item.name}} - {{item.address.line}}</span>
+                        </md-item-template>
+                    </md-autocomplete>
+                </div>
+
+                <div layout="row">
+                    <md-autocomplete ng-disabled="place.token" md-selected-item-change="address.onSelect(model.address)" flex md-input-minlength="2" md-input-maxlength="200" md-no-cache="true" md-selected-item="model.address" md-search-text="searchTextAddress" md-items="item in address.find(searchTextAddress)" md-item-text="item.line" md-floating-label="Dirección">
+                        <md-item-template>
+                            <span md-highlight-text="searchTextAddress">{{item.line}}</span>
+                        </md-item-template>
+                    </md-autocomplete>
+                </div>
+
+                <google-map coordinates="model.address.coordinates">
+                </google-map>
+
+            </md-content>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <md-button ng-click="cancel()">
+                Cancelar
+            </md-button>
+
+            <md-button class="md-raised md-primary" ng-click="save(model)" ng-disabled="!form.$valid">
+                Aceptar
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

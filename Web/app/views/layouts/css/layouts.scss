@@ -1,194 +1,35 @@
 @import "../../../bundles/app/css/_variables";
 @import "../../../bundles/app/css/_flexbox";
-
-
 //-----------------------------
-// GENERAL
+// $mdDialog Service , add the class fullscreen when 
+// is setted in the configuration options,
+// for us, the fullscreen is % =)!
 //-----------------------------
-md-select-menu {
-    md-option {
-        &.with-thumb {
-            .md-text {
-                overflow: visible;
-                width: 100%;
-            }
-            img.thumb {
-                width: 30px;
-                border-radius: 50%;
-            }
+md-dialog {
+    &.md-dialog-fullscreen {
+        height: 94%;
+        width: 94%;
+        max-height: 94%;
+        max-width: 94%;
+        position: absolute;
+        top: 3%;
+        left: 3%;
+        border-radius: 0;
+        > md-dialog-actions {
+            position: fixed;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+        }
+    }
+    > md-dialog-content {
+        > div > flex-loading,
+        > flex-loading {
+            margin-top: 20%;
         }
     }
 }
 
-//-----------------------------
-// LAYOUT: one-page-layout
-//-----------------------------
-.one-page-layout {
-    primary-fab {
-        position: fixed;
-        left: 24px;
-        top: 28px;
-        width: 56px;
-        height: 56px;
-        display: inline-block;
-        z-index: 10;
-        md-fab-trigger > button.md-button {
-            margin: 0px 8px 6px 8px
-        }
-        md-fab-trigger > .md-fab > md-icon,
-        md-fab-actions .md-fab > md-icon {
-            color: #fff !important;
-        }
-        > .md-fab {
-            padding: 0px !important;
-            margin: 0px !important;
-            > md-icon {
-                color: #fff !important;
-            }
-        }
-        &.md-tall {
-            top: 98px;
-        }
-    }
-    page-title {
-        position: fixed;
-        top: 80px;
-        z-index: 2;
-        left: 88px;
-        color: #fff;
-        font-size: 1.7em;
-    }
-    page-title.no-primary-fab {
-        left: 20px;
-    }
-    md-content[ui-view] {
-        padding: 40px 16px 5px 16px;
-        > md-progress-linear {
-            margin-top: -40px;
-            left: 0px;
-            right: 0px;
-            position: fixed;
-        }
-        background-color: transparent;
-        //THUMB
-        div.thumb {
-            height: 150px;
-            background-color: #F4F4F4;
-            width: 150px;
-            border-radius: 50%;
-            margin-bottom: 10px;
-            overflow: hidden;
-            > img {
-                width: 100%;
-            }
-            //UPLOAD FILE THUMB 
-            > div.loading {
-                height: 150px;
-                width: 150px;
-                position: absolute;
-                text-align: center;
-                color: #FF5722;
-                > div.chart {
-                    height: 150px;
-                    width: 150px;
-                }
-                > md-icon {
-                    height: 48px;
-                    width: 48px;
-                    margin-top: -127px;
-                }
-                g#n3-pie-legend {
-                    -webkit-transform: translate(0px, 20px);
-                }
-            }
-        }
-    }
-    md-content[table-content] {
-        background-color: transparent;
-        min-height: 490px;
-        gale-table {
-            gale-header {
-                //Thumg Align to the primary fab
-                gale-column:first-child {
-                    div.thumb-header {
-                        margin-left: 16px;
-                    }
-                }
-            }
-            gale-row {
-                //Thumg Align to the primary fab
-                gale-cell:first-child {
-                    div.thumb {
-                        margin-left: 12px;
-                    }
-                }
-            }
-        }
-        &.inset {
-            margin: auto;
-            margin-top: auto;
-            min-height: auto;
-            md-toolbar {
-                padding: 0px;
-            }
-        }
-        md-toolbar {
-            min-height: 48px;
-            height: 48px;
-            background: none;
-            padding: 10px 10px 0px 10px;
-            .md-toolbar-tools {
-                background-color: #Fff;
-                color: rgba(0, 0, 0, 0.87);
-                padding-left: 8px;
-                font-size: 17px;
-                span {
-                    i {
-                        opacity: 0.6;
-                        font-size: 0.8em;
-                    }
-                }
-            }
-        }
-        @include box-shadow(3px);
-    }
-    md-content[form-content] {
-        background-color: transparent;
-        min-height: 485px;
-        padding-top: 5px;
-        button-pad {
-            display: block;
-            position: fixed;
-            bottom: 0px;
-            right: 0px;
-            padding: 16px;
-            height: 48px;
-        }
-        input[disabled],
-        textarea[disabled] {
-            color: #555;
-        }
-    }
-    md-sidenav {
-        md-list {
-            outline-style: none;
-            padding: 0px;
-            &.category {
-                color: #fff;
-                md-icon {
-                    color: #fff;
-                }
-            }
-            &.toggled md-icon {
-                transform: rotate(180deg);
-                -webkit-transform: rotate(180deg);
-            }
-            button {
-                md-icon {
-                    margin-right: 16px !important;
-                }
-            }
-            @include noselect();
-        }
-    }
+md-backdrop.md-opaque {
+    opacity: .85;
 }

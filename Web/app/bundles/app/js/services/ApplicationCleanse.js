@@ -19,61 +19,14 @@ angular.module('app.services')
             return $ref;
         };
 
-        this.$get = function($log, $q, pouchDB, $timeout, $LocalStorage, $Identity, NotificationSynchronizer)
+        this.$get = function($log, $q, $timeout, $LocalStorage, $Identity)
         {
             var self = {};
 
             self.clean = function(isNewVersion)
             {
                 var defer = $q.defer();
-
-                // CLEAN OLD STUFF
-                $q.all([
-                    NotificationSynchronizer.reset()
-                ]).then(function(resolves)
-                {
-
-                    //Wait for PouchDb Resync (0.7 second)
-                    var delay = $timeout(function()
-                    {
-                        $timeout.cancel(delay);
-
-                        //NEW VERSION??
-                        if (isNewVersion)
-                        {
-                            if (_debug)
-                            {
-                                $log.warn("Application Cleanse: Reset all data.");
-                            }
-
-                            //CLEAN ALL
-                            $LocalStorage.clear();
-                            defer.reject("RESET_NEW_VERSION");
-
-                            $Identity.logOut();
-                        }
-                        else
-                        {
-
-                            if (_debug)
-                            {
-                                $log.warn("Application Cleanse: Reset User data");
-                            }
-
-
-                            //NORMAL CLEANSE, ONLY REMOVE ROUTE AND NOTIFICATION STAMP
-                            $LocalStorage.remove("notifications_stamp");
-                            defer.resolve();
-                        }
-
-
-                    }, 700);
-
-
-                }, function()
-                {
-                    defer.reject("ERROR_IN_CLEANSE")
-                });
+                defer.resolve();
 
                 return defer.promise;
 

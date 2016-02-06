@@ -1,8 +1,13 @@
-<ion-spinner icon="{{data.spinner}}">
-</ion-spinner>
-<div class="message">
-    {{data.title}}
-</div>
-<div class="legend">
-    {{data.legend}}
+<div layout="row">
+    <div flex="initial" class="image">
+        <img ng-src="bundles/app/components/flex-loading/css/images/{{data.image}}" />
+    </div flex>
+    <div layout="column" layout-align="center start">
+        <div class="message">
+            {{data.title}}
+        </div>
+        <div class="legend">
+            {{data.legend}}
+        </div>
+    </div>
 </div>
