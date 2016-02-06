@@ -9,7 +9,7 @@ namespace API.Endpoints.Places
     /// <summary>
     /// Places Controller
     /// </summary>
-    //[Gale.Security.Oauth.Jwt.Authorize]
+    [Gale.Security.Oauth.Jwt.Authorize]
     public class PlacesController :Gale.REST.RestController
     {
     

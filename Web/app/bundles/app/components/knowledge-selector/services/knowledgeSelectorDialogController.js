@@ -15,41 +15,32 @@ angular.module('app.components')
         $scope.graph = {};
 
         //Find Selected in the collection (Binding via ngModel)
-        if (config.selected)
-        {
-            var selected = angular.copy(config.selected);
-            $scope.model = selected;
-        }
-        else
-        {
+        $Api.read("Knowledges/MostRequested")
+            .success(function(data)
+            {
 
-            $Api.read("Knowledges/MostRequested")
-                .success(function(data)
+                var graphData = [];
+
+                //Interpolate to Graph Standard
+                angular.forEach(data, function(item)
                 {
+                    graphData.push(
+                        {
+                            "key": item.name,
+                            "values": [
+                                [0, item.requested]
+                            ]
+                        }
 
-                    var graphData = [];
+                    );
 
-                    //Interpolate to Graph Standard
-                    angular.forEach(data, function(item)
-                    {
-                        graphData.push(
-                            {
-                                "key": item.name,
-                                "values": [
-                                    [0, item.requested]
-                                ]
-                            }
+                })
 
-                        );
+                $scope.graph = {
+                    mostRequested: graphData
+                }
+            });
 
-                    })
-
-                    $scope.graph = {
-                        mostRequested: graphData
-                    }
-                });
-
-        }
 
         var ordinal = 0;
         $scope.valueFormatFunction = function()
@@ -65,8 +56,24 @@ angular.module('app.components')
         //-------------------------------------------
         // Function's
         $scope.knowledge = {
-            onSelect: function(place) {},
-            onClear: function(name) {},
+            onSelect: function(knowledge)
+            {
+                if (knowledge)
+                {
+                    $scope.model = {
+                        name: knowledge.name,
+                        token: knowledge.token
+                    };
+                }
+            },
+            onClear: function(name)
+            {
+
+                $scope.model = {
+                    name: name
+                };
+
+            },
             find: function(query)
             {
                 var deferred = $q.defer();
@@ -89,11 +96,21 @@ angular.module('app.components')
             }
         };
 
+
+
+        if (config.selected)
+        {
+            var selected = angular.copy(config.selected);
+            $scope.knowledgeSelected = selected;
+        }
+
+        
         //-------------------------------------------
         // Action's
         $scope.save = function(model)
         {
-            $mdDialog.hide(model.knowledge);
+            $log.debug(model)
+            $mdDialog.hide(model);
         };
 
         $scope.cancel = function()

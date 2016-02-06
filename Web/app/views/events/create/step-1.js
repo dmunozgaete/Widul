@@ -10,20 +10,19 @@ angular.route('public.events/create/step-1', function(
     $galeDatepickerDialog,
     $mdConstant,
     $loadingDialog,
-    $window
+    $window,
+    $Identity
 )
 {
+
     //---------------------------------------------------
     // Model
     $scope.model = {
-        user:
-        {
-            "fullname": "Sebastian Moreno",
-            "photo": "bundles/mocks/images/avatar2.png",
-            "token": "e6dc2176-6f74-4d3c-b1b4-06680d865b8f"
-        },
+        user: $Identity.getCurrent(),
         event:
-        {},
+        {
+            tags: []
+        },
         results:
         {
             items: []
@@ -33,8 +32,7 @@ angular.route('public.events/create/step-1', function(
             electricChars: [
                 $mdConstant.KEY_CODE.ENTER, $mdConstant.KEY_CODE.COMMA, $mdConstant.KEY_CODE.TAB
                 //,$mdConstant.KEY_CODE.SPACE
-            ],
-            items: []
+            ]
         }
     };
 
@@ -116,11 +114,77 @@ angular.route('public.events/create/step-1', function(
 
     //---------------------------------------------------
     // Action's
-    $scope.cancel = function()
+    $scope.save = function(newEvent)
     {
-        $loadingDialog.show({
+        var place_deferred = $q.defer();
+        var knowledge_deferred = $q.defer();
+
+
+        $loadingDialog.show(
+        {
             title: "Creando Evento..."
         });
+
+        $q.all([place_deferred.promise, knowledge_deferred.promise])
+            .then(function(resolves)
+            {
+
+
+
+                var place = resolves[0];
+                var knowledge = resolves[1];
+                var dateAndTime = moment(newEvent.date).add(newEvent.time.value);
+
+                $Api.create("Events",
+                {
+                    name: newEvent.name,
+                    description: newEvent.description,
+                    isRestricted: newEvent.isRestricted,
+                    isPrivate: newEvent.isPrivate,
+                    date: dateAndTime,
+                    place: place,
+                    knowledge: knowledge,
+                    tags: _.pluck(newEvent.tags, 'name')
+
+                }).finally(function()
+                {
+                    $loadingDialog.hide();
+                })
+
+            });
+
+
+
+        //Check Place
+        if (newEvent.place.token)
+        {
+            place_deferred.resolve(newEvent.place.token);
+        }
+        else
+        {
+            $Api.create("Places", newEvent.place).success(function(data)
+            {
+                place_deferred.resolve(data.token);
+            });
+        }
+
+        //Check Kwnoledge
+        if (newEvent.knowledge.token)
+        {
+            knowledge_deferred.resolve(newEvent.knowledge.token);
+        }
+        else
+        {
+            $Api.create("Knowledges", newEvent.knowledge).success(function(data)
+            {
+                knowledge_deferred.resolve(data.token);
+            });
+        }
+
+    };
+
+    $scope.cancel = function() {
+
     };
 
     $scope.tooggleSettings = function()

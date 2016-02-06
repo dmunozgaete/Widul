@@ -156,13 +156,14 @@
         </member>
         <member name="T:API.Endpoints.Events.Services.Create">
             <summary>
-            
+            Create a new Event
             </summary>
         </member>
-        <member name="M:API.Endpoints.Events.Services.Create.#ctor(API.Endpoints.Events.Models.NewEvent)">
+        <member name="M:API.Endpoints.Events.Services.Create.#ctor(System.String,API.Endpoints.Events.Models.NewEvent)">
             <summary>
-            
+            Constructor
             </summary>
+            <param name="creator"></param>
             <param name="newEvent"></param>
         </member>
         <member name="M:API.Endpoints.Events.Services.Create.ExecuteAsync(System.Threading.CancellationToken)">

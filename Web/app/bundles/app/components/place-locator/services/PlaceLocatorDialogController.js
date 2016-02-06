@@ -51,7 +51,7 @@
              {
                  var deferred = $q.defer();
 
-                 $Api.kql("Places",
+                 $Api.query("Places",
                  {
                      filters: [
                      {

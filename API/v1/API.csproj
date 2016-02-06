@@ -149,7 +149,7 @@
     </Compile>
     <Compile Include="Endpoints\Files\Services\Upload.cs" />
     <Compile Include="Endpoints\Files\Services\View.cs" />
-    <Compile Include="Endpoints\Knowledge\KnowledgeController.cs" />
+    <Compile Include="Endpoints\Knowledge\KnowledgesController.cs" />
     <Compile Include="Endpoints\Knowledge\Models\Knowledge.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

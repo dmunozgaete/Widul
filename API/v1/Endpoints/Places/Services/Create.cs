@@ -52,10 +52,15 @@ namespace API.Endpoints.Places.Services
                 svc.Parameters.Add("PLAC_Latitude", this.Model.lat);
                 svc.Parameters.Add("PLAC_Longitude", this.Model.lng);
 
-                this.ExecuteAction(svc);
+                Guid newToken = (Guid)this.ExecuteScalar(svc);
 
                 return Task.FromResult(new HttpResponseMessage()
                 {
+                    Content = new ObjectContent<Object>(new
+                    {
+                        token = newToken
+                    },
+                    new Gale.REST.Http.Formatter.KqlFormatter()),
                     StatusCode = System.Net.HttpStatusCode.Created
                 });
             }

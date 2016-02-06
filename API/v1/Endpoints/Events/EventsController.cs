@@ -9,6 +9,7 @@ namespace API.Endpoints.Events
     /// <summary>
     /// Event Controller
     /// </summary>
+    [Gale.Security.Oauth.Jwt.Authorize]
     public class EventsController : Gale.REST.RestController
     {
         #region EVENT
@@ -42,7 +43,7 @@ namespace API.Endpoints.Events
         [HttpPost]
         public IHttpActionResult Post(Models.NewEvent newEvent){
 
-            return new Services.Create(newEvent);
+            return new Services.Create(this.User.PrimarySid(), newEvent);
         }
         #endregion
 

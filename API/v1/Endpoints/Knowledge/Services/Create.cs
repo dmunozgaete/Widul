@@ -47,10 +47,14 @@ namespace API.Endpoints.Knowledge.Services
                 svc.Parameters.Add("USR_Token", _creator);
                 svc.Parameters.Add("KNOW_Name", this.Model.name);
 
-                this.ExecuteAction(svc);
+                Guid newToken = (Guid)this.ExecuteScalar(svc);
 
                 return Task.FromResult(new HttpResponseMessage()
                 {
+                    Content = new ObjectContent<Object>(new {
+                        token = newToken
+                    },
+                    new Gale.REST.Http.Formatter.KqlFormatter()),
                     StatusCode = System.Net.HttpStatusCode.Created
                 });
             }

@@ -6,10 +6,6 @@
                 <span>{{config.application.name}}</span>
             </h2>
             <span flex></span>
-
-            <md-button class="md-icon-button" aria-label="More" ng-click="toogleMenu('layout-nav-right')">
-                <md-icon md-svg-icon="social:person"></md-icon>
-            </md-button>
         </div>
     </md-toolbar>
 
@@ -73,21 +69,21 @@
 
                             <md-input-container class="md-block" flex="30">
                                 <label>Fecha</label>
-                                <gale-datepicker ng-model="model.event.date"></gale-datepicker>
+                                <gale-datepicker required ng-model="model.event.date"></gale-datepicker>
                             </md-input-container>
                         </div>
 
                         <div layout="row">
                             <md-input-container class="md-block" flex>
                                 <label>Conocimiento</label>
-                                <knowledge-selector ng-model="model.event.knowledge"></knowledge-selector>
+                                <knowledge-selector required ng-model="model.event.knowledge"></knowledge-selector>
                             </md-input-container>
 
                             <div flex="5"></div>
 
                             <md-input-container class="md-block" flex="30">
                                 <label>Hora</label>
-                                <md-select ng-model="model.event.time">
+                                <md-select required ng-model="model.event.time">
                                     <md-option ng-repeat="time in times" ng-value="time">
                                         {{time.label}}
                                     </md-option>
@@ -98,7 +94,7 @@
                         <div layout="row">
                             <md-input-container class="md-block" flex>
                                 <label>Lugar</label>
-                                <place-locator ng-model="model.event.place"></place-locator>
+                                <place-locator required ng-model="model.event.place"></place-locator>
                             </md-input-container>
                         </div>
 
@@ -114,7 +110,7 @@
             </event-body>
 
             <event-tags>
-                <md-chips flex md-separator-keys="model.tags.electricChars" ng-model="model.tags.items" md-on-remove="find(model.tags.items);" md-on-add="find(model.tags.items);" md-separator-keys="" md-autocomplete-snap md-transform-chip="setOrRegister($chip)" md-require-match="false">
+                <md-chips flex md-separator-keys="model.tags.electricChars" ng-model="model.event.tags" md-on-remove="find(model.tags.items);" md-on-add="find(model.tags.items);" md-separator-keys="" md-autocomplete-snap md-transform-chip="setOrRegister($chip)" md-require-match="false">
                     <md-autocomplete md-delay="0" placeholder="Etiquetas de interes" md-min-length="2" md-selected-item="model.selectedItem" md-search-text="model.searchText" md-items="item in queryTags(model.searchText)" md-item-text="item.name">
                         <span md-highlight-text="model.searchText">{{item.name}}</span>
                     </md-autocomplete>
@@ -131,10 +127,10 @@
                     Opciones Avanzadas
                 </h2>
 
-                <md-switch ng-model="model.event.aprobationFlow" aria-label="Aprobation" class="md-accent text">
+                <md-switch ng-model="model.event.isRestricted" aria-label="Aprobation" class="md-accent text">
                     Los participantes deberán ser aprobados por mi antes de unirse
                 </md-switch>
-                <md-switch ng-model="model.event.public" aria-label="Private" class="md-accent text">
+                <md-switch ng-model="model.event.isPrivate" aria-label="Private" class="md-accent text">
                     Este es un evento privado <i>(deberas unir participantes de forma manual)</i>
                 </md-switch>
             </event-advanced-settings>
@@ -149,7 +145,7 @@
                     Cancelar
                 </md-button>
 
-                <md-button class="md-raised md-primary" ng-click="save(model)" ng-disabled="!form.$valid">
+                <md-button class="md-raised md-primary" ng-click="save(model.event)" ng-disabled="!form.$valid">
                     Crear Evento
                 </md-button>
             </event-actions>

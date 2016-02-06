@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Events">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 12.125, 8.5" name="Events">
   <DataContextMoniker Name="/EventsDataContext" />
   <nestedChildShapes>
     <classShape Id="032e8d1a-2a0f-4c80-80a8-7467be8d335e" absoluteBounds="2.875, 3.5, 2, 2.3478011067708326">
@@ -8,10 +8,10 @@
         <elementListCompartment Id="e8579178-8ea3-4c39-90fa-75820dea9fce" absoluteBounds="2.8899999999999997, 3.9600000000000009, 1.9700000000000002, 1.7878011067708333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="88c125a3-e656-4d40-b792-5a073ca342e8" absoluteBounds="0.5, 4.375, 2, 1.3862939453124996">
+    <classShape Id="88c125a3-e656-4d40-b792-5a073ca342e8" absoluteBounds="9.875, 0.5, 2, 1.3862939453124996">
       <DataClassMoniker Name="/EventsDataContext/Pagination" />
       <nestedChildShapes>
-        <elementListCompartment Id="6fc672a1-0e9f-4b46-8ab2-fb7196d9ee99" absoluteBounds="0.51499999999999968, 4.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="6fc672a1-0e9f-4b46-8ab2-fb7196d9ee99" absoluteBounds="9.89, 0.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <classShape Id="28835533-85f1-4082-9efd-2b54db00af10" absoluteBounds="0.5, 0.5, 2, 3.3093082682291666">

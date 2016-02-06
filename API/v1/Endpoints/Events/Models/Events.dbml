@@ -4,12 +4,12 @@
     <Type Name="NewEvent">
       <Column Name="EVN_Name" Member="name" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
       <Column Name="EVN_Description" Member="description" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
-      <Column Name="EVN_Date" Member="date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="PLAC_Token" Member="place" Storage="_location" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="true" />
-      <Column Name="KNW_Token" Member="knowledge" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
-      <Column Name="EVT_Token" Member="type" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
-      <Column Name="USR_Token" Member="creator" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="EVN_Date" Member="date" Type="System.DateTime" DbType="DateTime" CanBeNull="false" />
+      <Column Name="PLAC_Token" Member="place" Storage="_location" Type="System.String" CanBeNull="false" />
+      <Column Name="KNW_Token" Member="knowledge" Type="System.String" CanBeNull="false" />
       <Column Name="tags" Type="List&lt;String&gt;" CanBeNull="false" />
+      <Column Member="isRestricted" Type="System.String" CanBeNull="false" />
+      <Column Member="isPrivate" Type="System.String" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="" Member="Pagination">
@@ -47,7 +47,7 @@
       <Column Name="creator" Type="Creator" CanBeNull="false" />
       <Column Name="knowledge" Type="Knowledge" CanBeNull="false" />
       <Column Name="tags" Type="List&lt;EventTag&gt;" CanBeNull="false" />
-      <Column Member="place" Type="Place" CanBeNull="false" />
+      <Column Name="place" Type="Place" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.TB_WID_Knowledge" Member="Knowledge">

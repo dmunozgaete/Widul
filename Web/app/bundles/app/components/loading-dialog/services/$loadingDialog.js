@@ -36,6 +36,11 @@ angular.module('app.components')
                 return deferred.promise;
             };
 
+            self.hide = function()
+            {
+                $mdDialog.hide();
+            };
+
             return self;
         };
     });

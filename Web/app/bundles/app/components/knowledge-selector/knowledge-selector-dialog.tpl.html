@@ -11,12 +11,11 @@
         </md-toolbar>
         <md-dialog-content>
             <md-content>
-                
 
                 <input ng-model="model.knowledge" required style="display:none" />
                 <!-- FORM DATA -->
                 <div layout="row">
-                    <md-autocomplete md-selected-item-change="knowledge.onSelect(model.knowledge)" md-search-text-change="knowledge.onClear(searchText)" md-autofocus="true" flex md-input-minlength="2" md-input-maxlength="50" md-no-cache="true" md-selected-item="model.knowledge" md-search-text="searchText" md-items="item in knowledge.find(searchText)" md-item-text="item.name" md-floating-label="Conocimiento a Buscar">
+                    <md-autocomplete md-selected-item-change="knowledge.onSelect(knowledgeSelected)" md-search-text-change="knowledge.onClear(searchText)" md-autofocus="true" flex md-input-minlength="2" md-input-maxlength="50" md-no-cache="true" md-selected-item="knowledgeSelected" md-search-text="searchText" md-items="item in knowledge.find(searchText)" md-item-text="item.name" md-floating-label="Conocimiento a Buscar">
                         <md-item-template>
                             <span md-highlight-text="searchText">{{item.name}}</span>
                         </md-item-template>
@@ -24,7 +23,7 @@
                 </div>
 
                 <!-- Conocimientos Mas Solicitados -->
-                <div >
+                <div>
                     <flex-loading ng-if="!graph.mostRequested">
                     </flex-loading>
 
@@ -45,7 +44,7 @@
                 Cancelar
             </md-button>
 
-            <md-button class="md-raised md-primary" ng-click="save(model)" ng-disabled="!form.$valid">
+            <md-button class="md-raised md-primary" ng-click="save(model)" ng-disabled="name.length<= 0">
                 Aceptar
             </md-button>
         </md-dialog-actions>
