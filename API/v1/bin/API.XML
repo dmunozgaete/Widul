@@ -249,6 +249,42 @@
             <param name="cancellationToken"></param>
             <returns></returns>
         </member>
+        <member name="T:API.Endpoints.Places.PlacesController">
+            <summary>
+            Places Controller
+            </summary>
+        </member>
+        <member name="M:API.Endpoints.Places.PlacesController.Get">
+            <summary>
+            Get all availables places
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:API.Endpoints.Places.PlacesController.Post(API.Endpoints.Places.Models.NewPlace)">
+            <summary>
+            Add New Place
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:API.Endpoints.Places.Services.Create">
+            <summary>
+            Create a New Place
+            </summary>
+        </member>
+        <member name="M:API.Endpoints.Places.Services.Create.#ctor(System.String,API.Endpoints.Places.Models.NewPlace)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="creator"></param>
+            <param name="place"></param>
+        </member>
+        <member name="M:API.Endpoints.Places.Services.Create.ExecuteAsync(System.Threading.CancellationToken)">
+            <summary>
+            Async Process
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
         <member name="T:API.Endpoints.Security.Resources.Security">
             <summary>
               Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
