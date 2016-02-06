@@ -1,0 +1,53 @@
+<md-dialog aria-label="dd" class="knowledge-selector-dialog {{config.classToAdd}}">
+    <form name="form">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Buscador de Conocimientos</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon md-svg-icon="content:clear" aria-label="Cancelar"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <md-content>
+                
+
+                <input ng-model="model.knowledge" required style="display:none" />
+                <!-- FORM DATA -->
+                <div layout="row">
+                    <md-autocomplete md-selected-item-change="knowledge.onSelect(model.knowledge)" md-search-text-change="knowledge.onClear(searchText)" md-autofocus="true" flex md-input-minlength="2" md-input-maxlength="50" md-no-cache="true" md-selected-item="model.knowledge" md-search-text="searchText" md-items="item in knowledge.find(searchText)" md-item-text="item.name" md-floating-label="Conocimiento a Buscar">
+                        <md-item-template>
+                            <span md-highlight-text="searchText">{{item.name}}</span>
+                        </md-item-template>
+                    </md-autocomplete>
+                </div>
+
+                <!-- Conocimientos Mas Solicitados -->
+                <div >
+                    <flex-loading ng-if="!graph.mostRequested">
+                    </flex-loading>
+
+                    <div ng-if="graph.mostRequested">
+                        <h2 class="md-primary text">
+                            Conocimientos mas solicitados esta semana:
+                        </h2>
+
+                        <nvd3-multi-bar-horizontal-chart data="graph.mostRequested" id="moreRequested" width="350" height="200" delay="2400" margin="{left:0,top:0,bottom:0,right:0}" showValues="true" valueFormat="valueFormatFunction()">
+                        </nvd3-multi-bar-horizontal-chart>
+                    </div>
+                </div>
+
+            </md-content>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <md-button ng-click="cancel()">
+                Cancelar
+            </md-button>
+
+            <md-button class="md-raised md-primary" ng-click="save(model)" ng-disabled="!form.$valid">
+                Aceptar
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

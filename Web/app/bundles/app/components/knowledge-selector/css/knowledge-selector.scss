@@ -1,0 +1,65 @@
+@import "../../../css/variables";
+@import "../../../css/flexbox";
+knowledge-selector {
+    @include flexbox();
+    @include align-items(flex-end);
+    margin-bottom: 24px;
+    > input.md-input {
+        cursor: pointer;
+        width: 100%;
+    }
+    > md-icon {
+        right: 6px;
+        position: absolute;
+        &.noValue {
+            color: gray !important;
+        }
+    }
+    &[disabled] {
+        > input.md-input {
+            cursor: default;
+        }
+    }
+}
+
+md-dialog.knowledge-selector-dialog {
+    md-dialog-content {
+        min-width: 450px;
+        max-width: 450px;
+        min-height: 420px;
+        > md-content {
+            padding: 16px;
+        }
+        .md-errors-spacer {
+            display: none;
+        }
+        h2 {
+            margin: 8px 0px;
+            font-size: 0.9em;
+            font-weight: normal;
+        }
+
+        .nv-groups {
+            .nv-group {
+                text {
+                    fill: $primary_color !important;
+                }
+                /*
+                &:nth-child(odd) {
+                    fill: $primary_color !important;
+                    stroke: $primary_color !important;
+                }
+                &:nth-child(even) {
+                    fill: $accent_color !important;
+                    stroke: $accent_color !important;
+                }*/
+            }
+        }
+    }
+    md-dialog-actions {
+        padding: 8px 16px;
+        button {
+            padding: 0px 16px;
+        }
+    }
+}

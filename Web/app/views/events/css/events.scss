@@ -34,7 +34,7 @@ ROUTE:  /app/events/*
                 box-shadow: 0px 7px 8px -4px rgba(0, 0, 0, 0.2), 0px 13px 19px 2px rgba(0, 0, 0, 0.14), 0px 5px 24px 4px rgba(0, 0, 0, 0.12);
                 left: 23%;
                 right: 3%;
-                min-height: 66%;
+                height: 85%;
                 border-radius: 4px;
                 display: block;
                 > flex-loading {
@@ -45,6 +45,9 @@ ROUTE:  /app/events/*
                     h1 {
                         margin: 16px 0px 0px 16px;
                         font-size: 1.8em;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        white-space: nowrap;
                         > span {
                             font-weight: normal;
                             font-size: 0.8em;
@@ -298,9 +301,9 @@ ROUTE:  /app/events/*
     &.create {
         /*------------------------- 
         VIEW:   Create Event Page
-        ROUTE:  /app/events/create/index
+        ROUTE:  /app/events/create/step-1
         -------------------------*/
-        &.index {
+        &.step-1 {
             height: 100%;
             width: 100%;
             max-height: 100%;
@@ -321,6 +324,9 @@ ROUTE:  /app/events/*
                     background-color: #FFF;
                     border-radius: 4px;
                     display: block;
+                    &.show-settings {
+                        margin-bottom: 40px;
+                    }
                     > flex-loading {
                         min-height: 300px
                     }
@@ -332,6 +338,9 @@ ROUTE:  /app/events/*
                                 padding: 13px 0px 15px 16px;
                                 margin: 0px;
                                 font-size: 1.8em;
+                                text-overflow: ellipsis;
+                                overflow: hidden;
+                                white-space: nowrap;
                                 > span {
                                     font-weight: normal;
                                     font-size: 0.8em;
@@ -358,8 +367,7 @@ ROUTE:  /app/events/*
                         @include flexbox;
                         border-bottom-left-radius: 4px;
                         border-bottom-right-radius: 4px;
-                        background: #F3F3F3;
-                        margin: 8px 0px;
+                        margin: 0px 0px;
                         padding: 16px;
                         md-chip {
                             background-color: $accent_color;
@@ -369,10 +377,40 @@ ROUTE:  /app/events/*
                             }
                         }
                     }
-                }
-                > event-configuration {
-                    display: block;
-                    margin-top: 36px;
+                    > event-advanced-settings {
+                        display: block;
+                        padding: 12px 16px 16px 12px;
+                        margin-top: 10px;
+                        border-left: 4px solid #FF4081;
+                        > h2 {
+                            margin: 8px 0px;
+                            font-size: 0.9em;
+                            font-weight: normal;
+                        }
+                        i {
+                            font-size: 0.85em;
+                            margin-left: 4px;
+                        }
+                        &.ng-hide-add {
+                            animation: 0.5s fadeIn ease;
+                        }
+                        &.ng-hide-remove {
+                            animation: 0.5s fadeOut ease;
+                        }
+                    }
+                    > event-actions {
+                        background: #F3F3F3;
+                        display: block;
+                        padding: 12px 8px;
+                        text-align: right;
+                        > button.settings {
+                            float: left;
+                            > span {
+                                text-transform: none;
+                                font-weight: normal;
+                            }
+                        }
+                    }
                 }
             }
             event-avatar {
@@ -461,5 +499,10 @@ ROUTE:  /app/events/*
                 }
             }
         }
+        /*------------------------- 
+        VIEW:   Resume Event Page
+        ROUTE:  /app/events/create/step-2
+        -------------------------*/
+        &.step-2 {}
     }
 }

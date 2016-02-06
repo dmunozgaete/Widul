@@ -22,7 +22,15 @@ angular.module('app.components')
         link: function(scope, element, attributes)
         {
             //TODO: Inject Dinamically via Provider
-            var phrases = [
+            var titles = [
+                "Widuleando Información"
+            ];
+
+            var images = [
+                "pesas-cuadrado.gif"
+            ];
+
+            var legends = [
                 "Las mejores y más bellas cosas del mundo no pueden ser tocadas o vistas-deben ser sentidas con el corazón",
                 "El éxito es ir de fracaso en fracaso sin perder el entusiasmo",
                 "Todos nuestros sueños se pueden hacer realidad si tenemos el coraje de perseguirlos",
@@ -42,10 +50,16 @@ angular.module('app.components')
                 "Cuando tienes un sueño, tienes que agarrarlo y nunca dejarlo ir"
             ];
 
-            var index = (Math.floor(Math.random() * phrases.length) + 0);
+            var titleOrdinal = (Math.floor(Math.random() * titles.length) + 0);
+            var legendOrdinal = (Math.floor(Math.random() * legends.length) + 0);
+            var imageOrdinal = (Math.floor(Math.random() * images.length) + 0);
+
+
+
             scope.data = {
-                title: (scope.title || "Cargando Información"),
-                legend: (scope.legend || phrases[index])
+                title: (scope.title || titles[titleOrdinal]),
+                legend: (scope.legend || legends[legendOrdinal]),
+                image: (scope.image || images[imageOrdinal])
             };
         }
     };

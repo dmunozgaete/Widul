@@ -1,4 +1,4 @@
-angular.route('public.events/create/index', function(
+angular.route('public.events/create/step-1', function(
     $scope,
     $state,
     $log,
@@ -8,7 +8,8 @@ angular.route('public.events/create/index', function(
     $q,
     $mdDialog,
     $galeDatepickerDialog,
-    $mdConstant
+    $mdConstant,
+    $window
 )
 {
     //---------------------------------------------------
@@ -36,14 +37,25 @@ angular.route('public.events/create/index', function(
         }
     };
 
-    $scope.map = {
-        center:
+    //---------------------------------------------------
+    // Hour's For Time
+    var times = [];
+    var zeroDay = moment(0).startOf('day');
+    for (var index = 0; index < 46; index++)
+    {
+        if (index > 0)
         {
-            latitude: 45,
-            longitude: -73
-        },
-        zoom: 8
-    };
+            zeroDay.add(30, 'minutes');
+        }
+        times.push(
+        {
+            value: zeroDay.toDate(),
+            label: zeroDay.format("HH:mm a").toUpperCase()
+        });
+    }
+    $scope.times = times;
+    //---------------------------------------------------
+
 
     //---------------------------------------------------
     // Function's
@@ -83,7 +95,6 @@ angular.route('public.events/create/index', function(
 
     $scope.find = function(tags)
     {
-
         $scope.model.results.loading = true;
         delete $scope.model.results.items;
 
@@ -109,6 +120,21 @@ angular.route('public.events/create/index', function(
         $mdDialog.cancel();
     };
 
+    $scope.tooggleSettings = function()
+    {
+
+        var isShow = $scope.showAdvancedSettings = !$scope.showAdvancedSettings;
+        if (isShow)
+        {
+            //Move to bottom
+            setTimeout(function()
+            {
+                window.scrollTo(0, 500);
+            }, 200)
+
+        }
+    };
+
     $scope.showCalendar = function(ev, date)
     {
         $galeDatepickerDialog.show(ev,
@@ -116,22 +142,9 @@ angular.route('public.events/create/index', function(
             selected: (date || new Date())
         }).then(function(selectedDate)
         {
+            debugger;
             $scope.model.event.date = selectedDate;
         });
-    };
-
-    $scope.showKnowledges = function()
-    {
-        return [
-        {
-            name: "Conocmiento 1",
-        },
-        {
-            name: "Conocmiento 2",
-        },
-        {
-            name: "Conocmiento 3",
-        }]
     };
 
 });

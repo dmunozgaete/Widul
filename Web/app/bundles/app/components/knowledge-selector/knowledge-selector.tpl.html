@@ -1,0 +1,5 @@
+<input readonly="readonly" ng-disabled="disabled" ng-if="!ngModel" ng-click="show()">
+
+<input readonly="readonly" ng-disabled="disabled" ng-if="ngModel" value="{{ngModel.name}}" ng-click="show()">
+
+<md-icon ng-class="{ 'noValue': !ngModel }" md-svg-icon="action:account_balance" class="md-primary text"></md-icon>

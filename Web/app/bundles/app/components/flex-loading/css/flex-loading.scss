@@ -1,6 +1,5 @@
 @import "../../../css/_variables";
 @import "../../../css/_flexbox";
-
 flex-loading {
     @include flexbox();
     @include flex-direction(column);
@@ -8,28 +7,24 @@ flex-loading {
     @include align-items(center);
     height: 100%;
     width: 100%;
-    text-align: center;
-    .spinner {
-        stroke: $primary_color;
-        fill: $primary_color;
-        svg {
-            stroke: $primary_color;
-            .stop1 {
-                stop-color: $primary_color;
-            }
-            .stop2 {
-                stop-color: $primary_color;
-            }
+    text-align: left;
+    .image {
+        img {
+            height: 7em;
+            width: 7em;
+            margin-right: 1em;
         }
     }
-    > .message {
+    .message {
         font-size: 1.2em;
         opacity: 0.5;
+        text-align: left;
     }
-    > .legend {
+    .legend {
         opacity: 0.4;
         margin-top: 0.5em;
         font-size: 0.9em;
         line-height: 1em;
+        text-align: left;
     }
 }

@@ -5,12 +5,11 @@
 
         , 'ui.utils' //UI UTILITIES LIKE MASK
 
-        //, 'uiGmapgoogle-maps' //UI Google Maps
+        , 'nvd3ChartDirectives' //N3 CHART DIRECTIVES
 
         , 'angularMoment' //ANGULAR MOMENT
         , 'angularFileUpload' //ANGULAR FILE UPLOAD
-        , 'pouchdb' //POUCH DB (FOR DATA STORAGE)
-
+        
         , 'mocks' //Mocks Only for Testing
     ])
 /*

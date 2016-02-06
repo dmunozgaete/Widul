@@ -33,7 +33,7 @@ ROUTE:  /app/events/*
         box-shadow: 0px 7px 8px -4px rgba(0, 0, 0, 0.2), 0px 13px 19px 2px rgba(0, 0, 0, 0.14), 0px 5px 24px 4px rgba(0, 0, 0, 0.12);
         left: 23%;
         right: 3%;
-        min-height: 66%;
+        height: 85%;
         border-radius: 4px;
         display: block; }
         .events.view.details dialog-content > flex-loading {
@@ -42,7 +42,10 @@ ROUTE:  /app/events/*
           border-bottom: 1px solid #EAEAEA; }
           .events.view.details dialog-content event-header h1 {
             margin: 16px 0px 0px 16px;
-            font-size: 1.8em; }
+            font-size: 1.8em;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap; }
             .events.view.details dialog-content event-header h1 > span {
               font-weight: normal;
               font-size: 0.8em; }
@@ -324,9 +327,13 @@ ROUTE:  /app/events/*
   .events.create {
     /*------------------------- 
     VIEW:   Create Event Page
-    ROUTE:  /app/events/create/index
+    ROUTE:  /app/events/create/step-1
+    -------------------------*/
+    /*------------------------- 
+    VIEW:   Resume Event Page
+    ROUTE:  /app/events/create/step-2
     -------------------------*/ }
-    .events.create.index {
+    .events.create.step-1 {
       height: 100%;
       width: 100%;
       max-height: 100%;
@@ -336,42 +343,47 @@ ROUTE:  /app/events/*
       left: 0%;
       border-radius: 0;
       box-shadow: none; }
-      .events.create.index div.column {
+      .events.create.step-1 div.column {
         position: absolute;
         top: 64px;
         z-index: 2;
         left: 23%;
         right: 3%;
         display: block; }
-        .events.create.index div.column > event-content {
+        .events.create.step-1 div.column > event-content {
           background-color: #FFF;
           border-radius: 4px;
           display: block; }
-          .events.create.index div.column > event-content > flex-loading {
+          .events.create.step-1 div.column > event-content.show-settings {
+            margin-bottom: 40px; }
+          .events.create.step-1 div.column > event-content > flex-loading {
             min-height: 300px; }
-          .events.create.index div.column > event-content > event-header {
+          .events.create.step-1 div.column > event-content > event-header {
             display: block; }
-            .events.create.index div.column > event-content > event-header > div {
+            .events.create.step-1 div.column > event-content > event-header > div {
               border-bottom: 1px solid #F5F5F5; }
-              .events.create.index div.column > event-content > event-header > div > h1 {
+              .events.create.step-1 div.column > event-content > event-header > div > h1 {
                 padding: 13px 0px 15px 16px;
                 margin: 0px;
-                font-size: 1.8em; }
-                .events.create.index div.column > event-content > event-header > div > h1 > span {
+                font-size: 1.8em;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap; }
+                .events.create.step-1 div.column > event-content > event-header > div > h1 > span {
                   font-weight: normal;
                   font-size: 0.8em; }
-                  .events.create.index div.column > event-content > event-header > div > h1 > span > md-icon {
+                  .events.create.step-1 div.column > event-content > event-header > div > h1 > span > md-icon {
                     margin-top: -2px;
                     padding-left: 8px;
                     margin-right: -6px; }
-          .events.create.index div.column > event-content > event-body {
+          .events.create.step-1 div.column > event-content > event-body {
             display: block;
             padding: 8px 16px; }
-            .events.create.index div.column > event-content > event-body md-input-container {
+            .events.create.step-1 div.column > event-content > event-body md-input-container {
               margin-bottom: 0px; }
-              .events.create.index div.column > event-content > event-body md-input-container > textarea {
+              .events.create.step-1 div.column > event-content > event-body md-input-container > textarea {
                 height: 93px; }
-          .events.create.index div.column > event-content > event-tags {
+          .events.create.step-1 div.column > event-content > event-tags {
             display: -webkit-box;
             display: -webkit-flex;
             display: -moz-flex;
@@ -379,18 +391,40 @@ ROUTE:  /app/events/*
             display: flex;
             border-bottom-left-radius: 4px;
             border-bottom-right-radius: 4px;
-            background: #F3F3F3;
-            margin: 8px 0px;
+            margin: 0px 0px;
             padding: 16px; }
-            .events.create.index div.column > event-content > event-tags md-chip {
+            .events.create.step-1 div.column > event-content > event-tags md-chip {
               background-color: #E91E63;
               color: #FFF; }
-              .events.create.index div.column > event-content > event-tags md-chip md-icon {
+              .events.create.step-1 div.column > event-content > event-tags md-chip md-icon {
                 color: #FFF; }
-        .events.create.index div.column > event-configuration {
-          display: block;
-          margin-top: 36px; }
-      .events.create.index event-avatar {
+          .events.create.step-1 div.column > event-content > event-advanced-settings {
+            display: block;
+            padding: 12px 16px 16px 12px;
+            margin-top: 10px;
+            border-left: 4px solid #FF4081; }
+            .events.create.step-1 div.column > event-content > event-advanced-settings > h2 {
+              margin: 8px 0px;
+              font-size: 0.9em;
+              font-weight: normal; }
+            .events.create.step-1 div.column > event-content > event-advanced-settings i {
+              font-size: 0.85em;
+              margin-left: 4px; }
+            .events.create.step-1 div.column > event-content > event-advanced-settings.ng-hide-add {
+              animation: 0.5s fadeIn ease; }
+            .events.create.step-1 div.column > event-content > event-advanced-settings.ng-hide-remove {
+              animation: 0.5s fadeOut ease; }
+          .events.create.step-1 div.column > event-content > event-actions {
+            background: #F3F3F3;
+            display: block;
+            padding: 12px 8px;
+            text-align: right; }
+            .events.create.step-1 div.column > event-content > event-actions > button.settings {
+              float: left; }
+              .events.create.step-1 div.column > event-content > event-actions > button.settings > span {
+                text-transform: none;
+                font-weight: normal; }
+      .events.create.step-1 event-avatar {
         display: block;
         position: absolute;
         z-index: 2;
@@ -422,10 +456,10 @@ ROUTE:  /app/events/*
         -moz-flex-basis: 40%;
         -ms-flex-preferred-size: 40%;
         flex-basis: 40%; }
-        .events.create.index event-avatar div.marker {
+        .events.create.step-1 event-avatar div.marker {
           width: 7em;
           height: 7em; }
-          .events.create.index event-avatar div.marker > div.halo {
+          .events.create.step-1 event-avatar div.marker > div.halo {
             box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.14), 0 2px 2px -2px rgba(0, 0, 0, 0.12);
             background-color: #FFF;
             border-radius: 50%;
@@ -433,15 +467,15 @@ ROUTE:  /app/events/*
             width: 100%;
             height: 100%;
             padding: 3%; }
-            .events.create.index event-avatar div.marker > div.halo > div {
+            .events.create.step-1 event-avatar div.marker > div.halo > div {
               border-radius: 50%;
               overflow: hidden;
               height: 100%;
               width: 100%;
               background: #3F51B5; }
-              .events.create.index event-avatar div.marker > div.halo > div > img {
+              .events.create.step-1 event-avatar div.marker > div.halo > div > img {
                 width: 100%; }
-        .events.create.index event-avatar div.name {
+        .events.create.step-1 event-avatar div.name {
           text-align: center;
           color: #fff;
           font-size: 1.4em;
@@ -450,7 +484,7 @@ ROUTE:  /app/events/*
           overflow: hidden;
           white-space: nowrap;
           width: 100%; }
-        .events.create.index event-avatar div.date {
+        .events.create.step-1 event-avatar div.date {
           width: 85%;
           margin-top: 40px;
           -webkit-touch-callout: none;
@@ -462,7 +496,7 @@ ROUTE:  /app/events/*
           border-radius: 4px;
           outline: none;
           cursor: pointer; }
-          .events.create.index event-avatar div.date > div {
+          .events.create.step-1 event-avatar div.date > div {
             padding: 16px 0px;
             display: -webkit-box;
             display: -webkit-flex;
@@ -480,13 +514,13 @@ ROUTE:  /app/events/*
             -moz-justify-content: center;
             justify-content: center;
             outline: none; }
-            .events.create.index event-avatar div.date > div.day {
+            .events.create.step-1 event-avatar div.date > div.day {
               height: 35px;
               color: #fff;
               font-size: 1.3em;
               background-color: rgba(0, 0, 0, 0.2);
               text-transform: capitalize; }
-            .events.create.index event-avatar div.date > div > div {
+            .events.create.step-1 event-avatar div.date > div > div {
               display: -webkit-box;
               display: -webkit-flex;
               display: -moz-flex;
@@ -510,11 +544,11 @@ ROUTE:  /app/events/*
               flex-direction: column;
               color: #FFF;
               text-transform: uppercase; }
-              .events.create.index event-avatar div.date > div > div.month {
+              .events.create.step-1 event-avatar div.date > div > div.month {
                 font-size: 1.3em; }
-              .events.create.index event-avatar div.date > div > div.year {
+              .events.create.step-1 event-avatar div.date > div > div.year {
                 font-size: 1.3em; }
-              .events.create.index event-avatar div.date > div > div.day {
+              .events.create.step-1 event-avatar div.date > div > div.day {
                 font-size: 5em; }
 
 /*# sourceMappingURL=events.css.map */

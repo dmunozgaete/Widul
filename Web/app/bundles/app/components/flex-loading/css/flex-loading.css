@@ -1,7 +1,4 @@
 /* 
-    SASS Theme Variables 
-*/
-/* 
     SASS Mixins
 */
 flex-loading {
@@ -28,23 +25,20 @@ flex-loading {
   align-items: center;
   height: 100%;
   width: 100%;
-  text-align: center; }
-  flex-loading .spinner {
-    stroke: #68267E;
-    fill: #68267E; }
-    flex-loading .spinner svg {
-      stroke: #68267E; }
-      flex-loading .spinner svg .stop1 {
-        stop-color: #68267E; }
-      flex-loading .spinner svg .stop2 {
-        stop-color: #68267E; }
-  flex-loading > .message {
+  text-align: left; }
+  flex-loading .image img {
+    height: 7em;
+    width: 7em;
+    margin-right: 1em; }
+  flex-loading .message {
     font-size: 1.2em;
-    opacity: 0.5; }
-  flex-loading > .legend {
+    opacity: 0.5;
+    text-align: left; }
+  flex-loading .legend {
     opacity: 0.4;
     margin-top: 0.5em;
     font-size: 0.9em;
-    line-height: 1em; }
+    line-height: 1em;
+    text-align: left; }
 
 /*# sourceMappingURL=flex-loading.css.map */

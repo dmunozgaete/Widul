@@ -1,0 +1,69 @@
+/* 
+    SASS Mixins
+*/
+place-locator {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  -webkit-align-items: flex-end;
+  -moz-align-items: flex-end;
+  align-items: flex-end;
+  margin-bottom: 24px; }
+  place-locator > input.md-input {
+    cursor: pointer;
+    width: 100%; }
+  place-locator > md-icon {
+    right: 6px;
+    position: absolute; }
+    place-locator > md-icon.noValue {
+      color: gray !important; }
+  place-locator[disabled] > input.md-input {
+    cursor: default; }
+
+md-dialog.place-locator-dialog md-dialog-content {
+  min-width: 650px;
+  min-height: 400px; }
+  md-dialog.place-locator-dialog md-dialog-content > md-content {
+    padding: 16px; }
+  md-dialog.place-locator-dialog md-dialog-content .md-errors-spacer {
+    display: none; }
+md-dialog.place-locator-dialog md-dialog-actions {
+  padding: 8px 16px; }
+  md-dialog.place-locator-dialog md-dialog-actions button {
+    padding: 0px 16px; }
+
+google-map {
+  height: 200px;
+  width: 100%;
+  background-color: #F3F3F3;
+  display: block;
+  overflow: hidden; }
+  google-map > map-loading {
+    display: block;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    justify-content: center; }
+    google-map > map-loading > md-icon {
+      height: 5em;
+      width: 5em;
+      opacity: 0.3; }
+  google-map > map {
+    display: block; }
+
+/*# sourceMappingURL=place-locator.css.map */

@@ -124,7 +124,7 @@ angular.route('public.home/index', function(
 
     $scope.createEvent = function(ev,item)
     {
-       $state.go("public.events/create");
+       $state.go("public.events/create/step-1");
     };
 
 
