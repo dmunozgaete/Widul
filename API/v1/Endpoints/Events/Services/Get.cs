@@ -19,7 +19,7 @@ namespace API.Endpoints.Events.Services
         {
             using (var svc = new Gale.Db.DataService("SP_GET_Event"))
             {
-                svc.Parameters.Add("EVN_Token", this.Model);
+                svc.Parameters.Add("EVNT_Token", this.Model);
                 Gale.Db.EntityRepository repo = this.ExecuteQuery(svc);
 
                 //Get tables
@@ -29,12 +29,15 @@ namespace API.Endpoints.Events.Services
 
                 //List<Models.EventComment> comments = repo.GetModel<Models.EventComment>(3);
 
-                List<Models.EventTag> tags = repo.GetModel<Models.EventTag>(3);
-                
+                List<Models.EventTag> tags = repo.GetModel<Models.EventTag>(4);
+
+                Models.Place place = repo.GetModel<Models.Place>(5).FirstOrDefault();
+
 
                 // -- Setting Values ;)!
                 eventDetail.creator = creator;
                 eventDetail.knowledge = knowledge;
+                eventDetail.place = place;
 
                 //eventDetail.comments = comments;
 

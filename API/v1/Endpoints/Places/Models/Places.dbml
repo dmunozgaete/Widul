@@ -4,8 +4,8 @@
     <Type Name="Place">
       <Column Name="PLAC_Name" Member="name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="PLAC_Address" Member="address" Type="System.String" DbType="VarChar(400) NOT NULL" CanBeNull="false" />
-      <Column Name="PLAC_Latitude" Member="latitude" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
-      <Column Name="PLAC_Longitude" Member="longitude" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="PLAC_Latitude" Member="lat" Storage="_latitude" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="PLAC_Longitude" Member="lng" Storage="_longitude" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
       <Column Name="PLAC_Capacity" Member="capacity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="PLAC_CreatedAt" Member="createdAt" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="PLAC_Tip" Member="tip" Type="System.String" DbType="VarChar(400) NOT NULL" CanBeNull="false" />
@@ -19,8 +19,8 @@
     <Type Name="NewPlace">
       <Column Name="PLAC_Name" Member="name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="PLAC_Address" Member="address" Type="System.String" DbType="VarChar(400) NOT NULL" CanBeNull="false" />
-      <Column Name="PLAC_Latitude" Member="latitude" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
-      <Column Name="PLAC_Longitude" Member="longitude" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="PLAC_Latitude" Member="lat" Storage="_latitude" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="PLAC_Longitude" Member="lng" Storage="_longitude" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
       <Column Name="PLAC_Capacity" Member="capacity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="PLAC_Tip" Member="tip" Type="System.String" DbType="VarChar(400) NOT NULL" CanBeNull="false" />
     </Type>

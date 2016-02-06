@@ -5,7 +5,7 @@
       <Column Name="EVN_Name" Member="name" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
       <Column Name="EVN_Description" Member="description" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
       <Column Name="EVN_Date" Member="date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="EVN_Location" Member="location" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="PLAC_Token" Member="place" Storage="_location" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="true" />
       <Column Name="KNW_Token" Member="knowledge" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
       <Column Name="EVT_Token" Member="type" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
       <Column Name="USR_Token" Member="creator" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
@@ -24,7 +24,6 @@
       <Column Name="EVNT_Date" Member="date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="EVNT_CreatedAt" Member="createdAt" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="EVNT_Description" Member="description" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
-      <Column Name="EVNT_Location" Member="location" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
       <Column Name="EVNT_Name" Member="name" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
       <Column Name="EVNT_UpdatedAt" Member="updatedAt" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="EVNT_Token" Member="token" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -33,6 +32,8 @@
       <Column Name="USER_Photo" Member="user_photo" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
       <Column Name="KNOW_Name" Member="knowledge_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="KNOW_Token" Member="knowledge_token" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="PLAC_Address" Member="place_address" Type="System.String" CanBeNull="false" />
+      <Column Name="PLAC_Token" Member="place_token" Type="System.Guid" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.TB_WID_Event" Member="EventDetail">
@@ -40,13 +41,13 @@
       <Column Name="EVNT_Name" Member="name" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
       <Column Name="EVNT_Description" Member="description" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
       <Column Name="EVNT_Date" Member="date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="EVNT_Location" Member="location" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
       <Column Name="EVNT_UpdatedAt" Member="updatedAt" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="EVNT_CreatedAt" Member="createdAt" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="EVNT_Token" Member="token" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
       <Column Name="creator" Type="Creator" CanBeNull="false" />
       <Column Name="knowledge" Type="Knowledge" CanBeNull="false" />
       <Column Name="tags" Type="List&lt;EventTag&gt;" CanBeNull="false" />
+      <Column Member="place" Type="Place" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.TB_WID_Knowledge" Member="Knowledge">
@@ -77,6 +78,17 @@
       <Column Name="USER_Email" Member="email" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="USER_FullName" Member="name" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
       <Column Name="FILE_Token" Member="photo" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_Places" Member="Places">
+    <Type Name="Place">
+      <Column Name="PLAC_Name" Member="name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PLAC_Address" Member="address" Type="System.String" DbType="VarChar(400) NOT NULL" CanBeNull="false" />
+      <Column Name="PLAC_Latitude" Member="latitude" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="PLAC_Longitude" Member="longitude" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="PLAC_Capacity" Member="capacity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PLAC_Tip" Member="tip" Type="System.String" DbType="VarChar(400) NOT NULL" CanBeNull="false" />
+      <Column Name="PLAC_Token" Member="token" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

@@ -8,16 +8,16 @@
         <elementListCompartment Id="e8579178-8ea3-4c39-90fa-75820dea9fce" absoluteBounds="2.8899999999999997, 3.9600000000000009, 1.9700000000000002, 1.7878011067708333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="88c125a3-e656-4d40-b792-5a073ca342e8" absoluteBounds="0.5, 3.75, 2, 1.3862939453124996">
+    <classShape Id="88c125a3-e656-4d40-b792-5a073ca342e8" absoluteBounds="0.5, 4.375, 2, 1.3862939453124996">
       <DataClassMoniker Name="/EventsDataContext/Pagination" />
       <nestedChildShapes>
-        <elementListCompartment Id="6fc672a1-0e9f-4b46-8ab2-fb7196d9ee99" absoluteBounds="0.51499999999999968, 4.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="6fc672a1-0e9f-4b46-8ab2-fb7196d9ee99" absoluteBounds="0.51499999999999968, 4.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="28835533-85f1-4082-9efd-2b54db00af10" absoluteBounds="0.5, 0.5, 2, 3.1170068359375">
+    <classShape Id="28835533-85f1-4082-9efd-2b54db00af10" absoluteBounds="0.5, 0.5, 2, 3.3093082682291666">
       <DataClassMoniker Name="/EventsDataContext/VW_Events" />
       <nestedChildShapes>
-        <elementListCompartment Id="6349b255-94f9-4227-8a5d-3547a4bed199" absoluteBounds="0.51500000000000057, 0.96, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="6349b255-94f9-4227-8a5d-3547a4bed199" absoluteBounds="0.51500000000000057, 0.96, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <classShape Id="812240ae-459d-489e-b37f-b4a5eca017ff" absoluteBounds="2.875, 0.5, 2, 2.7324039713541666">
@@ -48,6 +48,12 @@
       <DataClassMoniker Name="/EventsDataContext/Creator" />
       <nestedChildShapes>
         <elementListCompartment Id="83cae3d7-3b43-46e3-84f1-3b452b144982" absoluteBounds="7.39, 2.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0bf60cb9-325b-4451-b154-fbc94a90a6d9" absoluteBounds="5.25, 3.375, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/EventsDataContext/Place" />
+      <nestedChildShapes>
+        <elementListCompartment Id="51b0a0ab-3b1e-4060-9b01-3c1d376c49e1" absoluteBounds="5.265, 3.835, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

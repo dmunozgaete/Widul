@@ -31,7 +31,7 @@ namespace API.Endpoints.Events.Services
             Gale.Exception.RestException.Guard(() => this.Model == null, "EMPTY_BODY", API.Errors.ResourceManager);
             Gale.Exception.RestException.Guard(() => Model.creator == System.Guid.Empty, "CREATOR_EMPTY", API.Errors.ResourceManager);
             Gale.Exception.RestException.Guard(() => Model.knowledge == System.Guid.Empty, "KNOWLEDGE_EMPTY", API.Errors.ResourceManager);
-            Gale.Exception.RestException.Guard(() => Model.type == System.Guid.Empty, "TYPE_EMPTY", API.Errors.ResourceManager);
+            Gale.Exception.RestException.Guard(() => Model.place == System.Guid.Empty, "PLACE_EMPTY", API.Errors.ResourceManager);
             Gale.Exception.RestException.Guard(() => String.IsNullOrEmpty(Model.name), "NAME_EMPTY", API.Errors.ResourceManager);
             Gale.Exception.RestException.Guard(() => String.IsNullOrEmpty(Model.description), "DESCRIPTION_EMPTY", API.Errors.ResourceManager);
 
@@ -40,11 +40,11 @@ namespace API.Endpoints.Events.Services
             {
                 svc.Parameters.Add("USR_Token", this.Model.creator);
                 svc.Parameters.Add("KNW_Token", this.Model.knowledge);
-                svc.Parameters.Add("EVT_Token", this.Model.type);
+                svc.Parameters.Add("PLAC_Token", this.Model.place);
 
                 svc.Parameters.Add("EVN_Date", this.Model.date);
                 svc.Parameters.Add("EVN_Description", this.Model.description);
-                svc.Parameters.Add("EVN_Location", this.Model.location);
+                ;
                 svc.Parameters.Add("EVN_Name", this.Model.name);
 
                 svc.Parameters.Add("TAGS", String.Join(",", this.Model.tags));
