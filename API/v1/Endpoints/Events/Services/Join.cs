@@ -31,15 +31,30 @@ namespace API.Endpoints.Events.Services
 
             using (var svc = new Gale.Db.DataService("SP_INS_JoinEvent"))
             {
-                svc.Parameters.Add("USR_Token", _user);
-                svc.Parameters.Add("EVN_Token", this.Model);
+                svc.Parameters.Add("USER_Token", _user);
+                svc.Parameters.Add("EVNT_Token", this.Model);
                
-                this.ExecuteAction(svc);
+                //this.ExecuteAction(svc);
+                Object hasToken = this.ExecuteScalar(svc);
+
+                Guid? newToken = null;
+
+                if (hasToken != null)
+                {
+                    newToken = (Guid)hasToken;
+                }
 
                 return Task.FromResult(new HttpResponseMessage()
                 {
+                    Content = new ObjectContent<Object>(new
+                    {
+                        token = newToken
+                    },
+                    new Gale.REST.Http.Formatter.KqlFormatter()),
                     StatusCode = System.Net.HttpStatusCode.Created
                 });
+
+
             }
 
 
