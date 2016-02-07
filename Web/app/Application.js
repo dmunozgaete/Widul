@@ -67,7 +67,7 @@
         //Mocking Module (While the API is in Construction)
         MocksProvider
             .enable()
-            .setDelay(700); //Simulate a Short Delay ^^, (More 'Real' experience)
+            .setDelay(0); //Simulate a Short Delay ^^, (More 'Real' experience)
 
     })
     .config(function(

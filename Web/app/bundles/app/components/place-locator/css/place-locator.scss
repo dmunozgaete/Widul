@@ -11,9 +11,8 @@ place-locator {
     > md-icon {
         right: 6px;
         position: absolute;
-
         &.noValue {
-            color: gray !important; 
+            color: gray !important;
         }
     }
     &[disabled] {
@@ -24,14 +23,25 @@ place-locator {
 }
 
 md-dialog.place-locator-dialog {
+    max-height: 85%;
     md-dialog-content {
         min-width: 650px;
-        min-height: 400px;
+        min-height: 450px;
         > md-content {
             padding: 16px;
         }
         .md-errors-spacer {
             display: none;
+        }
+        md-autocomplete {
+            height: 70px;
+        }
+        md-input-container {
+            textarea {
+                &.md-input {
+                    min-height: 55px;
+                }
+            }
         }
     }
     md-dialog-actions {
@@ -43,11 +53,12 @@ md-dialog.place-locator-dialog {
 }
 
 google-map {
-    height: 200px;
+    height: 180px;
     width: 100%;
     background-color: #F3F3F3;
     display: block;
     overflow: hidden;
+    margin-bottom: 8px;
     > map-loading {
         display: block;
         @include flexbox();

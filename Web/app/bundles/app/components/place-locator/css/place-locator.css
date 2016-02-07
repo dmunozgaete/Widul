@@ -24,24 +24,31 @@ place-locator {
   place-locator[disabled] > input.md-input {
     cursor: default; }
 
-md-dialog.place-locator-dialog md-dialog-content {
-  min-width: 650px;
-  min-height: 400px; }
-  md-dialog.place-locator-dialog md-dialog-content > md-content {
-    padding: 16px; }
-  md-dialog.place-locator-dialog md-dialog-content .md-errors-spacer {
-    display: none; }
-md-dialog.place-locator-dialog md-dialog-actions {
-  padding: 8px 16px; }
-  md-dialog.place-locator-dialog md-dialog-actions button {
-    padding: 0px 16px; }
+md-dialog.place-locator-dialog {
+  max-height: 85%; }
+  md-dialog.place-locator-dialog md-dialog-content {
+    min-width: 650px;
+    min-height: 450px; }
+    md-dialog.place-locator-dialog md-dialog-content > md-content {
+      padding: 16px; }
+    md-dialog.place-locator-dialog md-dialog-content .md-errors-spacer {
+      display: none; }
+    md-dialog.place-locator-dialog md-dialog-content md-autocomplete {
+      height: 70px; }
+    md-dialog.place-locator-dialog md-dialog-content md-input-container textarea.md-input {
+      min-height: 55px; }
+  md-dialog.place-locator-dialog md-dialog-actions {
+    padding: 8px 16px; }
+    md-dialog.place-locator-dialog md-dialog-actions button {
+      padding: 0px 16px; }
 
 google-map {
-  height: 200px;
+  height: 180px;
   width: 100%;
   background-color: #F3F3F3;
   display: block;
-  overflow: hidden; }
+  overflow: hidden;
+  margin-bottom: 8px; }
   google-map > map-loading {
     display: block;
     display: -webkit-box;

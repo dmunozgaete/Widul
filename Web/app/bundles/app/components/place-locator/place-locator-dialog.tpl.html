@@ -19,11 +19,21 @@
 
                 <!-- FORM DATA -->
                 <div layout="row">
-                    <md-autocomplete md-selected-item-change="places.onSelect(place)" md-search-text-change="places.onClear(searchText)" md-autofocus="true" flex md-input-minlength="2" md-input-maxlength="50" md-no-cache="true" md-selected-item="place" md-search-text="searchText" md-items="item in places.find(searchText)" md-item-text="item.name" md-floating-label="Nombre del Lugar">
-                        <md-item-template>
-                            <span md-highlight-text="searchText">{{item.name}} - {{item.address}}</span>
-                        </md-item-template>
-                    </md-autocomplete>
+                    <div flex>
+                        <md-autocomplete md-selected-item-change="places.onSelect(place)" md-search-text-change="places.onClear(searchText)" md-autofocus="true" flex md-input-minlength="2" md-input-maxlength="50" md-no-cache="true" md-selected-item="place" md-search-text="searchText" md-items="item in places.find(searchText)" md-item-text="item.name" md-floating-label="Nombre del Lugar">
+                            <md-item-template>
+                                <span md-highlight-text="searchText">{{item.name}} - {{item.address}}</span>
+                            </md-item-template>
+                        </md-autocomplete>
+                    </div>
+                    <div flex="5">
+                    </div>
+                    <div flex="20">
+                        <md-input-container class="md-block" flex>
+                            <label>Capacidad</label>
+                            <input ng-disabled="place.token" required ng-number select-text-on-click ng-number-options="{integers:4}" maxlength="4" ng-model="model.capacity">
+                        </md-input-container>
+                    </div>
                 </div>
 
                 <div layout="row">
@@ -36,6 +46,13 @@
 
                 <google-map coordinates="model.address.coordinates">
                 </google-map>
+
+                <div layout="row">
+                    <md-input-container class="md-block" flex>
+                        <label>Como llegar (tip, número de piso,etc)</label>
+                        <textarea ng-disabled="place.token" rows="2" md-maxlength="500" maxlength="500" ng-model="model.tip"></textarea>
+                    </md-input-container>
+                </div>
 
             </md-content>
         </md-dialog-content>

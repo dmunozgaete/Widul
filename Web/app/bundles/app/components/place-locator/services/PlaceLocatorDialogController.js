@@ -19,6 +19,8 @@
              return {
                  token: apiPlace.token,
                  name: apiPlace.name,
+                 tip: apiPlace.tip,
+                 capacity: apiPlace.capacity,
                  address:
                  {
                      line: apiPlace.address,
@@ -43,9 +45,10 @@
              },
              onClear: function(name)
              {
-                 $scope.model.name = name;
-                 $scope.model.address = null;
-                 $scope.model.token = null;
+                 $scope.model = {
+                     name: name
+                 };
+
              },
              find: function(query)
              {
@@ -139,7 +142,9 @@
                  name: place.name,
                  address: place.address.line,
                  lat: place.address.coordinates.lat,
-                 lng: place.address.coordinates.lng
+                 lng: place.address.coordinates.lng,
+                 capacity: place.capacity,
+                 tip: place.tip
              };
 
              //Exist Place ??, set Token
