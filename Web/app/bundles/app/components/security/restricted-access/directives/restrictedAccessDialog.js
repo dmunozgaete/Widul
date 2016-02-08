@@ -17,43 +17,75 @@ angular.module('app.components')
         restrict: 'E',
         scope:
         {
-            onResolve: '=' //onResolve callback when authorization is completed
+            onUpdateState: '=?',
+            onAuthenticationFails: '=?',
+            onAuthenticationSuccess: '=?'
         },
         templateUrl: 'bundles/app/components/security/restricted-access/restricted-access-dialog.tpl.html',
-        controller: function($scope, $element, $q, $Configuration, $mdToast)
+        controller: function($scope, $element, $q, $Configuration, $mdToast, $timeout)
         {
-
             $scope.signature = $Configuration.get("application");
 
-
-            //Set State accord to user
-            $scope.onUpdateState = function(new_state)
+            //GARBAGE COLLECTOR
+            function destroy()
             {
-                $scope.state = new_state;
+                $element.addClass("ng-hide");
+                var delay = $timeout(function()
+                {
+                    $element.remove();
+
+                    $timeout.cancel(delay);
+                }, 400);
+
             };
 
-            $scope.onAuthenticationFails = function(message)
+            //Set State accord to user
+            $scope._onUpdateState = function(new_state)
+            {
+                $scope.state = new_state;
+                if ($scope.onUpdateState)
+                {
+                    $scope.onUpdateState(new_state);
+                }
+            };
+
+            $scope._onAuthenticationFails = function(message)
             {
                 $mdToast.show(
                     $mdToast.simple()
-                    .content(message)
+                    .content("Error de Identificación: Intentalo denuevo!")
                     .position('bottom left')
                     .hideDelay(3000)
                 );
+
+                destroy();
+
+                if ($scope.onAuthenticationFails)
+                {
+                    $scope.onAuthenticationFails(message);
+                }
 
                 throw {
                     message: message
                 };
             };
 
-            $scope.onAuthenticationSuccess = function(identity)
+            $scope._onAuthenticationSuccess = function(identity)
             {
+                destroy();
 
-                $element.remove();
-                
-                $scope.onResolve(identity);
+                if ($scope.onAuthenticationSuccess)
+                {
+                    $scope.onAuthenticationSuccess(identity);
+                }
             };
 
+            $scope.close = function()
+            {
+                $scope._onAuthenticationFails("user_cancel");
+            };
+
+            $scope.$on("$destroy", destroy);
 
         }
     };

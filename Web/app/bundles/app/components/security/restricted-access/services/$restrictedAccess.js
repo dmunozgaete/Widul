@@ -30,12 +30,17 @@ angular.module('app.components')
                         //$mdDialog, because can't work with multiple dialog's
                         scope = $rootScope.$new();
 
-                        scope.onResolve = function(identity)
+                        scope.onAuthenticationFails = function(message)
+                        {
+                            deferred.reject(message);
+                        };
+
+                        scope.onAuthenticationSuccess = function(identity)
                         {
                             deferred.resolve(identity);
                         };
 
-                        var dialog = $compile("<restricted-access-dialog  on-resolve='onResolve' />")(scope);
+                        var dialog = $compile("<restricted-access-dialog class='ng-hide-animate ng-show-add' on-authentication-fails='onAuthenticationFails' on-authentication-success='onAuthenticationSuccess' />")(scope);
                         angular.element(document.body).append(dialog);
 
                     }

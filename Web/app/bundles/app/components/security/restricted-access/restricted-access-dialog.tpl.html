@@ -1,23 +1,26 @@
 <div class="backdrop">
+    <md-progress-linear md-mode="indeterminate" class="md-accent"></md-progress-linear>
 </div>
 
-<md-whiteframe class="md-whiteframe-3dp social-login" layout="column">
-    <!-- HEADER -->
-    <div flex="40" class="header md-primary text" layout="column" layout-align="center center">
-        Algunas super caracteristicas de {{signature.name}}, necesitan de tu
-        identificación , pero tranquilo =)!, solo basta con identificarse a traves
-        de las redes sociales que tenemos disponibles para tí.
-    </div>
-    <!-- BODY -->
-    <div flex="60" class="body" layout="column" layout-align="end center">
-        
-        <external-authenticators 
-            on-authenticate="onAuthenticationSuccess" 
-            on-error="onAuthenticationFails"
-            on-change-state="onUpdateState">
-        </external-authenticators>
+<div class="login-box md-accent background">
+    <md-icon class="close" md-svg-icon="content:clear" ng-click="close()"></md-icon>
 
+    <div class="logo">
+        <md-icon md-svg-icon="bundles/app/components/security/restricted-access/css/svg/logo-widul.svg"></md-icon>
     </div>
-    <br />
-    <md-progress-linear ng-show="state.name == 'authorizing'" md-mode="indeterminate" class="md-accent"></md-progress-linear>
-</md-whiteframe>
+    <div class="text">
+        <span>
+            Estas a un paso de <strong>aprender</strong> lo que quieras y <strong>enseñar</strong> lo que sabes.
+        </span>
+    </div>
+
+    <div class="legend">
+        <span>
+            (Identificando...)
+        </span>
+    </div>
+
+</div>
+
+<external-authenticators on-authenticate="_onAuthenticationSuccess" on-error="_onAuthenticationFails" on-change-state="_onUpdateState">
+</external-authenticators>

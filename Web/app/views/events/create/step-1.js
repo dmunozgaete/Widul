@@ -46,9 +46,10 @@ angular.route('private.events/create/step-1', function(
         {
             zeroDay.add(30, 'minutes');
         }
+
         times.push(
         {
-            value: zeroDay.toDate(),
+            value: new Date(zeroDay.toDate()),
             label: zeroDay.format("HH:mm a").toUpperCase()
         });
     }
@@ -129,27 +130,26 @@ angular.route('private.events/create/step-1', function(
             .then(function(resolves)
             {
 
-
-
                 var place = resolves[0];
                 var knowledge = resolves[1];
                 var dateAndTime = moment(newEvent.date).add(newEvent.time.value);
 
                 $Api.create("Events",
-                {
-                    name: newEvent.name,
-                    description: newEvent.description,
-                    isRestricted: newEvent.isRestricted,
-                    isPrivate: newEvent.isPrivate,
-                    date: dateAndTime,
-                    place: place,
-                    knowledge: knowledge,
-                    tags: _.pluck(newEvent.tags, 'name')
+                    {
+                        name: newEvent.name,
+                        description: newEvent.description,
+                        isRestricted: newEvent.isRestricted,
+                        isPrivate: newEvent.isPrivate,
+                        date: dateAndTime,
+                        place: place,
+                        knowledge: knowledge,
+                        tags: _.pluck(newEvent.tags, 'name')
 
-                }).finally(function()
-                {
-                    $loadingDialog.hide();
-                });
+                    })
+                    .finally(function()
+                    {
+                        $loadingDialog.hide();
+                    });
 
             });
 
@@ -162,10 +162,13 @@ angular.route('private.events/create/step-1', function(
         }
         else
         {
-            $Api.create("Places", newEvent.place).success(function(data)
-            {
-                place_deferred.resolve(data.token);
-            });
+            //CREATE PLACES
+            $Api.create("Places", newEvent.place)
+                .success(function(data)
+                {
+                    newEvent.place.token = data.token;
+                    place_deferred.resolve(data.token);
+                });
         }
 
         //Check Kwnoledge
@@ -175,15 +178,22 @@ angular.route('private.events/create/step-1', function(
         }
         else
         {
-            $Api.create("Knowledges", newEvent.knowledge).success(function(data)
-            {
-                knowledge_deferred.resolve(data.token);
-            });
+            //CREATE KNOWLEDGE
+            $Api.create("Knowledges", newEvent.knowledge)
+                .success(function(data)
+                {
+                    newEvent.knowledge.token = data.token;
+                    knowledge_deferred.resolve(data.token);
+                }).error(function(error)
+                {
+                    knowledge_deferred.reject(error);
+                });
         }
 
     };
 
-    $scope.cancel = function() {
+    $scope.cancel = function()
+    {
         $window.history.back();
     };
 

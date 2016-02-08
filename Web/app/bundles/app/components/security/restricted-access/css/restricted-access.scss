@@ -6,34 +6,58 @@ restricted-access-dialog {
     left: 0px;
     right: 0px;
     bottom: 0px;
-    z-index: 9999999;
+    z-index: 9999;
     > div.backdrop {
-        opacity: 0.5;
+        opacity: 0.9;
         background-color: #000;
         height: 100%;
         width: 100%;
     }
-    > .social-login {
-        border-radius: 4px;
-        position: absolute;
-        top: 25%;
-        left: 30%;
-        right: 30%;
+    > div.login-box {
+        position: fixed;
+        top: 27%;
+        bottom: 27%;
+        right: 20%;
+        left: 20%;
         width: auto;
         height: auto;
-        bottom: 25%;
-        background-color: #fff;
-        > div.header {
-            padding: 16px;
-            font-size: 0.9em;
-            text-align: justify;
-            md-icon {
-                height: 4.5em;
-                width: 4.5em;
+        @include flexbox;
+        @include justify-content(center);
+        @include flex-direction(column);
+        padding: 24px;
+        color: #fff;
+        > md-icon.close {
+            position: absolute;
+            right: 16px;
+            top: 16px;
+            height: 40px;
+            width: 40px;
+        }
+        > div.logo {
+            padding-bottom: 16px;
+            text-align: center;
+            > md-icon {
+                height: 5em;
+                width: auto;
             }
         }
-        > div.body {
-            padding: 16px;
+        > div.text {
+            font-size: 1.2em;
+            text-align: center
         }
+        > div.legend {
+            font-size: 1em;
+            font-style: italic;
+            text-align: center;
+            padding-top: 2em;
+        }
+    }
+    /* ANIMATION */
+    &.ng-show-add {
+        animation: 0.4s fadeOut linear;
+    }
+
+    &.ng-hide {
+        animation: 0.45s fadeIn linear;
     }
 }

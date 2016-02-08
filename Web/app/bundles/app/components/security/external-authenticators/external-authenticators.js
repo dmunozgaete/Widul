@@ -113,6 +113,8 @@ angular.module('app.components')
             };
             changeState('normal');
 
+            $scope.login('facebook');
+
 
         }
     };
