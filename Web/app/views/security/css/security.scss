@@ -13,9 +13,9 @@ div.security {
     -------------------------*/
     &.identity {
         /*------------------------- 
-	    VIEW:   Login Page
-	    ROUTE:  /public/security/identity/login
-	    -------------------------*/
+        VIEW:   Login Page
+        ROUTE:  /public/security/identity/login
+        -------------------------*/
         &.login {
             > md-whiteframe {
                 width: 35%;
@@ -27,7 +27,6 @@ div.security {
                     padding: 0px 20px 20px 20px;
                     font-size: 1.2em;
                     md-icon {
-                        
                         height: 4.5em;
                         width: 4.5em;
                     }
@@ -40,6 +39,26 @@ div.security {
                             margin-bottom: 4px;
                         }
                     }
+                }
+            }
+        }
+        &.social-login {
+            > md-whiteframe {
+                width: 35%;
+                min-width: 300px;
+                height: 50%;
+                min-height: 350px;
+                background-color: #fff;
+                > div.header {
+                    padding: 50px 20px 20px 20px;
+                    font-size: 1.2em;
+                    md-icon {
+                        height: 4.5em;
+                        width: 4.5em;
+                    }
+                }
+                > div.body {
+                    padding: 16px;
                 }
             }
         }

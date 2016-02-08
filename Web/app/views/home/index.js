@@ -7,7 +7,8 @@ angular.route('public.home/index', function(
     $timeout,
     $q,
     $mdConstant,
-    $mdDialog
+    $mdDialog,
+    $restrictedAccess
 )
 {
 
@@ -101,7 +102,7 @@ angular.route('public.home/index', function(
     };
 
 
-    $scope.showDetails = function(ev,item)
+    $scope.showDetails = function(ev, item)
     {
         $mdDialog.show(
             {
@@ -122,9 +123,14 @@ angular.route('public.home/index', function(
             });
     };
 
-    $scope.createEvent = function(ev,item)
+    $scope.createEvent = function(ev, item)
     {
-       $state.go("public.events/create/step-1");
+        $restrictedAccess.validate().then(function() {
+
+            $state.go("private.events/create/step-1");
+
+        });
+        
     };
 
 

@@ -1,0 +1,20 @@
+@import "../../../../css/variables";
+@import "../../../../css/flexbox";
+external-authenticators {
+    display: block;
+    button.md-button {
+        width: 100%;
+        margin: 5px 0px;
+        padding: 4px;
+        text-align: left;
+        > md-icon {
+            float: left;
+            margin-top: 6px;
+            margin-left: 8px;
+            margin-right: 16px;
+        }
+        &.google {
+            background-color: #DC4E41 !important; 
+        }
+    }
+}

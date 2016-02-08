@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": ";;;AAEA,uBAAwB;EACpB,OAAO,EAAE,KAAK;EACd,wCAAiB;IACb,KAAK,EAAE,IAAI;IACX,MAAM,EAAE,OAAO;IACf,OAAO,EAAE,GAAG;IACZ,UAAU,EAAE,IAAI;IAChB,kDAAU;MACN,KAAK,EAAE,IAAI;MACX,UAAU,EAAE,GAAG;MACf,WAAW,EAAE,GAAG;MAChB,YAAY,EAAE,IAAI;IAEtB,+CAAS;MACL,gBAAgB,EAAE,kBAAkB",
+"sources": ["external-authenticators.scss"],
+"names": [],
+"file": "external-authenticators.css"
+}

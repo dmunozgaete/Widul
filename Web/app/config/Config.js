@@ -7,7 +7,9 @@ angular.module("config", []).constant("GLOBAL_CONFIGURATION",
         environment: "dev",
         language: "es",
         name: "Widul",
-        home: "public/events/create/step-1"
+        //home: "security/identity/social",
+        //home: "private/events/create/step-1"
+        home: "public/home"
     },
 
     on_build_new_version: function(newVersion, oldVersion)

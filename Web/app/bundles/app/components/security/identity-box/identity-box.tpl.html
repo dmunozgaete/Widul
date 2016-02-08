@@ -1,0 +1,22 @@
+<div ng-if="!isAuthenticated" class="anonymous">
+    <md-button class="md-primary md-raised login" ng-click="logIn()">
+        Iniciar Sesión
+    </md-button>
+</div>
+<div ng-if="isAuthenticated" class="authenticated">
+    <div class="profile">
+        <div class="name">
+            {{user.unique_name}}
+        </div>
+        <div class="logout" ng-click="logOut()">
+            Cerrar Sessión
+        </div>
+    </div>
+    <avatar>
+        <div class="halo">
+            <div>
+                <img ng-src="{{user.photo | file}}" />
+            </div>
+        </div>
+    </avatar>
+</div>

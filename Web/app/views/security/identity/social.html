@@ -1,0 +1,21 @@
+<div layout="row" layout-fill layout-align="center center" class="view security identity social-login md-primary background">
+    <md-whiteframe class="md-whiteframe-3dp" layout="column" layout-fill>
+        <!-- HEADER -->
+        <div flex="40" class="header md-primary text" layout="column" layout-align="center center">
+            <md-icon md-svg-src="action:account_circle" class="md-primary text" aria-label="al"></md-icon>
+            Identificación de Usuario
+        </div>
+        <!-- BODY -->
+        <div flex="60" class="body" layout="column" layout-align="end center">
+
+            <external-authenticators 
+                on-authenticate="onAuthenticationSuccess" 
+                on-error="onAuthenticationFails"
+                on-change-state="onUpdateState">
+            </external-authenticators>
+
+        </div>
+        <br />
+        <md-progress-linear ng-show="state.name == 'authorizing'" md-mode="indeterminate" class="md-accent"></md-progress-linear>
+    </md-whiteframe>
+</div>

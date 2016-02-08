@@ -1,0 +1,19 @@
+/* 
+    SASS Mixins
+*/
+external-authenticators {
+  display: block; }
+  external-authenticators button.md-button {
+    width: 100%;
+    margin: 5px 0px;
+    padding: 4px;
+    text-align: left; }
+    external-authenticators button.md-button > md-icon {
+      float: left;
+      margin-top: 6px;
+      margin-left: 8px;
+      margin-right: 16px; }
+    external-authenticators button.md-button.google {
+      background-color: #DC4E41 !important; }
+
+/*# sourceMappingURL=external-authenticators.css.map */

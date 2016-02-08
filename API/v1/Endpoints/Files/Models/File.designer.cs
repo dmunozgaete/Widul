@@ -182,7 +182,7 @@ namespace API.Endpoints.Files.Models
 	public partial class FileData
 	{
 		
-		private System.Data.Linq.Binary _binary;
+		private byte[] _binary;
 		
 		private string _contentType;
 		
@@ -193,7 +193,7 @@ namespace API.Endpoints.Files.Models
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="BINA_Binary", Storage="_binary", DbType="Image NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public System.Data.Linq.Binary binary
+		public byte[] binary
 		{
 			get
 			{

@@ -1,0 +1,36 @@
+/* 
+    SASS Mixins
+*/
+restricted-access-dialog {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 9999999; }
+  restricted-access-dialog > div.backdrop {
+    opacity: 0.5;
+    background-color: #000;
+    height: 100%;
+    width: 100%; }
+  restricted-access-dialog > .social-login {
+    border-radius: 4px;
+    position: absolute;
+    top: 25%;
+    left: 30%;
+    right: 30%;
+    width: auto;
+    height: auto;
+    bottom: 25%;
+    background-color: #fff; }
+    restricted-access-dialog > .social-login > div.header {
+      padding: 16px;
+      font-size: 0.9em;
+      text-align: justify; }
+      restricted-access-dialog > .social-login > div.header md-icon {
+        height: 4.5em;
+        width: 4.5em; }
+    restricted-access-dialog > .social-login > div.body {
+      padding: 16px; }
+
+/*# sourceMappingURL=restricted-access.css.map */

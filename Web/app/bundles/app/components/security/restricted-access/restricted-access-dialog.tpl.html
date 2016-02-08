@@ -1,0 +1,23 @@
+<div class="backdrop">
+</div>
+
+<md-whiteframe class="md-whiteframe-3dp social-login" layout="column">
+    <!-- HEADER -->
+    <div flex="40" class="header md-primary text" layout="column" layout-align="center center">
+        Algunas super caracteristicas de {{signature.name}}, necesitan de tu
+        identificación , pero tranquilo =)!, solo basta con identificarse a traves
+        de las redes sociales que tenemos disponibles para tí.
+    </div>
+    <!-- BODY -->
+    <div flex="60" class="body" layout="column" layout-align="end center">
+        
+        <external-authenticators 
+            on-authenticate="onAuthenticationSuccess" 
+            on-error="onAuthenticationFails"
+            on-change-state="onUpdateState">
+        </external-authenticators>
+
+    </div>
+    <br />
+    <md-progress-linear ng-show="state.name == 'authorizing'" md-mode="indeterminate" class="md-accent"></md-progress-linear>
+</md-whiteframe>

@@ -1,0 +1,39 @@
+@import "../../../../css/variables";
+@import "../../../../css/flexbox";
+restricted-access-dialog {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 9999999;
+    > div.backdrop {
+        opacity: 0.5;
+        background-color: #000;
+        height: 100%;
+        width: 100%;
+    }
+    > .social-login {
+        border-radius: 4px;
+        position: absolute;
+        top: 25%;
+        left: 30%;
+        right: 30%;
+        width: auto;
+        height: auto;
+        bottom: 25%;
+        background-color: #fff;
+        > div.header {
+            padding: 16px;
+            font-size: 0.9em;
+            text-align: justify;
+            md-icon {
+                height: 4.5em;
+                width: 4.5em;
+            }
+        }
+        > div.body {
+            padding: 16px;
+        }
+    }
+}

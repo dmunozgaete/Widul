@@ -21,6 +21,9 @@
         <link rel="stylesheet" href="bundles/app/components/loading-dialog/css/loading-dialog.css">
         <link rel="stylesheet" href="bundles/app/components/place-locator/css/place-locator.css">
         <link rel="stylesheet" href="bundles/app/components/preload-image/css/preload-image.css">
+        <link rel="stylesheet" href="bundles/app/components/security/external-authenticators/css/external-authenticators.css">
+        <link rel="stylesheet" href="bundles/app/components/security/identity-box/css/identity-box.css">
+        <link rel="stylesheet" href="bundles/app/components/security/restricted-access/css/restricted-access.css">
         <link rel="stylesheet" href="bundles/app/css/_flexbox.css">
         <link rel="stylesheet" href="bundles/app/css/_variables.css">
         <link rel="stylesheet" href="bundles/app/css/default.css">
@@ -49,8 +52,6 @@
     <script src="bower_components/angular-messages/angular-messages.js"></script>
     <script src="bower_components/angular-material/angular-material.js"></script>
     <script src="bower_components/ng-file-upload/angular-file-upload.js"></script>
-    <script src="bower_components/pouchdb/dist/pouchdb.js"></script>
-    <script src="bower_components/angular-pouchdb/angular-pouchdb.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/lodash/lodash.js"></script>
     <script src="bower_components/angular-gale/dist/angular-gale.js"></script>
@@ -58,6 +59,7 @@
     <script src="bower_components/d3/d3.js"></script>
     <script src="bower_components/nvd3/nv.d3.js"></script>
     <script src="bower_components/angularjs-nvd3-directives/dist/angularjs-nvd3-directives.js"></script>
+    <script src="bower_components/angular-facebook/lib/angular-facebook.js"></script>
     <script src="bundles/angular-locale/angular-locale_es-cl.js"></script>
     <script src="bundles/angular-locale/moment.es-CL.js"></script>
     <script src="bundles/app/app.js"></script>
@@ -73,6 +75,10 @@
     <script src="bundles/app/components/place-locator/services/PlaceLocatorDialogController.js"></script>
     <script src="bundles/app/components/place-locator/services/googleMapService.js"></script>
     <script src="bundles/app/components/preload-image/directives/preload-image.js"></script>
+    <script src="bundles/app/components/security/external-authenticators/external-authenticators.js"></script>
+    <script src="bundles/app/components/security/identity-box/identity-box.js"></script>
+    <script src="bundles/app/components/security/restricted-access/directives/restrictedAccessDialog.js"></script>
+    <script src="bundles/app/components/security/restricted-access/services/$restrictedAccess.js"></script>
     <script src="bundles/app/components/upload/upload-file-service.js"></script>
     <script src="bundles/app/components/upload/upload-file.js"></script>
     <script src="bundles/app/js/filters/file.js"></script>
@@ -93,9 +99,11 @@
     <script src="views/events/view/dialogs/eventDetails.js"></script>
     <script src="views/home/index.js"></script>
     <script src="views/layouts/exception.js"></script>
+    <script src="views/layouts/private.js"></script>
     <script src="views/layouts/public.js"></script>
     <script src="views/security/identity/login.js"></script>
     <script src="views/security/identity/logout.js"></script>
+    <script src="views/security/identity/social.js"></script>
     <script src="application.js"></script>
     <script src="config/config.js"></script>
     <!-- endinjector -->

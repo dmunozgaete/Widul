@@ -1,4 +1,4 @@
-angular.route('public.events/create/step-1', function(
+angular.route('private.events/create/step-1', function(
     $scope,
     $state,
     $log,
@@ -149,7 +149,7 @@ angular.route('public.events/create/step-1', function(
                 }).finally(function()
                 {
                     $loadingDialog.hide();
-                })
+                });
 
             });
 
@@ -184,7 +184,7 @@ angular.route('public.events/create/step-1', function(
     };
 
     $scope.cancel = function() {
-
+        $window.history.back();
     };
 
     $scope.tooggleSettings = function()
@@ -197,7 +197,7 @@ angular.route('public.events/create/step-1', function(
             setTimeout(function()
             {
                 window.scrollTo(0, 500);
-            }, 200)
+            }, 200);
 
         }
     };
@@ -209,7 +209,6 @@ angular.route('public.events/create/step-1', function(
             selected: (date || new Date())
         }).then(function(selectedDate)
         {
-            debugger;
             $scope.model.event.date = selectedDate;
         });
     };

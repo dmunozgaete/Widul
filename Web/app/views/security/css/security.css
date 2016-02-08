@@ -11,10 +11,10 @@ div.security {
   ROUTE:  /public/security/identity/*
   -------------------------*/ }
   div.security.identity {
-        /*------------------------- 
-	    VIEW:   Login Page
-	    ROUTE:  /public/security/identity/login
-	    -------------------------*/ }
+    /*------------------------- 
+    VIEW:   Login Page
+    ROUTE:  /public/security/identity/login
+    -------------------------*/ }
     div.security.identity.login > md-whiteframe {
       width: 35%;
       min-width: 350px;
@@ -33,5 +33,19 @@ div.security {
           margin: 0px; }
           div.security.identity.login > md-whiteframe > div.body button > md-icon {
             margin-bottom: 4px; }
+    div.security.identity.social-login > md-whiteframe {
+      width: 35%;
+      min-width: 300px;
+      height: 50%;
+      min-height: 350px;
+      background-color: #fff; }
+      div.security.identity.social-login > md-whiteframe > div.header {
+        padding: 50px 20px 20px 20px;
+        font-size: 1.2em; }
+        div.security.identity.social-login > md-whiteframe > div.header md-icon {
+          height: 4.5em;
+          width: 4.5em; }
+      div.security.identity.social-login > md-whiteframe > div.body {
+        padding: 16px; }
 
 /*# sourceMappingURL=security.css.map */
