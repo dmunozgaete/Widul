@@ -1,4 +1,4 @@
 {
-	"API_Endpoint": "http://val-wb-ms-02.cloudapp.net/Inspecciones/API/v1/",
+	"API_Endpoint": "http://val-wb-ms-02.cloudapp.net/Widul/API/v1/",
 	"debugging": true
 }
