@@ -204,6 +204,7 @@ gale-page.home > div.results {
       padding: 8px;
       overflow: hidden;
       border-radius: 4px;
+      width: 214px;
       border-top-left-radius: 0px;
       border-top-right-radius: 0px; }
       gale-page.home > div.results > event > div.box > div.description {

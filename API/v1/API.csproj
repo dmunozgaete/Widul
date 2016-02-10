@@ -119,6 +119,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Mail.resx</DependentUpon>
     </Compile>
+    <Compile Include="Endpoints\Bpm\DocumentsController.cs" />
+    <Compile Include="Endpoints\Bpm\Models\Document.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Document.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Endpoints\Bpm\Models\Task.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Task.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Endpoints\Bpm\Services\Document\Get.cs" />
+    <Compile Include="Endpoints\Bpm\Services\Document\GetByIdentifier.cs" />
+    <Compile Include="Endpoints\Bpm\Services\Document\History.cs" />
+    <Compile Include="Endpoints\Bpm\Services\Task\Get.cs" />
+    <Compile Include="Endpoints\Bpm\TasksController.cs" />
     <Compile Include="Endpoints\Events\EventsController.cs" />
     <Compile Include="Endpoints\Events\Models\Comments.designer.cs">
       <AutoGen>True</AutoGen>
@@ -239,6 +255,16 @@
       <LastGenOutput>Knowledge.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Endpoints\Bpm\Models\Document.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Document.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Endpoints\Bpm\Models\Task.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Task.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Properties\PublishProfiles\QAS.pubxml" />
     <None Include="Properties\PublishProfiles\QAS_Valentys.pubxml" />
     <None Include="Web.Debug.config">
@@ -283,6 +309,12 @@
     </None>
     <None Include="Endpoints\Knowledge\Models\Knowledge.dbml.layout">
       <DependentUpon>Knowledge.dbml</DependentUpon>
+    </None>
+    <None Include="Endpoints\Bpm\Models\Document.dbml.layout">
+      <DependentUpon>Document.dbml</DependentUpon>
+    </None>
+    <None Include="Endpoints\Bpm\Models\Task.dbml.layout">
+      <DependentUpon>Task.dbml</DependentUpon>
     </None>
     <EmbeddedResource Include="Endpoints\Security\Resources\Security.resx">
       <Generator>ResXFileCodeGenerator</Generator>

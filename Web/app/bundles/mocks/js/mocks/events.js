@@ -2,6 +2,7 @@ angular.module('mocks.api')
 
 .run(function(Mocks, $log)
 {
+    return ;
     //-------------------------------------------------------------
     Mocks.whenGET("Events/Details", function(method, url, data)
     {
@@ -64,7 +65,6 @@ angular.module('mocks.api')
 
 
     //-------------------------------------------------------------
-    /*
     Mocks.whenGET("Events/Tags", function(method, url, data)
     {
         var result = {
@@ -91,7 +91,6 @@ angular.module('mocks.api')
             {}
         ];
     });
-    */
     //-------------------------------------------------------------
 
     //-------------------------------------------------------------

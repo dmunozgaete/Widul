@@ -33,9 +33,6 @@ namespace API.Endpoints.Events.Models
     partial void InsertVW_Events(VW_Events instance);
     partial void UpdateVW_Events(VW_Events instance);
     partial void DeleteVW_Events(VW_Events instance);
-    partial void InsertCreator(Creator instance);
-    partial void UpdateCreator(Creator instance);
-    partial void DeleteCreator(Creator instance);
     #endregion
 		
 		public EventsDataContext() : 
@@ -84,30 +81,6 @@ namespace API.Endpoints.Events.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<VW_Events> VW_Events1
-		{
-			get
-			{
-				return this.GetTable<VW_Events>();
-			}
-		}
-		
-		public System.Data.Linq.Table<EventDetail> EventDetail
-		{
-			get
-			{
-				return this.GetTable<EventDetail>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Knowledge> Knowledge
-		{
-			get
-			{
-				return this.GetTable<Knowledge>();
-			}
-		}
-		
 		public System.Data.Linq.Table<EventTag> EventTag
 		{
 			get
@@ -116,27 +89,27 @@ namespace API.Endpoints.Events.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<EventComment> EventComment
-		{
-			get
-			{
-				return this.GetTable<EventComment>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Creator> Creator
-		{
-			get
-			{
-				return this.GetTable<Creator>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Place> Places
 		{
 			get
 			{
 				return this.GetTable<Place>();
+			}
+		}
+		
+		public System.Data.Linq.Table<VW_Events> VW_Events
+		{
+			get
+			{
+				return this.GetTable<VW_Events>();
+			}
+		}
+		
+		public System.Data.Linq.Table<EventDetails> EventDetails
+		{
+			get
+			{
+				return this.GetTable<EventDetails>();
 			}
 		}
 	}
@@ -357,590 +330,6 @@ namespace API.Endpoints.Events.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VW_Events")]
-	public partial class VW_Events : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private System.Nullable<System.DateTime> _date;
-		
-		private System.DateTime _createdAt;
-		
-		private string _description;
-		
-		private string _name;
-		
-		private System.DateTime _updatedAt;
-		
-		private System.Guid _token;
-		
-		private string _user_fullname;
-		
-		private System.Guid _user_token;
-		
-		private System.Nullable<System.Guid> _user_photo;
-		
-		private string _knowledge_name;
-		
-		private System.Guid _knowledge_token;
-		
-		private string _place_address;
-		
-		private System.Guid _place_token;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OndateChanging(System.Nullable<System.DateTime> value);
-    partial void OndateChanged();
-    partial void OncreatedAtChanging(System.DateTime value);
-    partial void OncreatedAtChanged();
-    partial void OndescriptionChanging(string value);
-    partial void OndescriptionChanged();
-    partial void OnnameChanging(string value);
-    partial void OnnameChanged();
-    partial void OnupdatedAtChanging(System.DateTime value);
-    partial void OnupdatedAtChanged();
-    partial void OntokenChanging(System.Guid value);
-    partial void OntokenChanged();
-    partial void Onuser_fullnameChanging(string value);
-    partial void Onuser_fullnameChanged();
-    partial void Onuser_tokenChanging(System.Guid value);
-    partial void Onuser_tokenChanged();
-    partial void Onuser_photoChanging(System.Nullable<System.Guid> value);
-    partial void Onuser_photoChanged();
-    partial void Onknowledge_nameChanging(string value);
-    partial void Onknowledge_nameChanged();
-    partial void Onknowledge_tokenChanging(System.Guid value);
-    partial void Onknowledge_tokenChanged();
-    partial void Onplace_addressChanging(string value);
-    partial void Onplace_addressChanged();
-    partial void Onplace_tokenChanging(System.Guid value);
-    partial void Onplace_tokenChanged();
-    #endregion
-		
-		public VW_Events()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="EVNT_Date", Storage="_date", DbType="DateTime")]
-		public System.Nullable<System.DateTime> date
-		{
-			get
-			{
-				return this._date;
-			}
-			set
-			{
-				if ((this._date != value))
-				{
-					this.OndateChanging(value);
-					this.SendPropertyChanging();
-					this._date = value;
-					this.SendPropertyChanged("date");
-					this.OndateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="EVNT_CreatedAt", Storage="_createdAt", DbType="DateTime NOT NULL")]
-		public System.DateTime createdAt
-		{
-			get
-			{
-				return this._createdAt;
-			}
-			set
-			{
-				if ((this._createdAt != value))
-				{
-					this.OncreatedAtChanging(value);
-					this.SendPropertyChanging();
-					this._createdAt = value;
-					this.SendPropertyChanged("createdAt");
-					this.OncreatedAtChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="EVNT_Description", Storage="_description", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
-		public string description
-		{
-			get
-			{
-				return this._description;
-			}
-			set
-			{
-				if ((this._description != value))
-				{
-					this.OndescriptionChanging(value);
-					this.SendPropertyChanging();
-					this._description = value;
-					this.SendPropertyChanged("description");
-					this.OndescriptionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="EVNT_Name", Storage="_name", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
-		public string name
-		{
-			get
-			{
-				return this._name;
-			}
-			set
-			{
-				if ((this._name != value))
-				{
-					this.OnnameChanging(value);
-					this.SendPropertyChanging();
-					this._name = value;
-					this.SendPropertyChanged("name");
-					this.OnnameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="EVNT_UpdatedAt", Storage="_updatedAt", DbType="DateTime NOT NULL")]
-		public System.DateTime updatedAt
-		{
-			get
-			{
-				return this._updatedAt;
-			}
-			set
-			{
-				if ((this._updatedAt != value))
-				{
-					this.OnupdatedAtChanging(value);
-					this.SendPropertyChanging();
-					this._updatedAt = value;
-					this.SendPropertyChanged("updatedAt");
-					this.OnupdatedAtChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="EVNT_Token", Storage="_token", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
-		public System.Guid token
-		{
-			get
-			{
-				return this._token;
-			}
-			set
-			{
-				if ((this._token != value))
-				{
-					this.OntokenChanging(value);
-					this.SendPropertyChanging();
-					this._token = value;
-					this.SendPropertyChanged("token");
-					this.OntokenChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="USER_FullName", Storage="_user_fullname", DbType="VarChar(250) NOT NULL", CanBeNull=false)]
-		public string user_fullname
-		{
-			get
-			{
-				return this._user_fullname;
-			}
-			set
-			{
-				if ((this._user_fullname != value))
-				{
-					this.Onuser_fullnameChanging(value);
-					this.SendPropertyChanging();
-					this._user_fullname = value;
-					this.SendPropertyChanged("user_fullname");
-					this.Onuser_fullnameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="ENTI_Token", Storage="_user_token", DbType="UniqueIdentifier NOT NULL")]
-		public System.Guid user_token
-		{
-			get
-			{
-				return this._user_token;
-			}
-			set
-			{
-				if ((this._user_token != value))
-				{
-					this.Onuser_tokenChanging(value);
-					this.SendPropertyChanging();
-					this._user_token = value;
-					this.SendPropertyChanged("user_token");
-					this.Onuser_tokenChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="USER_Photo", Storage="_user_photo", DbType="UniqueIdentifier")]
-		public System.Nullable<System.Guid> user_photo
-		{
-			get
-			{
-				return this._user_photo;
-			}
-			set
-			{
-				if ((this._user_photo != value))
-				{
-					this.Onuser_photoChanging(value);
-					this.SendPropertyChanging();
-					this._user_photo = value;
-					this.SendPropertyChanged("user_photo");
-					this.Onuser_photoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="KNOW_Name", Storage="_knowledge_name", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string knowledge_name
-		{
-			get
-			{
-				return this._knowledge_name;
-			}
-			set
-			{
-				if ((this._knowledge_name != value))
-				{
-					this.Onknowledge_nameChanging(value);
-					this.SendPropertyChanging();
-					this._knowledge_name = value;
-					this.SendPropertyChanged("knowledge_name");
-					this.Onknowledge_nameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="KNOW_Token", Storage="_knowledge_token", DbType="UniqueIdentifier NOT NULL")]
-		public System.Guid knowledge_token
-		{
-			get
-			{
-				return this._knowledge_token;
-			}
-			set
-			{
-				if ((this._knowledge_token != value))
-				{
-					this.Onknowledge_tokenChanging(value);
-					this.SendPropertyChanging();
-					this._knowledge_token = value;
-					this.SendPropertyChanged("knowledge_token");
-					this.Onknowledge_tokenChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="PLAC_Address", Storage="_place_address", CanBeNull=false)]
-		public string place_address
-		{
-			get
-			{
-				return this._place_address;
-			}
-			set
-			{
-				if ((this._place_address != value))
-				{
-					this.Onplace_addressChanging(value);
-					this.SendPropertyChanging();
-					this._place_address = value;
-					this.SendPropertyChanged("place_address");
-					this.Onplace_addressChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="PLAC_Token", Storage="_place_token")]
-		public System.Guid place_token
-		{
-			get
-			{
-				return this._place_token;
-			}
-			set
-			{
-				if ((this._place_token != value))
-				{
-					this.Onplace_tokenChanging(value);
-					this.SendPropertyChanging();
-					this._place_token = value;
-					this.SendPropertyChanged("place_token");
-					this.Onplace_tokenChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TB_WID_Event")]
-	public partial class EventDetail
-	{
-		
-		private string _name;
-		
-		private string _description;
-		
-		private System.Nullable<System.DateTime> _date;
-		
-		private System.DateTime _updatedAt;
-		
-		private System.DateTime _createdAt;
-		
-		private System.Guid _token;
-		
-		private Creator _creator;
-		
-		private Knowledge _knowledge;
-		
-		private List<EventTag> _tags;
-		
-		private Place _place;
-		
-		public EventDetail()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="EVNT_Name", Storage="_name", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
-		public string name
-		{
-			get
-			{
-				return this._name;
-			}
-			set
-			{
-				if ((this._name != value))
-				{
-					this._name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="EVNT_Description", Storage="_description", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
-		public string description
-		{
-			get
-			{
-				return this._description;
-			}
-			set
-			{
-				if ((this._description != value))
-				{
-					this._description = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="EVNT_Date", Storage="_date", DbType="DateTime")]
-		public System.Nullable<System.DateTime> date
-		{
-			get
-			{
-				return this._date;
-			}
-			set
-			{
-				if ((this._date != value))
-				{
-					this._date = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="EVNT_UpdatedAt", Storage="_updatedAt", DbType="DateTime NOT NULL")]
-		public System.DateTime updatedAt
-		{
-			get
-			{
-				return this._updatedAt;
-			}
-			set
-			{
-				if ((this._updatedAt != value))
-				{
-					this._updatedAt = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="EVNT_CreatedAt", Storage="_createdAt", DbType="DateTime NOT NULL")]
-		public System.DateTime createdAt
-		{
-			get
-			{
-				return this._createdAt;
-			}
-			set
-			{
-				if ((this._createdAt != value))
-				{
-					this._createdAt = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="EVNT_Token", Storage="_token", DbType="UniqueIdentifier NOT NULL")]
-		public System.Guid token
-		{
-			get
-			{
-				return this._token;
-			}
-			set
-			{
-				if ((this._token != value))
-				{
-					this._token = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_creator", CanBeNull=false)]
-		public Creator creator
-		{
-			get
-			{
-				return this._creator;
-			}
-			set
-			{
-				if ((this._creator != value))
-				{
-					this._creator = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_knowledge", CanBeNull=false)]
-		public Knowledge knowledge
-		{
-			get
-			{
-				return this._knowledge;
-			}
-			set
-			{
-				if ((this._knowledge != value))
-				{
-					this._knowledge = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tags", CanBeNull=false)]
-		public List<EventTag> tags
-		{
-			get
-			{
-				return this._tags;
-			}
-			set
-			{
-				if ((this._tags != value))
-				{
-					this._tags = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_place", CanBeNull=false)]
-		public Place place
-		{
-			get
-			{
-				return this._place;
-			}
-			set
-			{
-				if ((this._place != value))
-				{
-					this._place = value;
-				}
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TB_WID_Knowledge")]
-	public partial class Knowledge
-	{
-		
-		private string _name;
-		
-		private System.Guid _token;
-		
-		public Knowledge()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="KNOW_Name", Storage="_name", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string name
-		{
-			get
-			{
-				return this._name;
-			}
-			set
-			{
-				if ((this._name != value))
-				{
-					this._name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="KNOW_Token", Storage="_token", DbType="UniqueIdentifier NOT NULL")]
-		public System.Guid token
-		{
-			get
-			{
-				return this._token;
-			}
-			set
-			{
-				if ((this._token != value))
-				{
-					this._token = value;
-				}
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TB_WID_EventTag")]
 	public partial class EventTag
 	{
@@ -982,263 +371,6 @@ namespace API.Endpoints.Events.Models
 				{
 					this._token = value;
 				}
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TB_WID_EventComment")]
-	public partial class EventComment
-	{
-		
-		private string _comment;
-		
-		private System.DateTime _createdAt;
-		
-		private System.Guid _token;
-		
-		private System.Guid _user_token;
-		
-		private string _user_fullname;
-		
-		public EventComment()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="COMM_Comment", Storage="_comment", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
-		public string comment
-		{
-			get
-			{
-				return this._comment;
-			}
-			set
-			{
-				if ((this._comment != value))
-				{
-					this._comment = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="COMM_CreatedAt", Storage="_createdAt", DbType="DateTime NOT NULL")]
-		public System.DateTime createdAt
-		{
-			get
-			{
-				return this._createdAt;
-			}
-			set
-			{
-				if ((this._createdAt != value))
-				{
-					this._createdAt = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="COMM_Token", Storage="_token", DbType="UniqueIdentifier NOT NULL")]
-		public System.Guid token
-		{
-			get
-			{
-				return this._token;
-			}
-			set
-			{
-				if ((this._token != value))
-				{
-					this._token = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="ENTI_Token", Storage="_user_token", DbType="UniqueIdentifier NOT NULL")]
-		public System.Guid user_token
-		{
-			get
-			{
-				return this._user_token;
-			}
-			set
-			{
-				if ((this._user_token != value))
-				{
-					this._user_token = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="USER_FullName", Storage="_user_fullname", DbType="VarChar(250) NOT NULL", CanBeNull=false)]
-		public string user_fullname
-		{
-			get
-			{
-				return this._user_fullname;
-			}
-			set
-			{
-				if ((this._user_fullname != value))
-				{
-					this._user_fullname = value;
-				}
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TB_COR_User")]
-	public partial class Creator : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private System.Guid _token;
-		
-		private System.DateTime _createdAt;
-		
-		private string _email;
-		
-		private string _name;
-		
-		private System.Guid _photo;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OntokenChanging(System.Guid value);
-    partial void OntokenChanged();
-    partial void OncreatedAtChanging(System.DateTime value);
-    partial void OncreatedAtChanged();
-    partial void OnemailChanging(string value);
-    partial void OnemailChanged();
-    partial void OnnameChanging(string value);
-    partial void OnnameChanged();
-    partial void OnphotoChanging(System.Guid value);
-    partial void OnphotoChanged();
-    #endregion
-		
-		public Creator()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="ENTI_Token", Storage="_token", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
-		public System.Guid token
-		{
-			get
-			{
-				return this._token;
-			}
-			set
-			{
-				if ((this._token != value))
-				{
-					this.OntokenChanging(value);
-					this.SendPropertyChanging();
-					this._token = value;
-					this.SendPropertyChanged("token");
-					this.OntokenChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="ENTI_CreatedAt", Storage="_createdAt", DbType="DateTime NOT NULL")]
-		public System.DateTime createdAt
-		{
-			get
-			{
-				return this._createdAt;
-			}
-			set
-			{
-				if ((this._createdAt != value))
-				{
-					this.OncreatedAtChanging(value);
-					this.SendPropertyChanging();
-					this._createdAt = value;
-					this.SendPropertyChanged("createdAt");
-					this.OncreatedAtChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="USER_Email", Storage="_email", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-		public string email
-		{
-			get
-			{
-				return this._email;
-			}
-			set
-			{
-				if ((this._email != value))
-				{
-					this.OnemailChanging(value);
-					this.SendPropertyChanging();
-					this._email = value;
-					this.SendPropertyChanged("email");
-					this.OnemailChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="USER_FullName", Storage="_name", DbType="VarChar(250) NOT NULL", CanBeNull=false)]
-		public string name
-		{
-			get
-			{
-				return this._name;
-			}
-			set
-			{
-				if ((this._name != value))
-				{
-					this.OnnameChanging(value);
-					this.SendPropertyChanging();
-					this._name = value;
-					this.SendPropertyChanged("name");
-					this.OnnameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="FILE_Token", Storage="_photo", DbType="UniqueIdentifier NOT NULL")]
-		public System.Guid photo
-		{
-			get
-			{
-				return this._photo;
-			}
-			set
-			{
-				if ((this._photo != value))
-				{
-					this.OnphotoChanging(value);
-					this.SendPropertyChanging();
-					this._photo = value;
-					this.SendPropertyChanged("photo");
-					this.OnphotoChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
@@ -1373,6 +505,719 @@ namespace API.Endpoints.Events.Models
 				if ((this._token != value))
 				{
 					this._token = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VW_Events")]
+	public partial class VW_Events : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.DateTime _createdAt;
+		
+		private System.Guid _token;
+		
+		private string _state_name;
+		
+		private System.Guid _state_token;
+		
+		private System.DateTime _date;
+		
+		private string _description;
+		
+		private string _name;
+		
+		private System.DateTime _updatedAt;
+		
+		private string _creator_name;
+		
+		private System.Guid _creator_token;
+		
+		private System.Nullable<System.Guid> _creator_photo;
+		
+		private string _knowledge_name;
+		
+		private System.Guid _knowledge_token;
+		
+		private string _place_name;
+		
+		private System.Guid _place_token;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OncreatedAtChanging(System.DateTime value);
+    partial void OncreatedAtChanged();
+    partial void OntokenChanging(System.Guid value);
+    partial void OntokenChanged();
+    partial void Onstate_nameChanging(string value);
+    partial void Onstate_nameChanged();
+    partial void Onstate_tokenChanging(System.Guid value);
+    partial void Onstate_tokenChanged();
+    partial void OndateChanging(System.DateTime value);
+    partial void OndateChanged();
+    partial void OndescriptionChanging(string value);
+    partial void OndescriptionChanged();
+    partial void OnnameChanging(string value);
+    partial void OnnameChanged();
+    partial void OnupdatedAtChanging(System.DateTime value);
+    partial void OnupdatedAtChanged();
+    partial void Oncreator_nameChanging(string value);
+    partial void Oncreator_nameChanged();
+    partial void Oncreator_tokenChanging(System.Guid value);
+    partial void Oncreator_tokenChanged();
+    partial void Oncreator_photoChanging(System.Nullable<System.Guid> value);
+    partial void Oncreator_photoChanged();
+    partial void Onknowledge_nameChanging(string value);
+    partial void Onknowledge_nameChanged();
+    partial void Onknowledge_tokenChanging(System.Guid value);
+    partial void Onknowledge_tokenChanged();
+    partial void Onplace_nameChanging(string value);
+    partial void Onplace_nameChanged();
+    partial void Onplace_tokenChanging(System.Guid value);
+    partial void Onplace_tokenChanged();
+    #endregion
+		
+		public VW_Events()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="DOCU_CreatedAt", Storage="_createdAt", DbType="DateTime NOT NULL")]
+		public System.DateTime createdAt
+		{
+			get
+			{
+				return this._createdAt;
+			}
+			set
+			{
+				if ((this._createdAt != value))
+				{
+					this.OncreatedAtChanging(value);
+					this.SendPropertyChanging();
+					this._createdAt = value;
+					this.SendPropertyChanged("createdAt");
+					this.OncreatedAtChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="DOCU_Token", Storage="_token", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
+		public System.Guid token
+		{
+			get
+			{
+				return this._token;
+			}
+			set
+			{
+				if ((this._token != value))
+				{
+					this.OntokenChanging(value);
+					this.SendPropertyChanging();
+					this._token = value;
+					this.SendPropertyChanged("token");
+					this.OntokenChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="STAT_Name", Storage="_state_name", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
+		public string state_name
+		{
+			get
+			{
+				return this._state_name;
+			}
+			set
+			{
+				if ((this._state_name != value))
+				{
+					this.Onstate_nameChanging(value);
+					this.SendPropertyChanging();
+					this._state_name = value;
+					this.SendPropertyChanged("state_name");
+					this.Onstate_nameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="STAT_Token", Storage="_state_token", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid state_token
+		{
+			get
+			{
+				return this._state_token;
+			}
+			set
+			{
+				if ((this._state_token != value))
+				{
+					this.Onstate_tokenChanging(value);
+					this.SendPropertyChanging();
+					this._state_token = value;
+					this.SendPropertyChanged("state_token");
+					this.Onstate_tokenChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="EVNT_Date", Storage="_date", DbType="DateTime NOT NULL")]
+		public System.DateTime date
+		{
+			get
+			{
+				return this._date;
+			}
+			set
+			{
+				if ((this._date != value))
+				{
+					this.OndateChanging(value);
+					this.SendPropertyChanging();
+					this._date = value;
+					this.SendPropertyChanged("date");
+					this.OndateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="EVNT_Description", Storage="_description", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
+		public string description
+		{
+			get
+			{
+				return this._description;
+			}
+			set
+			{
+				if ((this._description != value))
+				{
+					this.OndescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._description = value;
+					this.SendPropertyChanged("description");
+					this.OndescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="EVNT_Name", Storage="_name", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
+		public string name
+		{
+			get
+			{
+				return this._name;
+			}
+			set
+			{
+				if ((this._name != value))
+				{
+					this.OnnameChanging(value);
+					this.SendPropertyChanging();
+					this._name = value;
+					this.SendPropertyChanged("name");
+					this.OnnameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="EVNT_UpdatedAt", Storage="_updatedAt", DbType="DateTime NOT NULL")]
+		public System.DateTime updatedAt
+		{
+			get
+			{
+				return this._updatedAt;
+			}
+			set
+			{
+				if ((this._updatedAt != value))
+				{
+					this.OnupdatedAtChanging(value);
+					this.SendPropertyChanging();
+					this._updatedAt = value;
+					this.SendPropertyChanged("updatedAt");
+					this.OnupdatedAtChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="USER_FullName", Storage="_creator_name", DbType="VarChar(250) NOT NULL", CanBeNull=false)]
+		public string creator_name
+		{
+			get
+			{
+				return this._creator_name;
+			}
+			set
+			{
+				if ((this._creator_name != value))
+				{
+					this.Oncreator_nameChanging(value);
+					this.SendPropertyChanging();
+					this._creator_name = value;
+					this.SendPropertyChanged("creator_name");
+					this.Oncreator_nameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="USER_Token", Storage="_creator_token", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid creator_token
+		{
+			get
+			{
+				return this._creator_token;
+			}
+			set
+			{
+				if ((this._creator_token != value))
+				{
+					this.Oncreator_tokenChanging(value);
+					this.SendPropertyChanging();
+					this._creator_token = value;
+					this.SendPropertyChanged("creator_token");
+					this.Oncreator_tokenChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="USER_Photo", Storage="_creator_photo", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> creator_photo
+		{
+			get
+			{
+				return this._creator_photo;
+			}
+			set
+			{
+				if ((this._creator_photo != value))
+				{
+					this.Oncreator_photoChanging(value);
+					this.SendPropertyChanging();
+					this._creator_photo = value;
+					this.SendPropertyChanged("creator_photo");
+					this.Oncreator_photoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="KNOW_Name", Storage="_knowledge_name", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string knowledge_name
+		{
+			get
+			{
+				return this._knowledge_name;
+			}
+			set
+			{
+				if ((this._knowledge_name != value))
+				{
+					this.Onknowledge_nameChanging(value);
+					this.SendPropertyChanging();
+					this._knowledge_name = value;
+					this.SendPropertyChanged("knowledge_name");
+					this.Onknowledge_nameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="KNOW_Token", Storage="_knowledge_token", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid knowledge_token
+		{
+			get
+			{
+				return this._knowledge_token;
+			}
+			set
+			{
+				if ((this._knowledge_token != value))
+				{
+					this.Onknowledge_tokenChanging(value);
+					this.SendPropertyChanging();
+					this._knowledge_token = value;
+					this.SendPropertyChanged("knowledge_token");
+					this.Onknowledge_tokenChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="PLAC_Name", Storage="_place_name", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string place_name
+		{
+			get
+			{
+				return this._place_name;
+			}
+			set
+			{
+				if ((this._place_name != value))
+				{
+					this.Onplace_nameChanging(value);
+					this.SendPropertyChanging();
+					this._place_name = value;
+					this.SendPropertyChanged("place_name");
+					this.Onplace_nameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="PLAC_Token", Storage="_place_token", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid place_token
+		{
+			get
+			{
+				return this._place_token;
+			}
+			set
+			{
+				if ((this._place_token != value))
+				{
+					this.Onplace_tokenChanging(value);
+					this.SendPropertyChanging();
+					this._place_token = value;
+					this.SendPropertyChanged("place_token");
+					this.Onplace_tokenChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VW_Events")]
+	public partial class EventDetails
+	{
+		
+		private System.DateTime _createdAt;
+		
+		private System.Guid _token;
+		
+		private string _state_name;
+		
+		private string _state_identifier;
+		
+		private System.Guid _state_token;
+		
+		private System.DateTime _date;
+		
+		private string _description;
+		
+		private string _name;
+		
+		private System.DateTime _updatedAt;
+		
+		private string _creator_name;
+		
+		private System.Guid _creator_token;
+		
+		private System.Nullable<System.Guid> _creator_photo;
+		
+		private string _knowledge_name;
+		
+		private System.Guid _knowledge_token;
+		
+		private Models.Place _place;
+		
+		private List<Models.VW_EventComment> _lastComments;
+		
+		private List<Models.EventTag> _tags;
+		
+		public EventDetails()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="DOCU_CreatedAt", Storage="_createdAt", DbType="DateTime NOT NULL")]
+		public System.DateTime createdAt
+		{
+			get
+			{
+				return this._createdAt;
+			}
+			set
+			{
+				if ((this._createdAt != value))
+				{
+					this._createdAt = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="DOCU_Token", Storage="_token", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid token
+		{
+			get
+			{
+				return this._token;
+			}
+			set
+			{
+				if ((this._token != value))
+				{
+					this._token = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="STAT_Name", Storage="_state_name", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
+		public string state_name
+		{
+			get
+			{
+				return this._state_name;
+			}
+			set
+			{
+				if ((this._state_name != value))
+				{
+					this._state_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="STAT_Identifier", Storage="_state_identifier", DbType="Char(4) NOT NULL", CanBeNull=false)]
+		public string state_identifier
+		{
+			get
+			{
+				return this._state_identifier;
+			}
+			set
+			{
+				if ((this._state_identifier != value))
+				{
+					this._state_identifier = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="STAT_Token", Storage="_state_token", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid state_token
+		{
+			get
+			{
+				return this._state_token;
+			}
+			set
+			{
+				if ((this._state_token != value))
+				{
+					this._state_token = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="EVNT_Date", Storage="_date", DbType="DateTime NOT NULL")]
+		public System.DateTime date
+		{
+			get
+			{
+				return this._date;
+			}
+			set
+			{
+				if ((this._date != value))
+				{
+					this._date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="EVNT_Description", Storage="_description", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
+		public string description
+		{
+			get
+			{
+				return this._description;
+			}
+			set
+			{
+				if ((this._description != value))
+				{
+					this._description = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="EVNT_Name", Storage="_name", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
+		public string name
+		{
+			get
+			{
+				return this._name;
+			}
+			set
+			{
+				if ((this._name != value))
+				{
+					this._name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="EVNT_UpdatedAt", Storage="_updatedAt", DbType="DateTime NOT NULL")]
+		public System.DateTime updatedAt
+		{
+			get
+			{
+				return this._updatedAt;
+			}
+			set
+			{
+				if ((this._updatedAt != value))
+				{
+					this._updatedAt = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="USER_FullName", Storage="_creator_name", DbType="VarChar(250) NOT NULL", CanBeNull=false)]
+		public string creator_name
+		{
+			get
+			{
+				return this._creator_name;
+			}
+			set
+			{
+				if ((this._creator_name != value))
+				{
+					this._creator_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="USER_Token", Storage="_creator_token", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid creator_token
+		{
+			get
+			{
+				return this._creator_token;
+			}
+			set
+			{
+				if ((this._creator_token != value))
+				{
+					this._creator_token = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="USER_Photo", Storage="_creator_photo", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> creator_photo
+		{
+			get
+			{
+				return this._creator_photo;
+			}
+			set
+			{
+				if ((this._creator_photo != value))
+				{
+					this._creator_photo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="KNOW_Name", Storage="_knowledge_name", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string knowledge_name
+		{
+			get
+			{
+				return this._knowledge_name;
+			}
+			set
+			{
+				if ((this._knowledge_name != value))
+				{
+					this._knowledge_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="KNOW_Token", Storage="_knowledge_token", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid knowledge_token
+		{
+			get
+			{
+				return this._knowledge_token;
+			}
+			set
+			{
+				if ((this._knowledge_token != value))
+				{
+					this._knowledge_token = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_place", CanBeNull=false)]
+		public Models.Place place
+		{
+			get
+			{
+				return this._place;
+			}
+			set
+			{
+				if ((this._place != value))
+				{
+					this._place = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lastComments", CanBeNull=false)]
+		public List<Models.VW_EventComment> lastComments
+		{
+			get
+			{
+				return this._lastComments;
+			}
+			set
+			{
+				if ((this._lastComments != value))
+				{
+					this._lastComments = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tags", CanBeNull=false)]
+		public List<Models.EventTag> tags
+		{
+			get
+			{
+				return this._tags;
+			}
+			set
+			{
+				if ((this._tags != value))
+				{
+					this._tags = value;
 				}
 			}
 		}

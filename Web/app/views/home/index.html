@@ -5,7 +5,9 @@
             <h2>
                 <span>{{config.application.name}}</span>
             </h2>
+
             <span flex></span>
+
             <md-button ng-if="model.image.loaded" class="md-accent text md-raised give" aria-label="More" ng-click="createEvent()">
                 <md-icon md-svg-icon="action:favorite"></md-icon>
                 Entregar mi conocmiento
@@ -77,7 +79,7 @@
                     <div class="marker">
                         <div class="halo">
                             <div>
-                                <img ng-src="{{item.user.photo}}" />
+                                <img ng-src="{{item.creator.photo | file}}" />
                             </div>
                         </div>
                     </div>

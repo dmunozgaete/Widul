@@ -13,8 +13,17 @@ namespace API.Endpoints.Events.Services
     public class Get : Gale.REST.Http.HttpReadActionResult<String>
     {
 
+        /// <summary>
+        /// Get Event Details
+        /// </summary>
+        /// <param name="id">Event Token</param>
         public Get(string id) : base(id) { }
 
+        /// <summary>
+        /// Async Process
+        /// </summary>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
         public override Task<HttpResponseMessage> ExecuteAsync(System.Threading.CancellationToken cancellationToken)
         {
             using (var svc = new Gale.Db.DataService("SP_GET_Event"))
@@ -23,33 +32,19 @@ namespace API.Endpoints.Events.Services
                 Gale.Db.EntityRepository repo = this.ExecuteQuery(svc);
 
                 //Get tables
-                Models.EventDetail eventDetail = repo.GetModel<Models.EventDetail>().FirstOrDefault();
-                Models.Creator creator = repo.GetModel<Models.Creator>(1).FirstOrDefault();
-                Models.Knowledge knowledge = repo.GetModel<Models.Knowledge>(2).FirstOrDefault();
+                Models.EventDetails eventDetail = repo.GetModel<Models.EventDetails>().FirstOrDefault();
 
-                //List<Models.EventComment> comments = repo.GetModel<Models.EventComment>(3);
-
-                List<Models.EventTag> tags = repo.GetModel<Models.EventTag>(4);
-
-                Models.Place place = repo.GetModel<Models.Place>(5).FirstOrDefault();
-
-
-                // -- Setting Values ;)!
-                eventDetail.creator = creator;
-                eventDetail.knowledge = knowledge;
-                eventDetail.place = place;
-
-                //eventDetail.comments = comments;
-
-                eventDetail.tags = tags;
+                //Setting Values ;)!
+                eventDetail.lastComments = repo.GetModel<Models.VW_EventComment>(1);
+                eventDetail.tags = repo.GetModel<Models.EventTag>(2);
+                eventDetail.place = repo.GetModel<Models.Place>(3).FirstOrDefault();
                     
                 return Task.FromResult(new HttpResponseMessage()
                 {
-                    Content = new ObjectContent<Models.EventDetail>(eventDetail,
+                    Content = new ObjectContent<Models.EventDetails>(eventDetail,
                         new Gale.REST.Http.Formatter.KqlFormatter()
                     )
                 });
-
 
             }
         }

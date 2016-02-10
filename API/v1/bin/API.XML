@@ -88,6 +88,134 @@
               Busca una cadena traducida similar a Bienvenido a Widul!.
             </summary>
         </member>
+        <member name="T:API.Endpoints.Bpm.DocumentsController">
+            <summary>
+            Document API
+            </summary>
+        </member>
+        <member name="M:API.Endpoints.Bpm.DocumentsController.Get">
+            <summary>
+            List all document's
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:API.Endpoints.Bpm.DocumentsController.GetByType(System.String)">
+            <summary>
+            Retrieve Document Information Filtered by Type
+            </summary>
+            <param name="type">Document type to filter</param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Endpoints.Bpm.DocumentsController.Get(System.Guid)">
+            <summary>
+            Retrieve Document Information
+            </summary>
+            <param name="id">Document Token</param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Endpoints.Bpm.DocumentsController.Get(System.String)">
+            <summary>
+            Retrieve Document Information
+            </summary>
+            <param name="identifier">Document Identifeir</param>
+            <returns></returns>
+        </member>
+        <member name="M:API.Endpoints.Bpm.DocumentsController.GetDocumentTypes">
+            <summary>
+            Retrieve Availables Document Types
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:API.Endpoints.Bpm.DocumentsController.GetHistory(System.String)">
+            <summary>
+            Retrieve Document History Information
+            </summary>
+            <param name="id">Document Token</param>
+            <returns></returns>
+        </member>
+        <member name="T:API.Endpoints.Bpm.Services.Document.Get">
+            <summary>
+            Retrieves Document Information
+            </summary>
+        </member>
+        <member name="M:API.Endpoints.Bpm.Services.Document.Get.#ctor(System.Guid)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="model">Model</param>
+        </member>
+        <member name="M:API.Endpoints.Bpm.Services.Document.Get.ExecuteAsync(System.Threading.CancellationToken)">
+            <summary>
+            Async Process
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:API.Endpoints.Bpm.Services.Document.GetByIdentifier">
+            <summary>
+            Retrieves Document Information
+            </summary>
+        </member>
+        <member name="M:API.Endpoints.Bpm.Services.Document.GetByIdentifier.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="model">Model</param>
+        </member>
+        <member name="M:API.Endpoints.Bpm.Services.Document.GetByIdentifier.ExecuteAsync(System.Threading.CancellationToken)">
+            <summary>
+            Async Process
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:API.Endpoints.Bpm.Services.Document.History">
+            <summary>
+            Retrieves the State's History of an specific Document
+            </summary>
+        </member>
+        <member name="M:API.Endpoints.Bpm.Services.Document.History.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="model">Model</param>
+        </member>
+        <member name="M:API.Endpoints.Bpm.Services.Document.History.ExecuteAsync(System.Threading.CancellationToken)">
+            <summary>
+            Async Process
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:API.Endpoints.Bpm.Services.Task.Get">
+            <summary>
+            Retrieve Task Information
+            </summary>
+        </member>
+        <member name="M:API.Endpoints.Bpm.Services.Task.Get.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="token">Account Token</param>
+        </member>
+        <member name="M:API.Endpoints.Bpm.Services.Task.Get.ExecuteAsync(System.Threading.CancellationToken)">
+            <summary>
+            Async Process
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:API.Endpoints.Bpm.TasksController">
+            <summary>
+            Task API
+            </summary>
+        </member>
+        <member name="M:API.Endpoints.Bpm.TasksController.Get">
+            <summary>
+            Retrieve User Pending Task's
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:API.Endpoints.Events.EventsController">
             <summary>
             Event Controller
@@ -177,6 +305,19 @@
             <summary>
             Get Event Details
             </summary>
+        </member>
+        <member name="M:API.Endpoints.Events.Services.Get.#ctor(System.String)">
+            <summary>
+            Get Event Details
+            </summary>
+            <param name="id">Event Token</param>
+        </member>
+        <member name="M:API.Endpoints.Events.Services.Get.ExecuteAsync(System.Threading.CancellationToken)">
+            <summary>
+            Async Process
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
         </member>
         <member name="T:API.Endpoints.Events.Services.Search">
             <summary>
